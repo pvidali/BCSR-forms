@@ -1,0 +1,97 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	text-align: center;
+	background:#FFF;
+}
+div#container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 1024px;
+	height:auto;
+	text-align: left;
+}
+#header {
+	clear:both;
+	background: url(../images/header.png) no-repeat;
+	width: 1024px;
+	height: 77px;
+	border: 0;
+}
+#main {
+	width: 1024px;
+}
+#slidenav {
+	background-color: #949494;
+	height: 37px;
+	width:565px;
+	margin-left:5px;
+}
+#left {
+	width: 567px;
+	float:left;
+}
+#left2 {
+	width: 567px;
+	float:left;
+}
+#right {
+	width:457px;
+	float: right;
+}
+#righttop {
+	background:#FFF;
+	width:455px;
+	height: 53px; 
+	text-align: center; 
+	color:  #c22723; 
+	font-size: 19px; 
+	font-weight: bold; 
+	font-family: arial; 
+	padding: 2px 0 2px 0; 
+	line-height: 51px;
+	text-transform: uppercase;
+	border-top: 1px solid #000;
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+} 
+.ul_slideshow{
+	list-style: none; 
+	margin-left: -20px !important;
+	margin-top: 10px !important;
+}
+.ul_slideshow li{
+	list-style: none; 
+}
+.ul_slideshow li img{
+	width: 565px;
+	height: 513px;
+	border: 0;
+}
+.left_top{
+	margin-left: 5px; 
+	background: url(../images/blue-frame_top.jpg); 
+	width: 565px; 
+	height: 80px; 
+	text-align: center; 
+	color: #FFF; 
+	font-size: 25px; 
+	font-weight: bold; 
+	font-family: arial; 
+	padding: 10px 0 2px 0; 
+	line-height: 35px;
+}
+.left_footer{
+	margin-left: 5px; 
+	background: url(../images/blue-frame_bottom.jpg) no-repeat; 
+	width: 565px; 
+	height: 76px; 
+	text-align: center; 
+	color: #FFF; 
+	font-size: 13px; 
+	font-weight: bold; 
+	font-family: arial; 
+	padding-top: 10px; 
+	line-height: 16px;	
+}

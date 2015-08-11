@@ -1,0 +1,533 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Bard College Simons Rock</title>
+		<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+		<style type="text/css">
+/* <![CDATA[ */
+
+			#loading-mask {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: #F5F5F5;
+			z-index: 1;
+			display: none;
+			opacity:0.5; filter:alpha(opacity=50);
+			}
+			#loading-wrapper {
+			position: absolute;
+			width: 400px;
+			height: 200px;
+			margin-left: -200px;
+			margin-top: -100px;
+			top: 50%;
+			left: 50%;
+			z-index: 2;
+			display: none;
+			}
+			#loading {
+			display: block;
+			height: 2em;
+			top: 50%;
+			margin-top: -2em;
+			margin-left: auto;
+			margin-right: auto;
+			position: absolute;
+			width: 100%;
+			text-align: center;
+			}
+			#loading span {
+			color: #000000;
+			background: url(data:image/gif;base64,R0lGODlhEAAQALMMAKqooJGOhp2bk7e1rZ2bkre1rJCPhqqon8PBudDOxXd1bISCef///wAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQFAAAMACwAAAAAEAAQAAAET5DJyYyhmAZ7sxQEs1nMsmACGJKmSaVEOLXnK1PuBADepCiMg/DQ+/2GRI8RKOxJfpTCIJNIYArS6aRajWYZCASDa41Ow+Fx2YMWOyfpTAQAIfkEBQAADAAsAAAAABAAEAAABE6QyckEoZgKe7MEQMUxhoEd6FFdQWlOqTq15SlT9VQM3rQsjMKO5/n9hANixgjc9SQ/CgKRUSgw0ynFapVmGYkEg3v1gsPibg8tfk7CnggAIfkEBQAADAAsAAAAABAAEAAABE2QycnOoZjaA/IsRWV1goCBoMiUJTW8A0XMBPZmM4Ug3hQEjN2uZygahDyP0RBMEpmTRCKzWGCkUkq1SsFOFQrG1tr9gsPc3jnco4A9EQAh+QQFAAAMACwAAAAAEAAQAAAETpDJyUqhmFqbJ0LMIA7McWDfF5LmAVApOLUvLFMmlSTdJAiM3a73+wl5HYKSEET2lBSFIhMIYKRSimFriGIZiwWD2/WCw+Jt7xxeU9qZCAAh+QQFAAAMACwAAAAAEAAQAAAETZDJyRCimFqbZ0rVxgwF9n3hSJbeSQ2rCWIkpSjddBzMfee7nQ/XCfJ+OQYAQFksMgQBxumkEKLSCfVpMDCugqyW2w18xZmuwZycdDsRACH5BAUAAAwALAAAAAAQABAAAARNkMnJUqKYWpunUtXGIAj2feFIlt5JrWybkdSydNNQMLaND7pC79YBFnY+HENHMRgyhwPGaQhQotGm00oQMLBSLYPQ9QIASrLAq5x0OxEAIfkEBQAADAAsAAAAABAAEAAABE2QycmUopham+da1cYkCfZ94UiW3kmtbJuRlGF0E4Iwto3rut6tA9wFAjiJjkIgZAYDTLNJgUIpgqyAcTgwCuACJssAdL3gpLmbpLAzEQA7) no-repeat left center;
+			font-size: 1.2em;
+			padding: 5px 21px;
+			}
+			#loading-wrapper.timeout #loading span {
+			background: none;
+			}
+			#loading-mask.run, #loading-wrapper.run, #loading-mask.timeout, #loading-wrapper.timeout {
+			display: block;
+			}
+		
+/* ]]> */
+</style>
+		<script src="https://www.hobsonsradius.com/crm/javascript/jquery/js/jquery-min.js" type="text/javascript"></script>
+		<script src="https://www.hobsonsradius.com/crm/javascript/jquery/js/jquery-ui-min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+// <![CDATA[
+jQuery.noConflict();
+// ]]>
+</script>
+		<script src="https://www.hobsonsradius.com/crm/javascript/jquery/plugins/jquery.json.min.js" type="text/javascript"></script>
+		<script src="https://www.hobsonsradius.com/crm/javascript/iw.js" type="text/javascript"></script>
+		<script src="https://www.hobsonsradius.com/crm/javascript/IWFormValidator.js" type="text/javascript"></script>
+		<script src="https://www.hobsonsradius.com/crm/javascript/uitypes.js" type="text/javascript"></script>
+		<script src="https://www.hobsonsradius.com/crm/javascript/html.js" type="text/javascript"></script>
+		<script src="https://www.hobsonsradius.com/crm/javascript/countrystate.js" type="text/javascript"></script>
+		<script src="https://www.hobsonsradius.com/crm/javascript/fielddep.js" type="text/javascript"></script>
+		<script src="https://www.hobsonsradius.com/crm/javascript/inlinelookup.js" type="text/javascript"></script>
+		<script src="https://www.hobsonsradius.com/crm/javascript/formsruntime.js?v=2_9_1_469" type="text/javascript"></script>
+		<link rel="Stylesheet" type="text/css" href="https://www.hobsonsradius.com/crm/javascript/jquery/css/smoothness/jquery-ui.css" />
+		<link rel="Stylesheet" type="text/css" href="https://www.hobsonsradius.com/crm/css/common.css" />
+		<link rel="Stylesheet" type="text/css" href="https://www.hobsonsradius.com/crm/css/formscommon.css" />
+		<link rel="Stylesheet" type="text/css" href="https://www.hobsonsradius.com/crm/css/formsruntime.css" />
+		<script src="https://www.hobsonsradius.com/crm/javascript/jquery/plugins/jquery.bjax.js" type="text/javascript"></script>
+		<script type="text/javascript">
+// <![CDATA[
+var serverURL = "https://www.hobsonsradius.com";
+// ]]>
+</script>
+		<script src="https://www.hobsonsradius.com/crm/javascript/inquiryformruntime.js" type="text/javascript"></script>
+		<style type="text/css">
+/* <![CDATA[ */
+button{font-weight: bold;}button{font-size: 19px;}label{font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;font-size: 12px;}input{border: solid 1px #AACFE4;}select{font-size: 12px; border: solid 1px #AACFE4;}div.section-control .title{display:''}#IWDF-control-74,#IWDF-control-76{border: 0 !important;}#IWDF-control-78,#IWDF-control-82{float: none; border: 0 !important}.dynamic-form-required legend{margin-right: 5px !important;margin-top: 5px !important}#IWDF-page-104{border: 1px solid #CCC; padding: 5px}div.section-control{border: 0px !important}#IWDF-control-106{width: 450px !important}
+/* ]]> */
+</style>
+	</head>
+	<body>
+		<div id="loading-mask"></div>
+		<div id="loading-wrapper">
+			<div id="loading">
+				<span id="loading-text">Loading...</span>
+			</div>
+		</div>
+		<script type="text/javascript">
+// <![CDATA[
+
+			// Form Loader
+			var l_timeout = 20000;
+			var l_start = new Date().getTime();
+			var l_current = l_start;
+			var pollLoader = function(){
+			clearTimeout(l_t);
+			l_current = new Date().getTime();
+			if((l_current - l_start)
+			< l_timeout){
+			if((typeof _IW == "undefined") || (typeof _IW.FormsRuntime == "undefined") || (typeof _IW.FormsRuntime.isLoaded() == "undefined")){
+			if(document.getElementById("loading")){
+			document.getElementById("loading-mask").className = "run";
+			document.getElementById("loading-wrapper").className = "run";
+			l_t = setTimeout("pollLoader()", 500);
+			}
+			}
+			else{
+			document.getElementById("loading-mask").className = "";
+			document.getElementById("loading-wrapper").className = "";
+			}
+			}
+			else{
+			document.getElementById("loading-mask").className = "timeout";
+			document.getElementById("loading-wrapper").className = "timeout";
+			document.getElementById("loading-text").innerHTML = "This form is currently not available.  We apologize for the inconvenience.";
+			}
+			}
+			var l_t = setTimeout("pollLoader()", 2000);
+		
+// ]]>
+</script>
+		<div id="form-wrapper" style="padding-left:0;margin-right:auto;width:625px;margin-left:auto;" class="ui-tabs-left">
+			<div id="form-header" style="width:625px;">
+				<h2>Request Information</h2>
+			</div>
+			<iframe id="_dummy" style="display:none;" name="_dummy"></iframe>
+			<form target="_dummy" action="javascript:void(0);">
+				<div id="IWDF-dynamicform-29" class="dynamicFormDefaults clearfix">
+					<ul>
+						<li>
+							<a href="#IWDF-page-30">Untitled Page</a>
+						</li>
+					</ul>
+					<div id="IWDF-page-30">
+						<div class="dynamic-form-required legend">* = Required Field</div>
+						<ul class="page-child-helper">
+							<li class="page-child-wrapper first">
+								<div id="IWDF-control-4" sectiontitle="Contact Information" class="form-control section-control page-child first">
+									<div class="title clearfix">
+										<span>Contact Information</span>
+									</div>
+									<ul class="control-child-helper control-draggable clearfix wide">
+										<li class="clear-float"></li>
+										<li class="control-draggable control-child-wrapper">
+											<div id="IWDF-control-6" class="form-control field-control">
+												<label style="width:16em;" for="Contacts.685000000003015" class="dynamic-form-required top">* First Name</label>
+												<input id="Contacts.685000000003015" maxlength="40" name="Contacts.685000000003015" value="" type="text" />
+												<script type="text/javascript">
+// <![CDATA[
+_IW.FormValidator.addTextFieldValidator("Contacts.685000000003015", "notEmpty", null, { trim: true, isReqFunc: true });
+// ]]>
+</script>
+											</div>
+										</li>
+										<li class="control-draggable control-child-wrapper">
+											<div id="IWDF-control-8" class="form-control field-control">
+												<label style="width:16em;" for="Contacts.685000000003017" class="dynamic-form-required top">* Last Name</label>
+												<input id="Contacts.685000000003017" maxlength="80" name="Contacts.685000000003017" value="" type="text" />
+												<script type="text/javascript">
+// <![CDATA[
+_IW.FormValidator.addTextFieldValidator("Contacts.685000000003017", "notEmpty", null, { trim: true, isReqFunc: true });
+// ]]>
+</script>
+											</div>
+										</li>
+										<li class="clear-float"></li>
+										<li class="control-draggable control-child-wrapper">
+											<div id="IWDF-control-10" class="form-control field-control">
+												<label style="width:16em;" for="Contacts.685000000003021" class="dynamic-form-required top">* Email</label>
+												<input id="Contacts.685000000003021" maxlength="100" name="Contacts.685000000003021" value="" type="text" />
+												<script type="text/javascript">
+// <![CDATA[
+_IW.FormValidator.addTextFieldValidator("Contacts.685000000003021", "validEmail", null, { trim: true, emptyvalid: true });
+// ]]>
+</script>
+												<script type="text/javascript">
+// <![CDATA[
+_IW.FormValidator.addTextFieldValidator("Contacts.685000000003021", "notEmpty", null, { trim: true, isReqFunc: true });
+// ]]>
+</script>
+											</div>
+										</li>
+										<li class="clear-float"></li>
+										<li class="control-draggable control-child-wrapper">
+											<div id="IWDF-control-12" class="form-control field-control">
+												<label style="width:16em;" for="Contacts.685000000003027" class="top">Home Phone</label>
+												<input id="Contacts.685000000003027" maxlength="50" name="Contacts.685000000003027" value="" type="text" />
+												<script type="text/javascript">
+// <![CDATA[
+_IW.FormValidator.addTextFieldValidator("Contacts.685000000003027", "notEmpty", null, { trim: true, isReqFunc: true, disabled: true });
+// ]]>
+</script>
+											</div>
+										</li>
+										<li class="control-draggable control-child-wrapper">
+											<div id="IWDF-control-14" class="form-control field-control">
+												<label style="width:16em;" for="Contacts.685000000003031" class="top">Mobile Phone</label>
+												<input id="Contacts.685000000003031" maxlength="30" name="Contacts.685000000003031" value="" type="text" />
+												<script type="text/javascript">
+// <![CDATA[
+_IW.FormValidator.addTextFieldValidator("Contacts.685000000003031", "notEmpty", null, { trim: true, isReqFunc: true, disabled: true });
+// ]]>
+</script>
+											</div>
+										</li>
+										<li class="clear-float"></li>
+										<li class="control-draggable control-child-wrapper">
+											<div id="IWDF-control-16" class="form-control field-control">
+												<label style="width:16em;" for="Contacts.685000000110551" class="dynamic-form-required top">* High School Graduation Year</label>
+												<select id="Contacts.685000000110551" name="Contacts.685000000110551">
+													<option selected="selected" value=""></option>
+													<option value="2012">2012</option>
+													<option value="2013">2013</option>
+													<option value="2014">2014</option>
+													<option value="2015">2015</option>
+													<option value="2016">2016</option>
+													<option value="2017">2017</option>
+													<option value="2018">2018</option>
+													<option value="2019">2019</option>
+													<option value="2020">2020</option>
+													<option value="2021">2021</option>
+												</select>
+												<script type="text/javascript">
+// <![CDATA[
+_IW.FormValidator.addSingleSelectValidator("Contacts.685000000110551", "Please select 1 item", { isReqFunc: true });
+// ]]>
+</script>
+												<script type="text/javascript">
+// <![CDATA[
+_IW.FieldDep.addDependency("Contacts.685000000110551", "Contacts.685000000336031", {"":[""],"2017":["201508"],"2018":["201608"],"2019":["201708"],"2013":[""],"2014":["201401"],"2015":["201408"],"2016":["201408"],"2012":[""],"2021":["201908"],"2020":["201808"]});
+// ]]>
+</script>
+											</div>
+										</li>
+										<li class="clear-float"></li>
+										<li class="control-draggable control-child-wrapper"></li>
+										<li class="control-child-wrapper">
+											<div id="IWDF-control-18" class="form-control hidden field-control">
+												<label style="width:16em;" for="Contacts.685000000336031" class="top">Term Code</label>
+												<select id="Contacts.685000000336031" name="Contacts.685000000336031" disabled="disabled">
+													<option selected="selected" value=""></option>
+													<option value="201301">201301</option>
+													<option value="201308">201308</option>
+													<option value="201401">201401</option>
+													<option value="201408">201408</option>
+													<option value="201501">201501</option>
+													<option value="201508">201508</option>
+													<option value="201601">201601</option>
+													<option value="201608">201608</option>
+													<option value="201701">201701</option>
+													<option value="201708">201708</option>
+													<option value="201801">201801</option>
+													<option value="201808">201808</option>
+													<option value="201901">201901</option>
+													<option value="201908">201908</option>
+													<option value="202001">202001</option>
+													<option value="202008">202008</option>
+												</select>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="page-child-wrapper">
+								<div id="IWDF-control-20" sectiontitle="Source Information" class="form-control hidden section-control page-child">
+									<div class="title clearfix">
+										<span>Source Information</span>
+									</div>
+									<ul class="control-child-helper control-draggable clearfix wide">
+										<li class="clear-float"></li>
+										<li class="control-draggable control-child-wrapper">
+											<div id="IWDF-control-22" class="form-control field-control">
+												<label for="Contacts.685000000110319" class="top">Source-SBGI code</label>
+												<select id="Contacts.685000000110319" name="Contacts.685000000110319">
+													<option selected="selected" value=""></option>
+													<option value="ADF">ADF</option>
+													<option value="ADG">ADG</option>
+													<option value="ADV">ADV</option>
+													<option value="CTY">CTY</option>
+													<option value="ECP">ECP</option>
+													<option value="EMC">EMC</option>
+													<option value="EPT">EPT</option>
+													<option value="EVS">EVS</option>
+													<option value="EZC">EZC</option>
+													<option value="EZI">EZI</option>
+													<option value="GAT">GAT</option>
+													<option value="GBA">GBA</option>
+													<option value="GCC">GCC</option>
+													<option value="GEO">GEO</option>
+													<option value="GMC">GMC</option>
+													<option value="GPE">GPE</option>
+													<option value="GPR">GPR</option>
+													<option value="GUK">GUK</option>
+													<option value="HSP">HSP</option>
+													<option value="INF">INF</option>
+													<option value="MDC">MDC</option>
+													<option value="OCR">OCR</option>
+													<option value="RAL">RAL</option>
+													<option value="RBA">RBA</option>
+													<option value="RBH">RBH</option>
+													<option value="RCF">RCF</option>
+													<option value="RCS">RCS</option>
+													<option value="RFR">RFR</option>
+													<option value="RFS">RFS</option>
+													<option value="RGC">RGC</option>
+													<option value="RIC">RIC</option>
+													<option value="RPA">RPA</option>
+													<option value="RPS">RPS</option>
+													<option value="RTE">RTE</option>
+													<option value="RUK">RUK</option>
+													<option value="SAC">SAC</option>
+													<option value="SCB">SCB</option>
+													<option value="SCS">SCS</option>
+													<option value="SCT">SCT</option>
+													<option value="SDT">SDT</option>
+													<option value="SGN">SGN</option>
+													<option value="SNR">SNR</option>
+													<option value="SPL">SPL</option>
+													<option value="SPM">SPM</option>
+													<option value="SPS">SPS</option>
+													<option value="SRM">SRM</option>
+													<option value="SVS">SVS</option>
+													<option value="TCF">TCF</option>
+													<option value="TCO">TCO</option>
+													<option value="TOV">TOV</option>
+													<option value="TSV">TSV</option>
+													<option value="VIS">VIS</option>
+													<option value="VSG">VSG</option>
+													<option value="WWW">WWW</option>
+													<option value="YWW">YWW</option>
+												</select>
+												<script type="text/javascript">
+// <![CDATA[
+_IW.FormValidator.addSingleSelectValidator("Contacts.685000000110319", "Please select 1 item", { isReqFunc: true, disabled: true });
+// ]]>
+</script>
+											</div>
+										</li>
+										<li class="clear-float"></li>
+										<li class="control-draggable control-child-wrapper">
+											<div id="IWDF-control-24" class="form-control field-control">
+												<label for="Contacts.685000000003013" class="top">Lead Source</label>
+												<select id="Contacts.685000000003013" name="Contacts.685000000003013">
+													<option selected="selected" value=""></option>
+													<option value="I got an email...">I got an email...</option>
+													<option value="I received something in the mail...">I received something in the mail...</option>
+													<option value="Online...">Online...</option>
+													<option value="I saw it in a college guide...">I saw it in a college guide...</option>
+													<option value="I know someone who knows the College...">I know someone who knows the College...</option>
+													<option value="I met an admission counselor while they were traveling...">I met an admission counselor while they were traveling...</option>
+													<option value="An ad for the College...">An ad for the College...</option>
+													<option value="Other (please specify...)">Other (please specify...)</option>
+												</select>
+												<script type="text/javascript">
+// <![CDATA[
+_IW.FormValidator.addSingleSelectValidator("Contacts.685000000003013", "Please select 1 item", { isReqFunc: true, disabled: true });
+// ]]>
+</script>
+												<script type="text/javascript">
+// <![CDATA[
+_IW.FieldDep.addDependency("Contacts.685000000003013", "Contacts.685000000155215", {"":[""],"I got an email...":[""],"I met an admission counselor while they were traveling...":["College fair","Conference","Club or organization visit","School visit","Other off-campus recruitment event"],"I received something in the mail...":[""],"Online...":["Google Adwords","Web search (please specify...)","Cappex search tool","Peterson's search tool","My College Guide search tool","Venture Scholars search tool","Zinch search tool"],"Other (please specify...)":[""],"An ad for the College...":["Magazine","Newspaper","Radio"],"I know someone who knows the College...":["Simon's Rock alumna/us","Current Simon's Rock student","Simon's Rock faculty/staff","Parent of a Simon's Rock student/alumnus","My guidance counselor","My teacher","Independent Consultant","My psychologist","At Bard","At BHSEC"],"I saw it in a college guide...":["Academically Talented","Barron's","Cool Colleges","Duke EOG","My College Guide","Peterson's","Princeton Review","Other guide (please specify...)"]});
+// ]]>
+</script>
+											</div>
+										</li>
+										<li class="clear-float"></li>
+										<li class="control-draggable control-child-wrapper">
+											<div id="IWDF-control-26" class="form-control field-control">
+												<label for="Contacts.685000000155215" class="top">Specify Source</label>
+												<select id="Contacts.685000000155215" name="Contacts.685000000155215">
+													<option selected="selected" value=""></option>
+													<option value="Magazine">Magazine</option>
+													<option value="Newspaper">Newspaper</option>
+													<option value="Radio">Radio</option>
+													<option value="Google Adwords">Google Adwords</option>
+													<option value="Web search (please specify...)">Web search (please specify...)</option>
+													<option value="Center for Talented Youth search tool">Center for Talented Youth search tool</option>
+													<option value="Cappex search tool">Cappex search tool</option>
+													<option value="Peterson&#39;s search tool">Peterson&#39;s search tool</option>
+													<option value="My College Guide search tool">My College Guide search tool</option>
+													<option value="Venture Scholars search tool">Venture Scholars search tool</option>
+													<option value="Zinch search tool">Zinch search tool</option>
+													<option value="Academically Talented">Academically Talented</option>
+													<option value="Barron&#39;s">Barron&#39;s</option>
+													<option value="Cool Colleges">Cool Colleges</option>
+													<option value="Duke EOG">Duke EOG</option>
+													<option value="My College Guide">My College Guide</option>
+													<option value="Peterson&#39;s">Peterson&#39;s</option>
+													<option value="Princeton Review">Princeton Review</option>
+													<option value="Other guide (please specify...)">Other guide (please specify...)</option>
+													<option value="Simon&#39;s Rock alumna/us">Simon&#39;s Rock alumna/us</option>
+													<option value="Current Simon&#39;s Rock student">Current Simon&#39;s Rock student</option>
+													<option value="Simon&#39;s Rock faculty/staff">Simon&#39;s Rock faculty/staff</option>
+													<option value="Parent of a Simon&#39;s Rock student/alumnus">Parent of a Simon&#39;s Rock student/alumnus</option>
+													<option value="My guidance counselor">My guidance counselor</option>
+													<option value="My teacher">My teacher</option>
+													<option value="Independent Consultant">Independent Consultant</option>
+													<option value="My psychologist">My psychologist</option>
+													<option value="At Bard">At Bard</option>
+													<option value="At BHSEC">At BHSEC</option>
+													<option value="Someone else (please specify)">Someone else (please specify)</option>
+													<option value="College fair">College fair</option>
+													<option value="Conference">Conference</option>
+													<option value="Club or organization visit">Club or organization visit</option>
+													<option value="School visit">School visit</option>
+													<option value="Other off-campus recruitment event">Other off-campus recruitment event</option>
+												</select>
+												<script type="text/javascript">
+// <![CDATA[
+_IW.FormValidator.addSingleSelectValidator("Contacts.685000000155215", "Please select 1 item", { isReqFunc: true, disabled: true });
+// ]]>
+</script>
+												<script type="text/javascript">
+// <![CDATA[
+_IW.FieldDep.addDependency("Contacts.685000000155215", "Contacts.685000000110319", {"":[""],"Zinch search tool":["EZI"],"Club or organization visit":["TOV"],"College fair":["TCF"],"Magazine":["ADV"],"Center for Talented Youth search tool":["CTY"],"Peterson's search tool":["EPT"],"Barron's":["GBA"],"Cool Colleges":["GCC"],"Other guide (please specify...)":["GUK"],"Web search (please specify...)":["WWW"],"Google Adwords":["ADG"],"My teacher":["RTE"],"My College Guide search tool":["EMC"],"Current Simon's Rock student":["RCS"],"Cappex search tool":["ECP"],"Radio":["ADV"],"Conference":["TCO"],"Venture Scholars search tool":["EVS"],"Princeton Review":["GPR"],"Other off-campus recruitment event":["OCR"],"My psychologist":["RPS"],"Peterson's":["GPE"],"Academically Talented":["GAT"],"Someone else (please specify)":["RUK"],"Independent Consultant":["RIC"],"At Bard":["RBA"],"At BHSEC":["RBH"],"Simon's Rock faculty/staff":["RFS"],"Parent of a Simon's Rock student/alumnus":["RPA"],"My guidance counselor":["RGC"],"Simon's Rock alumna/us":["RAL"],"My College Guide":["GMC"],"Newspaper":["ADV"],"Duke EOG":["GEO"],"School visit":["TSV"]});
+// ]]>
+</script>
+											</div>
+										</li>
+										<li class="clear-float"></li>
+										<li class="control-draggable control-child-wrapper">
+											<div id="IWDF-control-28" class="form-control field-control">
+												<label for="Contacts.685000006711125" class="top">Sources with date</label>
+												<select id="Contacts.685000006711125" style="color:#000000;background-color:#ffffff;padding:1px;border:1px solid #bababa;" name="Contacts.685000006711125" multiple="multiple" size="5">
+													<option value="ADV">ADV</option>
+													<option value="ADF">ADF</option>
+													<option value="ADG">ADG</option>
+													<option value="CTY">CTY</option>
+													<option value="ECP">ECP</option>
+													<option value="EPT">EPT</option>
+													<option value="EMC">EMC</option>
+													<option value="EVS">EVS</option>
+													<option value="EZI">EZI</option>
+													<option value="EZC">EZC</option>
+													<option value="GAT">GAT</option>
+													<option value="GBA">GBA</option>
+													<option value="GCC">GCC</option>
+													<option value="GEO">GEO</option>
+													<option value="GMC">GMC</option>
+													<option value="GPE">GPE</option>
+													<option value="GPR">GPR</option>
+													<option value="GUK">GUK</option>
+													<option value="HSP">HSP</option>
+													<option value="INF">INF</option>
+													<option value="MDC">MDC</option>
+													<option value="OCR">OCR</option>
+													<option value="RAL">RAL</option>
+													<option value="RBA">RBA</option>
+													<option value="RBH">RBH</option>
+													<option value="RCF">RCF</option>
+													<option value="RCS">RCS</option>
+													<option value="RFR">RFR</option>
+													<option value="RFS">RFS</option>
+													<option value="RGC">RGC</option>
+													<option value="RIC">RIC</option>
+													<option value="RPA">RPA</option>
+													<option value="RPS">RPS</option>
+													<option value="RTE">RTE</option>
+													<option value="RUK">RUK</option>
+													<option value="SAC">SAC</option>
+													<option value="SCB">SCB</option>
+													<option value="SCI">SCI</option>
+													<option value="SCS">SCS</option>
+													<option value="SCT">SCT</option>
+													<option value="SDT">SDT</option>
+													<option value="SGN">SGN</option>
+													<option value="SNR">SNR</option>
+													<option value="SPM">SPM</option>
+													<option value="SPL">SPL</option>
+													<option value="SPS">SPS</option>
+													<option value="SRM">SRM</option>
+													<option value="SVS">SVS</option>
+													<option value="TCF">TCF</option>
+													<option value="TCO">TCO</option>
+													<option value="TOV">TOV</option>
+													<option value="TSV">TSV</option>
+													<option value="VIS">VIS</option>
+													<option value="VSG">VSG</option>
+													<option value="WWW">WWW</option>
+													<option value="YWW">YWW</option>
+												</select>
+												<script type="text/javascript">
+// <![CDATA[
+_IW.FormValidator.addMultiSelectValidator("Contacts.685000006711125", 1, null, "Please select at least 1 item", { isReqFunc: true, disabled: true });
+// ]]>
+</script>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="form-action-bar bottom">
+					<div class="left-buttons">
+						<button class="previous-page first last fg-button ui-state-default ui-corner-all" onclick="_IW.FormsRuntime.prevpage(this.form, true);" type="button">Previous</button>
+					</div>
+					<div class="right-buttons">
+						<button class="next-page first last fg-button ui-state-default ui-corner-all" onclick="_IW.FormsRuntime.nextpage(this.form, true);" type="button">Next</button>
+					</div>
+					<div class="middle-buttons">
+						<button class="submit fg-button ui-state-default ui-corner-all" onclick="_IW.FormsRuntime.submit(this.form);" type="button">Send me stuff!</button>
+					</div>
+				</div>
+			</form>
+			<div style="display:none;"></div>
+		</div>
+		<script type="text/javascript">
+// <![CDATA[
+
+			jQuery(function() { _IW.FormsRuntime.bootstrap(31, "IWDF-dynamicform-29", 685000006737836, {".doc":true,".css":true,".qt":true,".xlsb":true,".html":true,".xlw":true,".xlsm":true,".xls":true,".csv":true,".eps":true,".xlt":true,".txt":true,".tif":true,".rar":true,".dotm":true,".htm":true,".wk2":true,".wk3":true,".movie":true,".dotx":true,".tiff":true,".wk1":true,".xml":true,".rm":true,".bmp":true,".potx":true,".png":true,".xlam":true,".ppam":true,".mpeg":true,".jpg":true,".zip":true,".dat":true,".pptx":true,".docx":true,".potm":true,".gif":true,".wav":true,".pptm":true,".jpeg":true,".swf":true,".docm":true,".xltx":true,".xltm":true,".mpg":true,".avi":true,".pdf":true,".moov":true,".ppsx":true,".wpd":true,".ppsm":true,".ppt":true,".ani":true,".mov":true,".rtf":true,".xlsx":true}, {"MultiPage":false,"RequiresLogin":false}); });
+			jQuery(function() { _IW.InquiryFormRuntime.bootstrap(685000006737836); });
+			jQuery(function() {
+			var runtimeURL = _IW.FormsRuntime.getRuntimeURL();
+			_IW.FormsRuntime.setRuntimeURL(serverURL + runtimeURL);
+			_IW.FormsRuntime.setServerURL(serverURL);
+			_IW.FormsRuntime.setRemoteAjax(true);
+			});
+		
+// ]]>
+</script>
+	</body>
+</html>

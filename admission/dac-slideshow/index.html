@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>jQuery Banner Rotator</title>	
+    <style type="text/css">
+		/* style used for preview page only */
+		html {
+			height:100%;
+			background:#EEE;
+			background:-moz-linear-gradient(top, #FFF 0%, #CCC 100%);
+			background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF), color-stop(100%,#CCC));
+    	}
+    	body {
+			width:100%;
+			height:100%;
+			margin:0;
+		}
+		h1 {
+			font-size: 13px;
+			font-weight: bold;
+			color: #B5FF00;
+			margin: 0;
+			line-height: 10px;
+		}
+		.slidecontainer{
+			position:absolute;
+			width:714px;
+			height:262px;
+			top:50%;
+			left:50%;
+			margin-top:-150px;
+			margin-left:-412px;
+		}
+    </style>
+    <link rel="stylesheet" type="text/css" href="wt-rotator.css"/>
+	<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.wt-rotator.min.js"></script>
+	<script type="text/javascript">
+    	$(document).ready(	
+			function() {
+				$(".slidecontainer").wtRotator({
+					width:714,
+					height:262,
+					thumb_width:24,
+            		thumb_height:24,
+					button_width:24,
+					button_height:24,
+					button_margin:5,
+					auto_start:true,
+					delay:10000,
+					play_once:false,
+					transition:"vert.bl",
+					transition_speed:500,
+					auto_center:true,
+					easing:"",
+					cpanel_position:"outside",
+					cpanel_align:"BL",
+					timer_align:"top",
+					display_thumbs:true,
+					display_dbuttons:true,
+					display_playbutton:true,
+					display_thumbimg:false,
+           			display_side_buttons:false,
+					display_numbers:true,
+					display_timer:true,
+					mouseover_pause:false,
+					cpanel_mouseover:false,
+					text_mouseover:false,
+					text_effect:"right",
+					text_sync:true,
+					tooltip_type:"image",
+					lock_tooltip:true,
+					shuffle:false,
+					block_size:75,
+					vert_size:178,
+					horz_size:50,
+					block_delay:25,
+					vstripe_delay:520,
+					hstripe_delay:180			
+				});
+			}
+		);
+    </script>    
+</head>
+<body> 
+<div class="slidecontainer">
+	<div class="wt-rotator">
+    	<div class="screen">
+            <noscript>
+            	<!-- placeholder 1st image when javascript is off -->
+                <img src="images/madness_arch2.jpg"/>
+            </noscript>
+      	</div>
+        <div class="c-panel">
+      		<div class="thumbnails">
+                <ul>
+                    <li>
+                    	<a href="images/1.jpg" title="architecture"><img src="images/thumbs/madness_arch2.jpg"/></a>
+                        <a href="" target="_blank"></a>
+                        <div style="top:3px; left:3px; width:762px; height: 0; color:#FFF; background-color:#000;">
+							<div style="float: left; width: 178px; height: 69px; margin-right: 5px">
+                            <h1>Andari Gusman</h1>
+							Friends I made here<br /><br />
+							Intertests: <a href="/">Science</a>, Cello, Archery
+							</div>
+							<div style="float: left; width: 178px; height: 60px; margin-right: 5px">
+                            <h1>Aneeqa Muzammil</h1>
+							Age Doesn't Matter<br /><br />
+							Intertests: Science, Cello, Archery
+							</div>
+							<div style="float: left; width: 178px; height: 60px; margin-right: 5px">
+                            <h1>Andari Gusman</h1>
+							Friends I made here<br /><br />
+							Intertests: Science, Cello, Archery
+							</div>
+							<div style="float: left; width: 178px; height: 60px; margin-right: 5px">
+                            <h1>Andari Gusman</h1>
+							Friends I made here<br /><br />
+							Intertests: Science, Cello, Archery
+							</div>
+                       	</div>
+                    </li>
+                    <li>
+                    	<a href="images/2.jpg" title="architecture"><img src="images/thumbs/madness_arch2.jpg"/></a>
+                        <a href="" target="_blank"></a>
+                        <div style="top:3px; left:3px; width:762px; height: 0; color:#FFF; background-color:#000;">
+							<div style="float: left; width: 178px; height: 69px; margin-right: 5px">
+								<h1>Charlie Powell</h1>
+								A Sense of Urgency
+							</div>
+							<div style="float: left; width: 178px; height: 60px; margin-right: 5px">
+                            	<h1>Cheryl Chen</h1>
+								Ecoli, gene splicing...
+							</div>
+							<div style="float: left; width: 178px; height: 60px; margin-right: 5px">
+								<h1>Kevin Hu</h1>
+								Questions and Answers
+							</div>
+							<div style="float: left; width: 178px; height: 60px; margin-right: 5px">
+                            	<h1>Laura Zhu</h1>
+								Eager to Learn
+							</div>
+                       	</div>
+                    </li>
+                    <li>
+                    	<a href="images/3.jpg" title="architecture"><img src="images/thumbs/madness_arch2.jpg"/></a>
+                        <a href="" target="_blank"></a>
+                        <div style="top:3px; left:3px; width:762px; height: 0; color:#FFF; background-color:#000;">
+							<div style="float: left; width: 178px; height: 69px; margin-right: 5px">
+								<h1>Lindsey Longway</h1>
+								Living in a Rainforest
+							</div>
+							<div style="float: left; width: 178px; height: 60px; margin-right: 5px">
+                            	<h1>Michael Rogove</h1>
+								Something Going On
+							</div>
+							<div style="float: left; width: 178px; height: 60px; margin-right: 5px">
+								<h1>Nash Rochman</h1>
+								When I was Four
+							</div>
+							<div style="float: left; width: 178px; height: 60px; margin-right: 5px">
+                            	<h1>Ramiz Shaikh</h1>
+								The White House
+							</div>
+                       	</div>
+                    </li>
+                    <li>
+                    	<a href="images/4.jpg" title="architecture"><img src="images/thumbs/madness_arch2.jpg"/></a>
+                        <a href="" target="_blank"></a>
+                        <div style="top:3px; left:3px; width:762px; height: 0; color:#FFF; background-color:#000;">
+							<div style="float: left; width: 178px; height: 69px; margin-right: 5px">
+                            <h1>Andari Gusman</h1>
+							Friends I made here<br /><br />
+							Intertests: <a href="/">Science</a>, Cello, Archery
+							</div>
+							<div style="float: left; width: 178px; height: 60px; margin-right: 5px">
+                            <h1>Aneeqa Muzammil</h1>
+							Age Doesn't Matter<br /><br />
+							Intertests: Science, Cello, Archery
+							</div>
+							<div style="float: left; width: 178px; height: 60px; margin-right: 5px">
+                            <h1>Andari Gusman</h1>
+							Friends I made here<br /><br />
+							Intertests: Science, Cello, Archery
+							</div>
+							<div style="float: left; width: 178px; height: 60px; margin-right: 5px">
+                            <h1>Andari Gusman</h1>
+							Friends I made here<br /><br />
+							Intertests: Science, Cello, Archery
+							</div>
+                       	</div>
+                    </li>
+              	</ul>
+          	</div>     
+  			<div class="buttons">
+            	<div class="prev-btn"></div>
+                <div class="play-btn"></div>    
+            	<div class="next-btn"></div>               
+            </div>
+        </div>
+    </div>	
+</div>
+</body>
+</html>

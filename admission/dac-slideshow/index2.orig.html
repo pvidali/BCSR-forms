@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>jQuery Banner Rotator</title>	
+    <style type="text/css">
+		/* style used for preview page only */
+		html {
+			height:100%;
+			background:#FFF;
+			background:-moz-linear-gradient(top, #FFF 0%, #CCC 100%);
+			background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF), color-stop(100%,#CCC));
+    	}
+    	body {
+			width:100%;
+			height:100%;
+			margin:0;
+			background:#FFF;
+		}
+		h1 {
+			text-transform: uppercase;
+			font-size:13px;
+			font-weight:normal;
+			color:#000;
+			margin:0;
+			display: none;
+		}
+		.slidecontainer{
+			position:absolute;
+			width:600px;
+			height:475px;
+			background-color: #000 !important;
+			top: 0;
+		}
+		.slidecontainer a.fancyLink{
+			text-transform: uppercase;
+			font-size: 11px;
+			color:#a82f3e !important; 
+			text-decoration: none !important;
+		}
+		.slidecontainer span{
+			font-size: 15px;
+		}
+		.slidecontainer span.pipe{
+			text-transform: uppercase;
+			font-size: 13px;
+			color:#a82f3e !important;
+		}
+    </style>
+    <link rel="stylesheet" type="text/css" href="wt-rotator.css"/>
+	<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.wt-rotator.min.js"></script>
+	<script type="text/javascript">
+    	$(document).ready(	
+			function() {
+				$(".slidecontainer").wtRotator({
+					width:600,
+					height:496,
+					thumb_width:16,
+            		thumb_height:16,
+					button_width:16,
+					button_height:16,
+					button_margin:3,
+					auto_start:true,
+					delay:5000,
+					play_once:false,
+					transition:"fade",
+					transition_speed:800,
+					auto_center:true,
+					easing:"",
+					cpanel_position:"outside",
+					cpanel_align:"BC",
+					timer_align:"top",
+					display_thumbs:true,
+					display_dbuttons:true,
+					display_playbutton:false,
+					display_thumbimg:false,
+           			display_side_buttons:false,
+					display_numbers:true,
+					display_timer:true,
+					mouseover_pause:true,
+					cpanel_mouseover:false,
+					text_mouseover:false,
+					text_effect:"fade",
+					text_sync:true,
+					tooltip_type:"image",
+					lock_tooltip:true,
+					shuffle:false,
+					block_size:75,
+					vert_size:55,
+					horz_size:50,
+					block_delay:25,
+					vstripe_delay:75,
+					hstripe_delay:180			
+				});
+			}
+		);
+    </script>    
+</head>
+<body> 
+<div class="slidecontainer" style="background-color: #000 !important;">
+	<div class="wt-rotator" style="background-color: #000 !important;">
+    	<div class="screen">
+            <noscript>
+            	<!-- placeholder 1st image when javascript is off -->
+                <img src="images/madness_arch2.jpg"/>
+            </noscript>
+      	</div>
+        <div class="c-panel" style="background-color: #000 !important;">
+      		<div class="thumbnails" style="background-color: #000 !important;">
+                <ul style="background-color: #000 !important;"	>
+                    <li style="background-color:#000">
+                    	<a href="images/0.jpg" title=""><img src="images/thumbs/0.jpg"/></a>
+                        <div style="top:0px; left:0px; width:600px; height:0; color:#FFF; background-color:#000;margin-left: 105px !important;">
+                           <span style="margin-right:5px; font-size: 33px; font-weight: bold; color: #FFF;  text-align:center">
+							<br /><br />
+<blockquote><blockquote><blockquote>
+<!--						   Workshops, classes, performances, lectures, and more in the Daniel Art Center.
+-->
+<br />
+Not an art student?<br />Not a requirement! 
+</blockquote></blockquote></blockquote>
+						   
+						   </span>
+                       	</div>
+                    </li>
+                    <li>
+                    	<a href="images/1.jpg" title=""><img src="images/thumbs/1.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">The Daniel Arts Center is a major (more than 50,000 square feet) facility.</span>
+                       	</div>
+                    </li>
+                    <li>
+                    	<a href="images/2.jpg" title=""><img src="images/thumbs/2.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">Where students explore a variety of arts.</span>
+                       	</div>
+                    </li>
+					<li>
+                    	<a href="images/3.jpg" title=""><img src="images/thumbs/3.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">Start with introductory courses in the studio arts program.</span>
+                       	</div>
+                    </li>
+                    <li>
+                    	<a href="images/4.jpg" title=""><img src="images/thumbs/4.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">Or choose specific disciplines or visual directions.</span>
+                       	</div>
+                    </li>
+                    <li>
+                    	<a href="images/5.jpg" title=""><img src="images/thumbs/5.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">Build your portfolio or build a hobby.</span>
+                       	</div>
+                    </li>
+					<li>
+                    	<a href="images/6.jpg" title=""><img src="images/thumbs/6.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">Everyone is welcome!</span>
+                       	</div>
+                    </li>
+                    <li>
+                    	<a href="images/7.jpg" title=""><img src="images/thumbs/7.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">Try out for <em>The Tempest</em> (performed annually in the 350 seat McConnell Theater).</span>
+                       	</div>
+                    </li>
+                    <li>
+                    	<a href="images/8.jpg" title=""><img src="images/thumbs/8.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">Try your hand at improv in the 100 seat blackbox theater. Or check out individual performances by students, professors, and professionals that happen all year.</span>
+                       	</div>
+                    </li>
+					<li>
+                    	<a href="images/9.jpg" title=""><img src="images/thumbs/9.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">Television and film production</span>
+                       	</div>
+                    </li>
+                    <li>
+                    	<a href="images/10.jpg" title=""><img src="images/thumbs/10.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">Create your own show.</span>
+                       	</div>
+                    </li>
+					<li>
+                    	<a href="images/11.jpg" title=""><img src="images/thumbs/11.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">Into 3-D design, sculpture, or ceramics? Then you have to see our ceramics studio, wood/metal studio and a sculpture terrace.</span>
+                       	</div>
+                    </li>
+                    <li>
+                    	<a href="images/12.jpg" title=""><img src="images/thumbs/12.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">Make functional and sculptural pieces.</span>
+                       	</div>
+                    </li>
+                    <li>
+                    	<a href="images/13.jpg" title=""><img src="images/thumbs/13.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">You’ll find professors in the Daniel who are also accomplished artists in their fields.</span>
+                       	</div>
+                    </li>
+                    <li>
+                    	<a href="images/0.jpg" title=""><img src="images/thumbs/14.jpg"/></a>
+                        <div style="top:0px; left:0px; width:600px; height:0; color:#FFF; background-color:#000; text-align:center">
+                           <span style="margin-right:5px; font-size: 26px; font-weight: bold; color: #FFF; margin-left: 15px; text-align:center">
+							<br /><br />
+<blockquote><blockquote>
+<!--						   Workshops, classes, performances, lectures, and more in the Daniel Art Center.
+-->
+							<span style="font-size: 32px;">Still curious?</span><br /><br />
+							Click on any link below to check out the course descriptions for yourself.
+</blockquote></blockquote>
+
+
+
+
+						   </span>
+                       	</div>
+                    </li>
+              	</ul>
+          	</div>     
+  			<div class="buttons">
+            	<div class="prev-btn"></div>
+                <div class="play-btn"></div>    
+            	<div class="next-btn"></div>               
+            </div>
+        </div>
+    </div>	
+</div>
+</body>
+</html>

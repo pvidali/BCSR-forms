@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>jQuery Banner Rotator</title>	
+    <style type="text/css">
+		/* style used for preview page only */
+		html {
+			height:100%;
+			background:#FFF;
+			background:-moz-linear-gradient(top, #FFF 0%, #CCC 100%);
+			background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF), color-stop(100%,#CCC));
+    	}
+    	body {
+			width:100%;
+			height:100%;
+			margin:0;
+			background:#FFF;
+		}
+		h1 {
+			text-transform: uppercase;
+			font-size:13px;
+			font-weight:normal;
+			color:#000;
+			margin:0;
+			display: none;
+		}
+		.slidecontainer{
+			position:absolute;
+			width:600px;
+			height:475px;
+			background-color: #000 !important;
+			top: 0;
+		}
+		.slidecontainer a.fancyLink{
+			text-transform: uppercase;
+			font-size: 11px;
+			color:#a82f3e !important; 
+			text-decoration: none !important;
+		}
+		.slidecontainer span{
+			font-size: 16px;
+		}
+		.slidecontainer span.pipe{
+			text-transform: uppercase;
+			font-size: 13px;
+			color:#a82f3e !important;
+		}
+    </style>
+    <link rel="stylesheet" type="text/css" href="wt-rotator.css"/>
+	<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.wt-rotator.min.js"></script>
+	<script type="text/javascript">
+    	$(document).ready(	
+			function() {
+				$(".slidecontainer").wtRotator({
+					width:600,
+					height:496,
+					thumb_width:16,
+            		thumb_height:16,
+					button_width:16,
+					button_height:16,
+					button_margin:3,
+					auto_start:true,
+					delay:5000,
+					play_once:false,
+					transition:"fade",
+					transition_speed:800,
+					auto_center:true,
+					easing:"",
+					cpanel_position:"outside",
+					cpanel_align:"BC",
+					timer_align:"top",
+					display_thumbs:true,
+					display_dbuttons:true,
+					display_playbutton:true,
+					display_thumbimg:false,
+           			display_side_buttons:false,
+					display_numbers:true,
+					display_timer:true,
+					mouseover_pause:false,
+					cpanel_mouseover:false,
+					text_mouseover:false,
+					text_effect:"fade",
+					text_sync:true,
+					tooltip_type:"image",
+					lock_tooltip:true,
+					shuffle:false,
+					block_size:75,
+					vert_size:55,
+					horz_size:50,
+					block_delay:25,
+					vstripe_delay:75,
+					hstripe_delay:180			
+				});
+			}
+		);
+    </script>    
+</head>
+<body> 
+<div class="slidecontainer" style="background-color: #000 !important;">
+	<div class="wt-rotator" style="background-color: #000 !important;">
+    	<div class="screen">
+            <noscript>
+            	<!-- placeholder 1st image when javascript is off -->
+                <img src="images/madness_arch2.jpg"/>
+            </noscript>
+      	</div>
+        <div class="c-panel" style="background-color: #000 !important;">
+      		<div class="thumbnails" style="background-color: #000 !important;">
+                <ul style="background-color: #000 !important;"	>
+                    <li>
+                    	<a href="images/0.jpg" title=""><img src="images/thumbs/0.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">The Dance Concert kicks off the Mayfest celebrations Thursday and Friday nights.</span>
+                       	</div>
+                    </li>
+                    <li>
+                    	<a href="images/7.jpg" title=""><img src="images/thumbs/7.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">
+						   Students flock to the Daniel Arts Center lawn to catch up with their friends, explore the carnival themed activities, or just relax and enjoy the warm weather.</span>
+<!--						   Enjoy the sunshine, the food and the people. Mayfest is the perfect way to relax, have fun and end a busy semester. -->
+                       	</div>
+                    </li>
+<!--
+                    <li>
+                    	<a href="images/2.jpg" title=""><img src="images/thumbs/2.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">Students start flocking to the Daniel Arts Center lawn on Saturday to catch up with their friends.</span>
+                       	</div>
+                    </li>
+					<li>
+                    	<a href="images/3.jpg" title=""><img src="images/thumbs/3.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">And begin to explore the carnival themed activities that were set up earlier in the day.</span>
+                       	</div>
+                    </li>
+-->
+                    <li>
+                    	<a href="images/4.jpg" title=""><img src="images/thumbs/4.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">As the day goes on, some students perform their own music.</span>
+                       	</div>
+                    </li>
+<!--
+                    <li>
+                    	<a href="images/5.jpg" title=""><img src="images/thumbs/5.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">Or just relax and enjoy the warm weather.</span>
+                       	</div>
+                    </li>
+-->					<li>
+                    	<a href="images/6.jpg" title=""><img src="images/thumbs/6.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">Don’t forget to gather your friends and get your picture taken on the huge inflatable red chair. You all get a keychain copy of the picture right afterwards.</span>
+                       	</div>
+                    </li>
+
+                    <li>
+                    	<a href="images/1.jpg" title=""><img src="images/thumbs/1.jpg"/></a>
+                        <div style="top:433px; left:0px; width:600px; height:0; color:#FFF; background-color:#686868;">
+                           <span style="margin-right:5px">Students gather round a bonfire on Kendrick lawn, for singing, dancing and roasted marshmallows.</span>
+                       	</div>
+                    </li>
+ 
+              	</ul>
+          	</div>     
+  			<div class="buttons">
+            	<div class="prev-btn"></div>
+                <div class="play-btn"></div>    
+            	<div class="next-btn"></div>               
+            </div>
+        </div>
+    </div>	
+</div>
+</body>
+</html>
