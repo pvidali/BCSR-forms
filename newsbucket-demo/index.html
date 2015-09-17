@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>News Bucket Demo</title>
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background: #42413C;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+/* ~~ Element/tag selectors ~~ */
+ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+	padding-right: 15px;
+	padding-left: 15px; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+}
+a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+	border: none;
+}
+
+/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: underline; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+	text-decoration: none;
+}
+
+/* ~~ this fixed width container surrounds all other divs ~~ */
+.container {
+	width: 1231px;
+	background: #FFF;
+	margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout */
+	overflow: hidden; /* this declaration makes the .container understand where the floated columns within ends and contain them */
+}
+
+/* ~~ These are the columns for the layout. ~~ 
+
+1) Padding is only placed on the top and/or bottom of the divs. The elements within these divs have padding on their sides. This saves you from any "box model math". Keep in mind, if you add any side padding or border to the div itself, it will be added to the width you define to create the *total* width. You may also choose to remove the padding on the element in the div and place a second div within it with no width and the padding necessary for your design.
+
+2) No margin has been given to the columns since they are all floated. If you must add margin, avoid placing it on the side you're floating toward (for example: a right margin on a div set to float right). Many times, padding can be used instead. For divs where this rule must be broken, you should add a "display:inline" declaration to the div's rule to tame a bug where some versions of Internet Explorer double the margin.
+
+3) Since classes can be used multiple times in a document (and an element can also have multiple classes applied), the columns have been assigned class names instead of IDs. For example, two sidebar divs could be stacked if necessary. These can very easily be changed to IDs if that's your preference, as long as you'll only be using them once per document.
+
+4) If you prefer your nav on the right instead of the left, simply float these columns the opposite direction (all right instead of all left) and they'll render in reverse order. There's no need to move the divs around in the HTML source.
+
+*/
+.sidebar1 {
+	float: left;
+	width: 180px;
+	background: #EADCAE;
+	padding-bottom: 10px;
+}
+.content {
+
+	padding: 10px 0;
+	width: 1051px;
+	float: left;
+}
+
+/* ~~ This grouped selector gives the lists in the .content area space ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* this padding mirrors the right padding in the headings and paragraph rule above. Padding was placed on the bottom for space between other elements on the lists and on the left to create the indention. These may be adjusted as you wish. */
+}
+
+/* ~~ The navigation list styles (can be removed if you choose to use a premade flyout menu like Spry) ~~ */
+ul.nav {
+	list-style: none; /* this removes the list marker */
+	border-top: 1px solid #666; /* this creates the top border for the links - all others are placed using a bottom border on the LI */
+	margin-bottom: 15px; /* this creates the space between the navigation on the content below */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* this creates the button separation */
+}
+ul.nav a, ul.nav a:visited { /* grouping these selectors makes sure that your links retain their button look even after being visited */
+	padding: 5px 5px 5px 15px;
+	display: block; /* this gives the link block properties causing it to fill the whole LI containing it. This causes the entire area to react to a mouse click. */
+	width: 160px;  /*this width makes the entire button clickable for IE6. If you don't need to support IE6, it can be removed. Calculate the proper width by subtracting the padding on this link from the width of your sidebar container. */
+	text-decoration: none;
+	background: #C6D580;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background and text color for both mouse and keyboard navigators */
+	background: #ADB96E;
+	color: #FFF;
+}
+
+/* ~~ miscellaneous float/clear classes ~~ */
+.fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the overflow:hidden on the .container is removed */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+#caption{
+	font-size: 12px;
+	padding: 10px;
+}
+-->
+</style>
+<script>
+captions = new Array();
+captions[captions.length] = ""; // skip element 0
+captions[captions.length] = "The news bucket is located at <a href=\"https://projectfork.simons-rock.edu\" target=\"_blank\">https://projectfork.simons-rock.edu</a>. To access the News Bucket, you will need to log in. For the moment, you can use the username: <b>tester</b>, password: <b>tester</b>. Note that, at this point, there is no link in the <b>Main Menu</b> (the left column of the slide below) for the News Bucket. That will appear once you have logged in. [ <a href=\"javascript:changeSlide(2)\">next</a> ]";
+captions[captions.length] = "Having logged in, the navigation link for the News Bucket appears in the Main Menu, and you are taken to News Bucket's main page, where you will see the top-level categories. The categories are based on the 'who' of each post. [ <a href=\"javascript:changeSlide(3)\">next</a> ]";
+captions[captions.length] = "To create a new post, you can click either of the links illustrated below.  [ <a href=\"javascript:changeSlide(4)\">next</a> ]";
+captions[captions.length] = "Posts are created/edited using a fairly straightforward form. Enter a title, and then be sure to select a proper category, as shown below. [ <a href=\"javascript:changeSlide(5)\">next</a> ]";
+captions[captions.length] = "Next you can tag your post by selecting from the list of tags already created, shown below (Media appearance, Announcements, etc.), or you can create a new tag in the box just above the list of existing tags. Any new tags created are then added to the master list, and will become available in the master tag list when you or any other user is posting. It's important to keep in mind that while the flexibility of the system empowers you to create your own tags, its effectiveness risks dilution when users don't share common tags whenever possible.<br /><br />Also pointed out below is a tab labeled 'Extra Fields', which is discussed in a later slide. [ <a href=\"javascript:changeSlide(6)\">next</a> ]";
+captions[captions.length] = "Again, when you have entered a new tag, and you click the 'Add' button, the tag immediately becomes available in the master list as shown below. [ <a href=\"javascript:changeSlide(7)\">next</a> ]";
+captions[captions.length] = "To select a tag or tags for your post, click on them in the 'Available tags' column, and click the 'Add >>' button to move it to the 'Selected Tags' column. Doing so removes it from the list of available tags (though not, of course, from the Master tag list, meaning it will still be available to other posts--the add/remove buttons only apply to the post being edited).   [ <a href=\"javascript:changeSlide(8)\">next</a> ]";
+captions[captions.length] = "The Content tab in the bottom section of the post editor is where you will share whatever notes you feel are necessary to communicate the reason you are making the post. You can add hyperlinks, create lists, and apply formatting as you see fit using the built-in editor.  [ <a href=\"javascript:changeSlide(9)\">next</a> ]";
+captions[captions.length] = "The Extra Fields feature enables us to create additional form fields beyond those native to K2 that we feel will be useful in further articulating the reason for a given post. Extra Fields are defined on a per-category basis, and thus are not usable until a Category has been specified for the post. If you click the Extra Fields tab prior to choosing a category, you will be shown an error message as illustrated below. [ <a href=\"javascript:changeSlide(10)\">next</a> ]";
+captions[captions.length] = "When you select a category, the Extra Fields tab re-populates with the whatever fields have been defined for that category. The one that we have defined thus far is called 'Recommended Action(s)', where you can specify the target audience and/or media channel you suggest would be served by the information you are sharing in your post. To select multiple items from the list, hold down the Control key when clicking each item. <br /><br/>Note that this will NOT disseminate your post outside the K2 system itself. It is simply a way for you to share with the other News Bucket users your thoughts on what audience and media channel would be a good target for the post. [ <a href=\"javascript:changeSlide(11)\">next</a> ]";
+captions[captions.length] = "Since we didn't specify a title for our sample post earlier, we enter one now, and then click save, as shown below. Once saved, click the Close button right next to Save. [ <a href=\"javascript:changeSlide(12)\">next</a> ]";
+captions[captions.length] = "You will now see that the category in which your post was created reflects one item more than it did prior to your post being saved. [ <a href=\"javascript:changeSlide(13)\">next</a> ]";
+captions[captions.length] = "If you click through to the category, you will see your newly created post. To view the post, click the post's title, and to edit it, click the 'Edit item' button. <br /><br />Note that only the post's author will be able to edit the post. However, other users will be able to comment on it. [ <a href=\"javascript:changeSlide(14)\">next</a> ]";
+captions[captions.length] = "If you click on a post's title, you will be able to view the entire post. That is where the post's 'comments' box appears, as well as all comments already made on it (if any), where other News Bucket users (and the post's author) can dialog about the post's relevance and possible ways to leverage it to garner worthwhile attention for the school. Just above the comment's 'send' button is a checkbox enabling the commenter to specify whether they wish to be alerted via email when futher comments are made on that particular post. [ <a href=\"javascript:changeSlide(15)\">next</a> ]";
+captions[captions.length] = "In the upper right corner you will see a search field (only available when logged in) to search posts. [ <a href=\"javascript:changeSlide(16)\">next</a> ]";
+captions[captions.length] = "Search results are then displayed with the search phrase bolded as shown below.";
+function changeSlide(slide){
+	var str = "<img src=\"";
+	str += slide;
+	str += ".jpg\">";
+	document.getElementById('slide').innerHTML = str;
+	document.getElementById('caption').innerHTML = captions[slide];
+}
+</script>
+</head>
+
+<body onLoad="changeSlide('1')">
+
+<div class="container">
+  <div class="sidebar1">
+    <ul class="nav">
+      <li><a href="javascript:changeSlide('1')">Slide 1</a></li>
+      <li><a href="javascript:changeSlide('2')">Slide 2</a></li>
+      <li><a href="javascript:changeSlide('3')">Slide 3</a></li>
+      <li><a href="javascript:changeSlide('4')">Slide 4</a></li>
+      <li><a href="javascript:changeSlide('5')">Slide 5</a></li>
+      <li><a href="javascript:changeSlide('6')">Slide 6</a></li>
+      <li><a href="javascript:changeSlide('7')">Slide 7</a></li>
+      <li><a href="javascript:changeSlide('8')">Slide 8</a></li>
+      <li><a href="javascript:changeSlide('9')">Slide 9</a></li>
+      <li><a href="javascript:changeSlide('10')">Slide 10</a></li>
+      <li><a href="javascript:changeSlide('11')">Slide 11</a></li>
+      <li><a href="javascript:changeSlide('12')">Slide 12</a></li>
+      <li><a href="javascript:changeSlide('13')">Slide 13</a></li>
+      <li><a href="javascript:changeSlide('14')">Slide 14</a></li>
+      <li><a href="javascript:changeSlide('15')">Slide 15</a></li>
+      <li><a href="javascript:changeSlide('16')">Slide 16</a></li>
+    </ul>
+    <p>&nbsp;</p>
+    <!-- end .sidebar1 --></div>
+  <div class="content" >
+  	<div id="caption"></div>
+	<hr>
+	<div id="slide"></div>
+    <!-- end .content --></div>
+  <!-- end .container --></div>
+</body>
+</html>
