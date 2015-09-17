@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>City State Zip Test</title>
+
+<script src="includes/jquery-1.7.1.js" type="text/javascript"></script>
+<script src="allstates.js" type="text/javascript"></script>
+</head>
+<body>
+<h1>Test3</h1>
+
+<div class="ui-widget">
+        <label for="state">State: </label>
+	<select id="state"></select>
+        <br>
+	<label for="city">City: </label>
+	<select id="city"></select>
+        <br>
+        <label for="zip">Zip: </label>
+	<input id="zip" />
+</div>
+
+<script>
+        // Populate the state drop down with state values
+        $.each(states, function(val, text) {
+                $('#state').append( $('<option></option>').val(text[1]).html(text[0].toUpperCase()) )
+        });
+        
+        // Update the cities when the state is selected	
+        $("#state").change(function () {
+                $("#city").children().remove();
+                $.each(state[$("#state").val().toLowerCase()], function(val, text) {
+                        $('#city').append( $('<option></option>').val(text.split(",")[1]).html(text.toUpperCase().split(",")[0]) )
+                });
+        });
+        
+        // Update the zip when the city is selected
+        $("#city").change(function () {
+                $("#zip").val($("#city").val().split("|")[0]);     
+        });
+        
+        // Update the city and state if the zip is entered
+        $("#zip").keyup(function () {
+                ret_city = "";
+                ret_state = "";
+                zipval = $("#zip").val();
+                if (zipval.length == 5) {
+                        for (state_key in state) {
+                                for ( i=0; i < state[state_key].length; i++ ) {
+                                        city_key = state[state_key][i];
+                                        x = city_key.split(",");
+                                        city_part = x[0];
+                                        zip_part = x[1];
+                                        if (zip_part.indexOf(zipval) != -1) {
+                                                ret_city = city_part;
+                                                ret_state = state_key; 
+                                                break;    
+                                        }
+                                }
+                                if (ret_city != "") {break;}    
+                        }
+                        // Update the state
+                        $("#state").val(ret_state.toUpperCase()).attr("selected", "selected");
+                        $("#state").trigger("change");
+                        $("#city option:contains('"+ret_city.toUpperCase()+"')").attr("selected", "selected")
+                }
+                
+        });
+</script>
+
+</body>
+</html>
+
+
