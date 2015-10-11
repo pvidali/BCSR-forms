@@ -4,14 +4,14 @@ if($is_test) {
 	ini_set("display_errors","On");
 	error_reporting(E_ALL & ~(E_STRICT|E_NOTICE));
 }
-require_once $_SERVER['DOCUMENT_ROOT']."/includes/DB.php";
-require_once $_SERVER['DOCUMENT_ROOT']."/includes/define-connect.php";
-$db = new DB(HOST,USER,PASSWORD,DATABASE);
-$db2 = new DB(HOST,USER,PASSWORD,DATABASE);
-$db3 = new DB(HOST,USER,PASSWORD,DATABASE);
-$db->connect();
-$db2->connect();
-$db3->connect();
+//require_once $_SERVER['DOCUMENT_ROOT']."/includes/DB.php";
+//require_once $_SERVER['DOCUMENT_ROOT']."/includes/define-connect.php";
+//$db = new DB(HOST,USER,PASSWORD,DATABASE);
+//$db2 = new DB(HOST,USER,PASSWORD,DATABASE);
+//$db3 = new DB(HOST,USER,PASSWORD,DATABASE);
+//$db->connect();
+//$db2->connect();
+//$db3->connect();
 
 function safe($value){ 
    return mysql_real_escape_string($value); 
@@ -84,9 +84,9 @@ if($walkingTourTransportationAdults == ""){
 				fridayLunchAdults, fridayDinnerAdults, 
 				saturdayBrunchAdults, saturdayLunch, saturdayDinnerAdults, 
 				sundayBrunchAdults, 
-				totalFamilyMembersAttending, date_submitted, student1MeetingSpecifyWhich, student2MeetingSpecifyWhich, relative1Email,
+				totalFamilyMembersAttending, date_submitted, student1MeetingSpecifyWhich, student2MeetingSpecifyWhich, relative1Email, relative1Email2,
 				academicAdvisorMeeting1,academicAdvisorMeeting2,sophomoreFacultyMeeting1,sophomoreFacultyMeeting2,SMLateArrival1, 
-				arrivaldetails1,SMLateArrival2, arrivaldetails2, seniorThesisAdvisorMeeting1, seniorThesisAdvisorMeeting2, 
+				arrivaldetails1,SMLateArrival2, arrivaldetails2, seniorThesisAdvisorMeeting1, seniorThesisAdvisorMeeting2, whenPlanArrive,
 				trickOrTreatingAdults, trickOrTreatingChild, 
 				murderMysteryChallengeAdults, murderMysteryChallengeChild, 
 				frightFilmFestAdults, frightFilmFestChild, 
@@ -116,9 +116,10 @@ if($walkingTourTransportationAdults == ""){
 				$fridayLunch, $fridayDinner, 
 				$saturdayBrunch, $saturdayLunch, $saturdayDinner, 
 				$sundayBrunch, 
-				$totalFamilyMembersAttending, NOW(), '$student1MeetingSpecifyWhich', '$student2MeetingSpecifyWhich', '$relative1Email', 
+				$totalFamilyMembersAttending, NOW(), '$student1MeetingSpecifyWhich', '$student2MeetingSpecifyWhich', '$relative1Email', '$relative1Email2', 
 				'$academicAdvisorMeeting1', '$academicAdvisorMeeting2', '$sophomoreFacultyMeeting1', '$sophomoreFacultyMeeting2','$SMLateArrival1',
-				'$arrivaldetails1','$SMLateArrival2','$arrivaldetails2','$seniorThesisAdvisorMeeting1','$seniorThesisAdvisorMeeting2', 
+				'$arrivaldetails1','$SMLateArrival2','$arrivaldetails2','$seniorThesisAdvisorMeeting1','$seniorThesisAdvisorMeeting2',
+				$whenPlanArrive,
 				$trickOrTreatingAdults, $trickOrTreatingChild, 
 				$murderMysteryChallengeAdults, $murderMysteryChallengeChild, 
 				$frightFilmFestAdults, $frightFilmFestChild, 
@@ -311,12 +312,12 @@ if($walkingTourTransportationAdults == ""){
 				}
 			}
 		}
-		$msg .= "\n\nIf you have registered for meetings with your student's faculty and academic advisor, please note that your schedule of actual meeting times between 9am and noon on Saturday, November 1, will be emailed to you on or before October 27th.\n\n";
+		$msg .= "\n\nIf you have registered for meetings with your student's faculty and academic advisor, please note that your schedule of actual meeting times between 9am and noon on Saturday, October 31st, will be emailed to you on or before October 28th.\n\n";
 		$msg .= "== ACTIVITIES ==\n\n";
 		$msg .= " - Trick or Treating: $trickOrTreatingAdults Adult(s), $trickOrTreatingChild Child(ren)\n";
 		$msg .= " - First-year Adjustment Panel: $FYAdjustmentAdults Adult(s), $FYAdjustmentChild Child(ren)\n";
 		$msg .= " - Welcome Reception and Senior Thesis Poster Display: $welcomeReceptionAdults Adult(s), $welcomeReceptionChild Child(ren)\n";
-		$msg .= " - Murder Myster Challenge: $murderMysteryChallengeAdults Adult(s), $murderMysteryChallengeChild Child(ren)\n";
+		$msg .= " - Murder Mystery Challenge: $murderMysteryChallengeAdults Adult(s), $murderMysteryChallengeChild Child(ren)\n";
 		$msg .= " - Halloween Dance: $halloweenDanceAdults Adult(s), $halloweenDanceChild Child(ren)\n";
 		$msg .= " - Fright Film Fest: $frightFilmFestAdults Adult(s), $frightFilmFestChild Child(ren)\n";
 
@@ -409,35 +410,73 @@ if($walkingTourTransportationAdults == ""){
 		$to = "cingram@simons-rock.edu";
 		mail($to,"COPY: Family Weekend Registration Confirmation",$msg, "From: Cathy Ingram <cingram@simons-rock.edu>");
 
-		$to = "dscheff@simons-rock.edu";
+		$to = "mchameides@simons-rock.edu";
 		mail($to,"COPY: Family Weekend Registration Confirmation",$msg, "From: Cathy Ingram <cingram@simons-rock.edu>");
 		
 	}
 }
 $relativesTotal = 5;
 
-$firstYearNote = "We recommend that family members of first-semester students meet with as many of their student's faculty as possible—it is a nice opportunity to put faces and names together. We prioritize scheduling parents to meet with their student's academic advisor.";
+//$firstYearNote = "We recommend that family members of first-semester students meet with as many of their student's faculty as possible—it is a nice opportunity to put faces and names together. We prioritize scheduling parents to meet with their student's academic advisor.";
 $seniorNote = "Please specify if you wish to meet with your student's academic advisor or thesis advisor, as well as any subject faculty.";
-$FMNote = "Advanced registration for meetings with faculty and advisors has ended. If you would like to meet your student&#39;s faculty members, their meeting schedules will be posted on their office doors and when you arrive on campus, you can sign yourself up in an open time slot. If you have any questions, please email Karen Advokaat (<a href=\"mailto:kadvokaat@simons-rock.edu\">kadvokaat@simons-rock.edu</a>). Thank you.";
-// $FMNote = "<strong>FACULTY AND ADVISOR MEETINGS TAKE PLACE ONLY ON SATURDAY, OCTOBER 12, FROM 10:00 am to 1:00 pm</strong>. Meetings take place in faculty offices and are scheduled on 15-minute intervals.";
-// $FMNote = "Faculty meetings are 10-minute one-on-one appointments with your student&#39;s faculty and academic advisor. The meetings will be scheduled on Saturday, November 1 between 9 am and noon and will take place in faculty offices. Since families will be moving between buildings, the schedule of meetings will allow time as needed for going between buildings.<br><br><strong>The deadline for requesting these meetings is Wednesday, October 29</strong> however many faculty schedules fill up before this date so don&#39;t wait to request them.";
+//$FMNote = "Advanced registration for meetings with faculty and advisors has ended. If you would like to meet your student&#39;s faculty members, their meeting schedules will be posted on their office doors and when you arrive on campus, you can sign yourself up in an open time slot. If you have any questions, please email Karen Advokaat (<a href=\"mailto:kadvokaat@simons-rock.edu\">kadvokaat@simons-rock.edu</a>). Thank you.";
+
+$FMNote = "Faculty meetings are 10-minute one-on-one appointments with your student’s faculty and academic advisor. The meetings will be scheduled on Saturday, October 31 between 9 am and noon and will take place in faculty offices. Since families will be moving between buildings, the schedule of meetings will allow time as needed for going between buildings.</p><p>Please note that meetings are not scheduled with: theater production and music ensemble faculty, as well as private music instructors. We generally also don’t schedule meetings for modular “half-semester” courses.</p><p>The deadline for requesting these meetings is Wednesday, October 28 and many faculty schedules fill up before this date.</p>";
 
 
-$sophomoreNote = "James Jeffries' schedule for sophomore planning meetings is full on Friday afternoon and Saturday morning. If you would like to make arrangements to speak with Liz about your sophomore's plans, please email her at <a href=\"mailto:jjeffries@simons-rock.edu\">jjeffries@simons-rock.edu</a>.";
-// $sophomoreNote = "The sophomore planning meetings are 10-minute one-on-one appointments with James Jeffries, Director of Career Development.<br><br>These meetings are intended for families and their student to discuss the moderation and transfer process, as well as plans for post-graduation.<br><br>All sophomore planning meetings will be scheduled on Friday, October 31, from 1:00 pm to 4:00 pm. If you will not be arriving until Friday evening, a few appointments will be available on Saturday morning.<br><br><strong>The deadline for requesting a Sophomore Planning Meeting is Wednesday, October 29.</strong>";
+//$sophomoreNote = "James Jeffries' schedule for sophomore planning meetings is full on Friday afternoon. If you would like to make arrangements to speak with Liz about your sophomore's plans, please email her at <a href=\"mailto:jjeffries@simons-rock.edu\">jjeffries@simons-rock.edu</a>.";
+$sophomoreNote = "<p>The sophomore planning meetings are 10-minute appointments with James Jeffries, Director of Career Development. These meetings will be scheduled on Friday, October 30, from 1:00 pm to 4:00 pm.</p><p>Priority is given to families of students who are currently sophomores, and the meeting is intended for families and their student to discuss the moderation and transfer process.</p>";
 ?>
 <!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Family Weekend Registration</title>
+
+<!--[if lt IE 9 ]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en">
+   <!--<![endif]-->
+
+	<head>
+		<title>Family Weekend Registration | Bard College at Simon's Rock</title>
+
+		<!-- Bootstrap -->
+		<link href="/_css/app.css" rel="stylesheet"/>
+		<link href="/_css/app_safari_hero_hack.css" rel="stylesheet"/>
+		
+		<style>
+		/* #20151006 pv */
+		#stylized {
+			max-width: 576px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#submit.btn.btn-primary {
+			margin-top: 50px;
+		}
+
+		#stylized.myform .radio {
+			display: inline;
+		}
+
+		.labelwide {
+			padding-left: 5px;
+		}
+		/* end pv */
+		</style>
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<script type='text/javascript' src='//code.jquery.com/jquery-1.8.3.js'></script>
 <?php 
 if(isset($post_success) && $post_success == true){
 	echo "<script>
-			window.top.location.href = \"http://www.simons-rock.edu/parents-families/family-weekend/family-weekend-registration-confirmation\";
+			window.top.location.href = \"http://simons-rock.edu/alumni/family-weekend-registration-complete.php\";
 		</script>
 		<noscript>
-			Registration successful.  <a href=\"/parents-families/family-weekend/family-weekend-registration-confirmation\">Click here to continue</a>.
+			Registration successful.  <a href=\"/alumni/family-weekend-registration-complete.php\">Click here to continue</a>.
 		</noscript>";
 }
 ?>
@@ -503,11 +542,11 @@ function setMeetingTimeMsg(level,student) {
 	if(level == "Senior"){
 		if(student==1){
 			document.getElementById('seniorThesisAdvisorMeeting1HeaderDiv').style.display = '';
-			document.getElementById('seniorThesisAdvisorMeeting1QuestionDiv').style.display = 'inline-block';
+			document.getElementById('seniorThesisAdvisorMeeting1QuestionDiv').style.display = '';
 		}
 		else {
 			document.getElementById('seniorThesisAdvisorMeeting2HeaderDiv').style.display = '';
-			document.getElementById('seniorThesisAdvisorMeeting2QuestionDiv').style.display = 'inline-block';
+			document.getElementById('seniorThesisAdvisorMeeting2QuestionDiv').style.display = '';
 		}
 	}
 	else{
@@ -637,176 +676,10 @@ var tooltip=function(){
  
 //-->
 </script>
-<style>
-body{
-	font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
-	font-size:12px;
-	background:#fff;
-}
-p, h1, form, button{border:0; margin:0; padding:0;}
-.spacer{clear:both; height:1px;}
-/* ----------- My Form ----------- */
-.myform{
-	margin:0 auto;
-	width:530px;
-	padding:6px;
-}
-/* ----------- stylized ----------- */
-#stylized{
-	border:solid 1px #b7ddf2;
-	/*          background:#ebf4fb; */
-}
-#stylized h1 {
-	font-size:14px;
-	font-weight:bold;
-	margin-bottom:8px;
-}
-#stylized p{
-	font-size:11px;
-	color:#666666;
-	margin-bottom:20px;
-	border-bottom:solid 1px #b7ddf2;
-	padding-bottom:10px;
-}
-#stylized label{
-	display:block;
-	text-align:right;
-	width:140px;
-	padding-top: 5px;
-	float:left;
-}
-#stylized label.labelwide{
-width: 340px;
-text-align:left;
-padding: 0;
-margin: 0;
-}
-#stylized label.labelmed{
-text-align:right; 
-width: 180px;
-padding: 0;
-margin: 0;
-}
-#stylized label.labelsmall{
-	text-align:left; 
-	width: 20px;
-	padding: 0 15px 0 0;
-	margin: 0;
-	float: right;
-}
 
-#stylized .small{
-color:#666666;
-display:block;
-font-size:11px;
-font-weight:normal;
-text-align:right;
-width:140px;
-}
-#stylized input{
-float:left;
-font-size:11px;
-padding:4px 2px;
-border:solid 1px #aacfe4;
-width:200px;
-margin:2px 0 10px 10px;
-}
-#stylized select{
-float:left;
-font-size:12px;
-padding:4px 2px;
-border:solid 1px #aacfe4;
-width:206px;
-margin:2px 0 20px 10px;
-}
-#stylized input.radio{
-  width: 10px;
-  border: 0;
-  margin-left: 5px;
-  margin-right: 5px;
-  padding:0;
-}
-#stylized button{
-clear:both;
-margin-left:150px;
-width:125px;
-height:31px;
-background:#666666 url(img/button.png) no-repeat;
-text-align:center;
-line-height:31px;
-color:#FFFFFF;
-font-size:11px;
-font-weight:bold;
-cursor: pointer;
-}
-.required {
-color:#FF0000;
-font-size:14px;
-padding: 0 5px;
-}
-.msg {
-	padding: 15px;
-	font-size: 12px;
-	font-weight: bold;
-}
-
- #tt {
- position:absolute;
- display:block;
- background:url(images/tt_left.gif) top left no-repeat;
- }
- #tttop {
- display:block;
- height:5px;
- margin-left:5px;
- background:url(images/tt_top.gif) top right no-repeat;
- overflow:hidden;
- }
- #ttcont {
- display:block;
- padding:2px 12px 3px 7px;
- margin-left:5px;
- background:#666;
- color:#fff;
- }
-#ttbot {
-display:block;
-height:5px;
-margin-left:5px;
-background:url(images/tt_bottom.gif) top right no-repeat;
-overflow:hidden;
-}
-.price{
-	width: 150px; 
-	float: left; 
-	text-align: right; 
-	height: 20px; 
-	padding-top: 5px;
-}
-#stylized input.total{
-	width: 50px;
-	border: none;
-	font-size: 16px;
-	font-weight: bold;
-	text-align: left;
-	padding: 2px !important;
-	margin-left: 0px;
-	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
-}
-<?php
-if(isset($contents) && $contents != ""){
-?>
-.myform	{
-	display: none;
-}
-<?php
-}
-?>
-
-</style>
 </head>
 <body>
-  <div id="stylized" class="myform">
+  <div id="stylized" class="myform page-container">
   
 <?php
 if(isset($post_success) & $post_success == true)  {
@@ -816,31 +689,31 @@ if(isset($post_success) & $post_success == true)  {
 else {
 ?>
   
-  
+<h2>Family Weekend 2015 Registration</h2>  
 <!--
 	<form id="request" name="request" method="post" action="<?php echo($_SERVER['PHP_SELF']); ?>" onSubmit="return checkForm()">
     -->
 	<form id="request" name="request" method="post" action="<?php echo($_SERVER['PHP_SELF']); ?>">
 
     <div class="spacer" style="clear:both"></div>
-	<div style="margin: 15px; font-size:16px"><strong>About Your Student(s)</strong></div>
-	<div style="clear:both; border: 1px solid #000; background:#F8F8F8; " id="student1Div">
-		<div style="float:right; font-size: 14px">Student #1</div>
-    	<div style="clear:both" id="student1FnameDiv">
-          <label for="student1Fname">Student First Name
+	<h3 class="subheadline">About Your Student(s)</h3>
+	<div id="student1Div" class="form-group col-md-12">
+		<div>Student #1</div>
+    	<div id="student1FnameDiv" class="form-group col-md-6">
+          <label for="student1Fname">Student First Name*
           <!-- <span class="small">Add your name</span> -->
           </label>
-          <input type="text" name="student1Fname" id="student1Fname" /><span class="required">*</span>
+          <input type="text" name="student1Fname" id="student1Fname" class="form-control" /><span class="required"></span>
         </div>
-        <div style="clear:both" id="student1LnameDiv">
-          <label for="student1Lname">Student Last Name
+        <div id="student1LnameDiv" class="form-group col-md-6">
+          <label for="student1Lname">Student Last Name*
           </label>
-          <input type="text" name="student1Lname" id="student1Lname" /><span class="required">*</span>
+          <input type="text" name="student1Lname" id="student1Lname" class="form-control" /><span class="required"></span>
         </div>
         <div class="spacer"></div>
-        <div style="clear:both">
+        <div class="form-group col-md-12">
           <label for="student1Class">Currently a:</label>
-          <select name="student1Class" id="student1Class" onChange="setMeetingTimeMsg(this.value,'1')" />
+          <select name="student1Class" id="student1Class" class="form-control" onChange="setMeetingTimeMsg(this.value,'1')" />
           	<option>---Please Select---</option>
           	<option value="First-year">First-year</option>
           	<option value="Sophomore">Sophomore</option>
@@ -849,101 +722,95 @@ else {
           </select>
         </div>
 
-        <div style="clear: both; display: ''" id="nonSophomoreFM1">
-            <div style="font-weight: normal; display: none; padding: 0 20px 20px;" id="fynote1"><?php echo($firstYearNote); ?></div>
-            <div style="font-weight: normal; display: none; padding: 0 20px 20px;" id="seniornote1"><?php echo($seniorNote); ?></div>
-        	<div style="padding: 0 0 0 20px; font-weight: bold">
-            	<span style="font-size:16px">Faculty Meetings</span>
+        <div style="clear: both; display: none;" id="nonSophomoreFM1">
+            <div id="fynote1" style="display: none;"><?php echo($firstYearNote); ?></div>
+            <div id="seniornote1" style="display: none;"><?php echo($seniorNote); ?></div>
+        	<div>
+            	<h3 class="subheadline">Faculty Meetings</h3>
                 	<div class="msg" id="meetingTimeMsg1">
-						<p style="font-weight: normal"><?php echo ($FMNote)?><br> 
-							<!--
-								<br>
-								<strong>NOTE: </strong>Many faculty schedules are full or almost full for Saturday morning meetings. Please indicate with whom you would like to meet and we will let you know which faculty members still have available meeting times. We will continue scheduling meetings for families through Thursday morning. Thank you. 
-							-->
-						</p>
-						<p style="font-weight: normal; display: none">We do not schedule meetings for any of the ensemble classes (Chorus, Jazz, Madrigal Group, Chamber Orchestra, and Collegium). Generally, faculty members with "adjunct" status are not available for meetings on Family Weekend, nor are private music instructors.</p></div>
+						<p><?php echo ($FMNote)?></p>
+						<p style="display: none">We do not schedule meetings for any of the ensemble classes (Chorus, Jazz, Madrigal Group, Chamber Orchestra, and Collegium). Generally, faculty members with "adjunct" status are not available for meetings on Family Weekend, nor are private music instructors.</p></div> 
             </div>
-<!-- 
-       	<div onKeyUp="" style="padding: 0 0 0 70px;"><strong>Meetings Requests</strong></div>
-         	<div style="padding: 0 0 0 70px;">I would like to meet with:</div>
-            <div style="margin: 0 0 0 150px; display:inline-block;">
-            	<div style="float:left; ">
+
+       	<div onKeyUp=""><h3 class="subheadline">Meeting Requests</h3>
+         	<div>I would like to meet with:</div>
+            <div
+            	<div>
               	<input class="radio" type="radio" name="student1Meeting" id="student1MeetingAll" value="all"  onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display='none'"  /><label class="labelwide" for="student1MeetingAll">All of the Student's Available Faculty</label></div>
-            	<div style="float:left; ">
+            	<div>
               	<input class="radio" type="radio" name="student1Meeting" id="student1MeetingNone" value="none" onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display='none'" /><label class="labelwide" for="student1MeetingNone" >No Meetings with Faculty</label></div>
-                <div style="float:left; ">
-              	<input class="radio" type="radio" name="student1Meeting" id="student1MeetingSpecify" value="some"   onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display=''" /><label class="labelwide" for="student1MeetingSpecify">Specify Certain Faculty</label>
+                <div>
+              	<input class="radio" type="radio" name="student1Meeting" id="student1MeetingSpecify" value="some"   onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display=''" /><label class="labelwide" for="student1MeetingSpecify">Certain faculty</label>
                 
-                	<div id="student1MeetingSpecifyWhichDiv" style="display:none" >Please specify the Faculty (or the course subject matter) with which you wish to meet:<br />
-<input type="text" name="student1MeetingSpecifyWhich" style="width:300px; padding: 4px" id="student1MeetingSpecifyWhich">
+                	<div id="student1MeetingSpecifyWhichDiv" style="display:none" >Please specify the faculty by name or class:<br />
+<input type="text" name="student1MeetingSpecifyWhich" id="student1MeetingSpecifyWhich">
                     </div>
                 </div>
             </div>
-			<div style="padding: 0 0 0 70px; ">I would like to meet with my student's Academic Advisor:</div>
-			<div style="width:150px; padding-left:125px; display:inline-block;">
-				<div style="float:left; " ><input type="radio" class="radio" name="academicAdvisorMeeting1" id="academicAdvisorMeeting1Yes" value="1">
+			<div>I would like to meet with my student's Academic Advisor:</div>
+			<div style="display:inline-block;">
+				<div ><input type="radio" class="radio" name="academicAdvisorMeeting1" id="academicAdvisorMeeting1Yes" value="1">
 					<label for="academicAdvisorMeeting1Yes" class="labelsmall">Yes</label></div>
-				<div style="float:left; " ><input type="radio" class="radio" name="academicAdvisorMeeting1" id="academicAdvisorMeeting1No" value="0">
+				<div ><input type="radio" class="radio" name="academicAdvisorMeeting1" id="academicAdvisorMeeting1No" value="0">
 					<label for="academicAdvisorMeeting1No" class="labelsmall">No</label></div>
-			</div>
-			<div style="padding: 0 0 0 70px; display:none; " id="seniorThesisAdvisorMeeting1HeaderDiv">I would like to meet with my student's Thesis Advisor:</div>
-			<div style="width:150px; padding-left:125px; display:none;" id="seniorThesisAdvisorMeeting1QuestionDiv">
-				<div style="float:left; " ><input type="radio" class="radio" name="seniorThesisAdvisorMeeting1" id="seniorThesisAdvisorMeeting1Yes" value="1">
-					<label for="seniorThesisAdvisorMeeting1Yes" class="labelsmall">Yes</label></div>
-				<div style="float:left; " ><input type="radio" class="radio" name="seniorThesisAdvisorMeeting1" id="seniorThesisAdvisorMeeting1No" value="0">
-					<label for="seniorThesisAdvisorMeeting1No" class="labelsmall">No</label></div>
-			</div>            
+			</div>          
 	    </div>
--->
+		<div style="display:none; " id="seniorThesisAdvisorMeeting1HeaderDiv">I would like to meet with my student's Thesis Advisor:</div>
+		<div style="display:none;" id="seniorThesisAdvisorMeeting1QuestionDiv">
+			<div ><input type="radio" class="radio" name="seniorThesisAdvisorMeeting1" id="seniorThesisAdvisorMeeting1Yes" value="1">
+				<label for="seniorThesisAdvisorMeeting1Yes" class="labelsmall">Yes</label></div>
+			<div ><input type="radio" class="radio" name="seniorThesisAdvisorMeeting1" id="seniorThesisAdvisorMeeting1No" value="0">
+				<label for="seniorThesisAdvisorMeeting1No" class="labelsmall">No</label></div>
+		</div>
         <div style="clear: both; display: none" id="sophomoreFM1">
-        	<div style="padding: 0 0 0 20px; font-weight: bold">
+        	<div>
             	Sophomore Planning Meetings 
                 	<div class="msg">
-					<p style="font-weight: normal"><?php echo($sophomoreNote);?></span></p>
+					<p><?php echo($sophomoreNote);?></span></p>
 					</div>
             </div>
-<!--
-        	<div style="padding: 0 0 0 70px; ">I would like to request a Sophomore Planning Meeting:</div>
-			<div style="width:150px; padding-left:125px;">
-				<div style="float:left; "><input type="radio" class="radio" name="sophomoreFacultyMeeting1" id="sophomoreFacultyMeeting1Yes" value="1" onClick="document.getElementById('lateArrive1_div').style.display=''">
+
+        	<div>I would like to request a Sophomore Planning Meeting:</div>
+			<div>
+				<div><input type="radio" class="radio" name="sophomoreFacultyMeeting1" id="sophomoreFacultyMeeting1Yes" value="1" onClick="document.getElementById('lateArrive1_div').style.display=''">
 					<label for="sophomoreFacultyMeeting1Yes" class="labelsmall" >Yes</label></div>
-				<div style="float:left; "><input type="radio" class="radio" name="sophomoreFacultyMeeting1" id="sophomoreFacultyMeeting1No" value="0" onClick="document.getElementById('lateArrive1_div').style.display='none'">
+				<div><input type="radio" class="radio" name="sophomoreFacultyMeeting1" id="sophomoreFacultyMeeting1No" value="0" onClick="document.getElementById('lateArrive1_div').style.display='none'">
 					<label for="sophomoreFacultyMeeting1No" class="labelsmall">No</label></div>
 			</div>
-			<div id="lateArrive1_div" style="clear:both; padding: 0 0 0 70px; display: inline-block; display: none ">
+<!--			<div id="lateArrive1_div" style="clear:both; display: inline-block; display: none ">
 				<div >
 					<input type="checkbox" name="SMLateArrival1" id="SMLateArrival1" class="radio" onClick="toggleDiv('SMLateArrival1','arrivaldetails_div')">
 						<label for="SMLateArrival1" class="labelwide">Yes, I will be arriving late, and am unable to meet between 1pm and 4pm on Friday, and wish to on Saturday morning.</label></div>
 				<div style="display:none; clear:both" id="arrivaldetails_div">Please provide specifics about your estimated arrival time so that we may schedule on that basis.<br>
-					<textarea name="arrivaldetails1" id="arrivaldetails1" style="width:300px; height: 80px; margin: 8px" ></textarea>
+					<textarea name="arrivaldetails1" id="arrivaldetails1"></textarea>
 				</div>
 			</div>
 -->
 		</div>
 
 		<div style="clear:both;">
-			<div><a href="javascript: showAnother('student2Div','student')" style="text-decoration: none; font-size:14px;"><img src="userblue_add.png" style="padding: 0 10px; border: 0" />I have more than one student at Simon's Rock</a></div>		
+			<div><a href="javascript: showAnother('student2Div','student')" style="text-decoration: none; font-size:14px;">+ I have more than one student at Simon's Rock</a></div>		
 			<div class="spacer"></div>	
 		</div>
 	</div>
 	<div class="spacer"></div>
-	<div style="clear:both; border: 1px solid #000; background:#F8F8F8; display: none" id="student2Div">
-		<div style="float:right; font-size: 14px">Student #2</div>
-    	<div style="clear:both" id="student2FnameDiv">
-          <label for="student2Fname">Student First Name
+	<div style="clear:both; display: none" id="student2Div" class="form-group col-md-12">
+		<div>Student #2</div>
+    	<div id="student2FnameDiv" class="form-group col-md-6">
+          <label for="student2Fname">Student First Name*
           <!-- <span class="small">Add your name</span> -->
           </label>
-          <input type="text" name="student2Fname" id="student2Fname" /><span class="required">*</span>
+          <input type="text" name="student2Fname" id="student2Fname" /><span class="required"></span>
         </div>
-        <div style="clear:both" id="student2LnameDiv">
-          <label for="student2Lname">Student Last Name
+        <div id="student2LnameDiv" class="form-group col-md-6">
+          <label for="student2Lname">Student Last Name*
           </label>
-          <input type="text" name="student2Lname" id="student2Lname" /><span class="required">*</span>
+          <input type="text" name="student2Lname" id="student2Lname" /><span class="required"></span>
         </div>
         <div class="spacer"></div>
-        <div style="clear:both; display:inline-block">
+        <div class="margin-bottom">
           <label for="student2Class">Currently a:</label>
-          <select name="student2Class" id="student2Class" onChange="setMeetingTimeMsg(this.value,'2')" />
+          <select name="student2Class" id="student2Class" class="form-control" onChange="setMeetingTimeMsg(this.value,'2')" />
           	<option>---Please Select---</option>
           	<option value="First-year">First-year</option>
           	<option value="Sophomore">Sophomore</option>
@@ -952,24 +819,24 @@ else {
           </select>
         </div>        
         <div style="clear: both; display:''" id="nonSophomoreFM2">
-        	<div style="padding: 0 0 0 20px; font-weight: bold">
-                <div style="font-weight:normal; display:none; padding: 0 20px 20px 0" id="fynote2"><?php echo($firstYearNote); ?></div>
-	            <div style="font-weight: normal; display: none; padding: 0 20px 20px 0;" id="seniornote2"><?php echo($seniorNote); ?></div>
-	        	<div><strong><span style="font-size:16px">Faculty Meetings</span></strong></div>
-            	<div class="msg" id="meetingTimeMsg2"><p style="font-weight: normal"><?php echo ($FMNote)?><br /><br />
+        	<div>
+                <div id="fynote2" style="display: none;"><?php echo($firstYearNote); ?></div>
+	            <div id="seniornote2" style="display: none;"><?php echo($seniorNote); ?></div>
+	        	<div><h3 class="subheadline">Faculty Meetings</h3></div>
+            	<div class="msg" id="meetingTimeMsg2"><p><?php echo ($FMNote)?><br /><br />
                 <!-- <strong>NOTE:</strong> Many faculty schedules are full or almost full for Saturday morning meetings. Please indicate with whom you would like to meet and we will let you know which faculty members still have available meeting times. We will continue scheduling meetings for families through Thursday morning. Thank you.</p> -->
-                    <p style="font-weight: normal; display: none">We do not schedule meetings for any of the ensemble classes (Chorus, Jazz, Madrigal Group, Chamber Orchestra, and Collegium). Generally, faculty members with "adjunct" status are not available for meetings on Family Weekend, nor are private music instructors.</p>
+                    <p style="display: none">We do not schedule meetings for any of the ensemble classes (Chorus, Jazz, Madrigal Group, Chamber Orchestra, and Collegium). Generally, faculty members with "adjunct" status are not available for meetings on Family Weekend, nor are private music instructors.</p>
 				</div> 
             </div>
-<!--
-        	<div style="padding: 0 0 0 70px; "><strong>Meetings Requests</strong></div>
-        	<div style="padding: 0 0 0 70px; ">I would like to meet with:</div>
-            <div style="margin: 0 0 0 150px; display: inline-block;">
-            	<div style="float:left; ">
+
+        	<div><h3 class="subheadline">Meeting Requests</h3></div>
+        	<div>I would like to meet with:</div>
+            <div>
+            	<div>
               	<input class="radio" type="radio" name="student2Meeting" id="student2MeetingAll" value="all" onClick="document.getElementById('student2MeetingSpecifyWhichDiv').style.display='none'" /><label class="labelwide" for="student2MeetingAll">All of the Student's Available Faculty</label></div>
-            	<div style="float:left; ">
+            	<div>
               	<input class="radio" type="radio" name="student2Meeting" id="student2MeetingNone" value="none" onClick="document.getElementById('student2MeetingSpecifyWhichDiv').style.display='none'" /><label class="labelwide" for="student2MeetingNone" >No Meetings with Faculty</label></div>
-                <div style="float:left; ">
+                <div>
               	<input class="radio" type="radio" name="student2Meeting" id="student2MeetingSpecify" value="some" onClick="document.getElementById('student2MeetingSpecifyWhichDiv').style.display=''"  /><label class="labelwide" for="student2MeetingSpecify">Specify Certain Faculty</label>
                 
                 	<div id="student2MeetingSpecifyWhichDiv" style="display:none" >Please specify the Faculty (or the course subject matter) with which you wish to meet:<br />
@@ -977,36 +844,37 @@ else {
                     </div>
                 </div>
             </div>
-			<div style="padding: 0 0 0 70px; ">I would like to meet with my student's Academic Advisor:</div>
-			<div style="width:150px; padding-left:125px; display:inline-block;">
-				<div style="float:left; " ><input type="radio" class="radio" name="academicAdvisorMeeting2" id="academicAdvisorMeeting2Yes" value="1">
+			<div>I would like to meet with my student's Academic Advisor:</div>
+			<div style="display:inline-block;">
+				<div ><input type="radio" class="radio" name="academicAdvisorMeeting2" id="academicAdvisorMeeting2Yes" value="1">
 					<label for="academicAdvisorMeeting2Yes" class="labelsmall">Yes</label></div>
-				<div style="float:left; " ><input type="radio" class="radio" name="academicAdvisorMeeting2" id="academicAdvisorMeeting2No" value="0">
+				<div ><input type="radio" class="radio" name="academicAdvisorMeeting2" id="academicAdvisorMeeting2No" value="0">
 					<label for="academicAdvisorMeeting2No" class="labelsmall">No</label></div>
 			</div>
-			<div style="padding: 0 0 0 70px; display: none;" id="seniorThesisAdvisorMeeting2HeaderDiv">I would like to meet with my student's Thesis Advisor:</div>
-			<div style="width:150px; padding-left:125px; display:none;" id="seniorThesisAdvisorMeeting2QuestionDiv">
-				<div style="float:left" ><input type="radio" class="radio" name="seniorThesisAdvisorMeeting2" id="seniorThesisAdvisorMeeting2Yes" value="1">
+			<div style="display: none;" id="seniorThesisAdvisorMeeting2HeaderDiv">I would like to meet with my student's Thesis Advisor:</div>
+			<div style="display:none;" id="seniorThesisAdvisorMeeting2QuestionDiv">
+				<div ><input type="radio" class="radio" name="seniorThesisAdvisorMeeting2" id="seniorThesisAdvisorMeeting2Yes" value="1">
 					<label for="seniorThesisAdvisorMeeting2Yes" class="labelsmall">Yes</label></div>
-				<div style="float:left" ><input type="radio" class="radio" name="seniorThesisAdvisorMeeting2" id="seniorThesisAdvisorMeeting2No" value="0">
+				<div ><input type="radio" class="radio" name="seniorThesisAdvisorMeeting2" id="seniorThesisAdvisorMeeting2No" value="0">
 					<label for="seniorThesisAdvisorMeeting2No" class="labelsmall">No</label></div>
 			</div>
--->
+
 
         </div>
         <div style="clear: both; display: none" id="sophomoreFM2">
-        	<div style="padding: 0 0 0 20px; font-weight: bold">
+        	<div>
             	Sophomore Planning Meetings 
-                	<div class="msg"><p style="font-weight: normal"><?php echo($sophomoreNote);?></span></p></div>
+                	<div class="msg"><p><?php echo($sophomoreNote);?></span></p></div>
             </div>
-<!--
-        	<div style="padding: 0 0 0 70px; ">I would like to request a Sophomore Planning Meeting:</div>
-			<div style="width:150px; padding-left:125px; display:inline-block;">
-				<div style="float:left; " ><input type="radio" class="radio" name="sophomoreFacultyMeeting2" id="sophomoreFacultyMeeting2Yes" value="1" onClick="document.getElementById('lateArrive2_div').style.display='inline-block'">
+
+        	<div>I would like to request a Sophomore Planning Meeting:</div>
+			<div>
+				<div ><input type="radio" class="radio" name="sophomoreFacultyMeeting2" id="sophomoreFacultyMeeting2Yes" value="1" onClick="document.getElementById('lateArrive2_div').style.display='inline-block'">
 					<label for="sophomoreFacultyMeeting2Yes" class="labelsmall">Yes</label></div>
-				<div style="float:left; " ><input type="radio" class="radio" name="sophomoreFacultyMeeting2" id="sophomoreFacultyMeeting2No" value="0" onClick="document.getElementById('lateArrive2_div').style.display='none'">
+				<div ><input type="radio" class="radio" name="sophomoreFacultyMeeting2" id="sophomoreFacultyMeeting2No" value="0" onClick="document.getElementById('lateArrive2_div').style.display='none'">
 					<label for="sophomoreFacultyMeeting2No" class="labelsmall">No</label></div>
 			</div>
+<!--
 			<div id="lateArrive2_div" style="clear:both; padding: 0 0 0 70px;display: inline-block; display: none">
 				<div>
 					<input type="checkbox" name="SMLateArrival2" id="SMLateArrival2" class="radio" onClick="toggleDiv('SMLateArrival2','arrivaldetails2_div')">
@@ -1019,7 +887,38 @@ else {
 		</div>
 		
 	</div>
-	
+
+						<script type='text/javascript'>//<![CDATA[
+			$(window).load(function(){
+			$(document).ready(function(){
+			    $('#student1Class').on('change', function() {
+			      if ( this.value == 'Senior')
+			      {
+			        $("#seniorThesisAdvisorMeeting1HeaderDiv").show();
+					$("#seniorThesisAdvisorMeeting1QuestionDiv").show();
+			      }
+			      else
+			      {
+			        $("#seniorThesisAdvisorMeeting1HeaderDiv").hide();
+					$("#seniorThesisAdvisorMeeting1QuestionDiv").hide();
+			      }
+			    });
+				$('#student2Class').on('change', function() {
+			      if ( this.value == 'Senior')
+			      {
+			        $("#seniorThesisAdvisorMeeting2HeaderDiv").show();
+					$("#seniorThesisAdvisorMeeting2QuestionDiv").show();
+			      }
+			      else
+			      {
+			        $("#seniorThesisAdvisorMeeting2HeaderDiv").hide();
+					$("#seniorThesisAdvisorMeeting2QuestionDiv").hide();
+			      }
+			    });
+			});
+			});//]]> 
+
+			</script>	
 <!--
 	<div class="spacer"></div>
     <div style="clear:both; padding:5px; margin:5px; " id="accessibilityDiv">
@@ -1028,8 +927,8 @@ else {
 		<textarea name="accessibilityNeeds" id="accessibilityNeeds" style="width:500px; height: 80px; margin: 8px" ></textarea>	
 	</div>
 -->
-    <div class="spacer" style="clear:both"></div>
-	<div style="margin: 15px; font-size:16px"><strong>Family Members Attending</strong></div>
+    <div class="margin-bottom"></div>
+	<h3 class="subheadline">Family Members Attending</h3>
 	
 <?php 
 for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
@@ -1040,53 +939,58 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
 		$display = 'none';
 	}
 
-	echo '<div style="clear:both; border: 1px solid #000; background:#F8F8F8; display:'.$display.'" id="relative'.$relativeCount.'Div">';
+	echo '<div style="display:'.$display.'" id="relative'.$relativeCount.'Div" class="form-group col-md-12">';
 	if($relativeCount==1){
-		echo '<div style="font-size:14px; font-weight: bold; text-indent: 20px;">Your Information</div>';
+		echo '<div>Your Information</div>';
 	}
 	else{
-		echo '<div style="font-size:14px; font-weight: bold; text-indent: 15px;">Family Member '.($relativeCount).'</div>';
+		echo '<div>Family Member '.($relativeCount).'</div>';
 	}
 	echo '
-		<div style="clear:both" id="student'.$relativeCount.'FnameDiv">
-          <label for="relative'.$relativeCount.'Fname">First Name
+		<div id="student'.$relativeCount.'FnameDiv" class="form-group col-md-6">
+          <label for="relative'.$relativeCount.'Fname">First Name*
           <!-- <span class="small">Add your name</span> -->
           </label>
-          <input type="text" name="relative'.$relativeCount.'Fname" id="relative'.$relativeCount.'Fname" /><span class="required">*</span>
+          <input type="text" name="relative'.$relativeCount.'Fname" id="relative'.$relativeCount.'Fname" /><span class="required"></span>
         </div>
-        <div style="clear:both" id="relative'.$relativeCount.'LnameDiv">
-          <label for="relative'.$relativeCount.'Lname">Last Name
+        <div id="relative'.$relativeCount.'LnameDiv" class="form-group col-md-6">
+          <label for="relative'.$relativeCount.'Lname">Last Name*
           </label>
-          <input type="text" name="relative'.$relativeCount.'Lname" id="relative'.$relativeCount.'Lname" /><span class="required">*</span>
+          <input type="text" name="relative'.$relativeCount.'Lname" id="relative'.$relativeCount.'Lname" /><span class="required"></span>
         </div>';
 		if($relativeCount==1){
 			echo '
-        <div style="clear:both" id="relative'.$relativeCount.'EmailDiv">
-          <label for="relative'.$relativeCount.'Email">Email
+        <div class="form-group col-md-12" id="relative'.$relativeCount.'EmailDiv">
+          <label for="relative'.$relativeCount.'Email">Email*
           </label>
-          <input type="text" name="relative'.$relativeCount.'Email" id="relative'.$relativeCount.'Email" /><span class="required">*</span>
+          <input type="text" class="form-control" name="relative'.$relativeCount.'Email" id="relative'.$relativeCount.'Email" /><span class="required"></span>
+        </div>
+		<div class="form-group col-md-12" id="relative'.$relativeCount.'EmailDiv2">
+          <label for="relative'.$relativeCount.'Email">Re-enter Your Email*
+          </label>
+          <input type="text" class="form-control" name="relative'.$relativeCount.'Email2" id="relative'.$relativeCount.'Email2" /><span class="required"></span>
         </div>			
 			';
 		}
 		echo '
-        <div style="clear:both" id="relative'.$relativeCount.'HometownDiv">
+        <div id="relative'.$relativeCount.'HometownDiv" class="form-group col-md-6">
           <label for="relative'.$relativeCount.'Hometown">City
           </label>
           <input type="text" name="relative'.$relativeCount.'Hometown" id="relative'.$relativeCount.'Hometown" />
         </div>
-        <div style="clear:both" id="relative'.$relativeCount.'HomestateDiv">
+        <div id="relative'.$relativeCount.'HomestateDiv" class="form-group col-md-6">
           <label for="relative'.$relativeCount.'Homestate">State/Province
           </label>
           <input type="text" name="relative'.$relativeCount.'Homestate" id="relative'.$relativeCount.'Homestate" />
         </div>
-        <div style="clear:both" id="relative'.$relativeCount.'CountryDiv">
+        <div class="form-group col-md-12" id="relative'.$relativeCount.'CountryDiv">
           <label for="relative'.$relativeCount.'Country">Country
           </label>
-          <input type="text" name="relative'.$relativeCount.'Country" id="relative'.$relativeCount.'Country" />
+          <input type="text" name="relative'.$relativeCount.'Country" id="relative'.$relativeCount.'Country" class="form-control" />
         </div>
-        <div style="clear:both">
+        <div class="form-group col-md-12">
           <label for="relative'.$relativeCount.'Class">Relationship:</label>
-          <select name="relative'.$relativeCount.'Class" id="relative'.$relativeCount.'Class" style="float:none" />
+          <select name="relative'.$relativeCount.'Class" id="relative'.$relativeCount.'Class" class="form-control" />
           	<option>---Please Select---</option>
           	<option>Parent/Guardian</option>
           	<option>Other Adult Family Member</option>
@@ -1098,7 +1002,7 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
 		if($relativeCount<$relativesTotal){
 			echo '
 	<div style="clear:both; ">
-				  <div><a href="javascript: showAnother(\'relative'.($relativeCount+1).'Div\',\'family\')" style="text-decoration: none; font-size:14px;"><img src="userblue_add.png" style="padding: 0 10px; border: 0" /> Add additional Family Members Attending</a></div>
+				  <div><a href="javascript: showAnother(\'relative'.($relativeCount+1).'Div\',\'family\')" style="text-decoration: none; font-size:14px;">+ Add additional Family Members Attending</a></div>
 				<div class="spacer"></div>	
 			</div>
 			';
@@ -1109,247 +1013,249 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
 }
 ?>
     <div class="spacer" style="clear:both"></div>
-	<div style="margin: 15px; font-size:14px; text-align:right">
-		<div style="float: right; "><input type="hidden" name="totalFamilyMembersAttending" id="totalFamilyMembersAttending" value="1" /></div>
-		<div style="float: right; margin-bottom: 0"><strong>Total Family Members Attending: <span id="totalFamilyMembersAttendingShow">1</span></strong></div>
+	<div>
+		<div><input type="hidden" name="totalFamilyMembersAttending" id="totalFamilyMembersAttending" value="1" /></div>
+		<div class="margin-bottom"><strong>Total Family Members Attending: <span id="totalFamilyMembersAttendingShow">1</span></strong></div>
 	</div>
 	
 	
-	<div style="clear:both; padding:5px; margin:5px; ">
-		<p style="margin: 15px; font-size:16px"><strong>Events</strong></p>
+	<h3 class="subheadline">Events</h3>
 		<div>
-			<div style="margin: 15px; font-size:13px">Please indicate which of the events listed below you plan to attend, and the number of attendees.</div>
+			<div>Please indicate which of the events listed below you plan to attend, and the number of attendees.</div>
 		</div>
-		<div style="margin: 15px; font-size:15px"><strong>Friday, October 31st</strong></div>
+		
+		<div><strong>Your Arrival Information</strong></div>
+
+		<div class="form-group col-md-12" id="whenPlanArrive">
+          <label for="whenPlanArrive" class="labelmed">When do you plan to arrive on campus:</label>
+          <input type="text" name="whenPlanArrive" id="whenPlanArrive" class="form-control" />
+        </div>
+		<div><strong>Friday, October 30th</strong></div>
 		<div>
-			<div style="float:left; text-indent: 10px; text-align: center; width:180px;"><strong>Event</strong></div>
-			<div style="width:160px; float: left"><strong>Number Attending:</strong></div>
+			<div class="form-group col-md-12"><strong>Event</strong> & <strong>Number Attending:</strong> Adults/Children</div>
+
 		</div>
-		<div>
-			<div style="padding-left: 190px; width:53px; margin-right: 12px; float: left">Adults</div>
-			<div style="width:50px; float: left">Children</div>
-		</div>
+
     	<div style="clear:both; display:none;" id="attendClassesDiv">
           <label for="attendClasses" class="labelmed">Attend Classes
           <!-- <span class="small">Add your name</span> -->
           </label>
-          <input type="text" style="width: 50px" name="attendClassesAdults" id="attendClassesAdults" />
-		  <input type="text" style="width: 50px" name="attendClassesChild" id="attendClassesChild" />
+          <input type="text" name="attendClassesAdults" id="attendClassesAdults" />
+		  <input type="text" name="attendClassesChild" id="attendClassesChild" />
         </div>
 		<div style="clear:both; display:none;" id="labOpenHouseDiv">
           <label for="labOpenHouse" class="labelmed">Lab Open House
           <!-- <span class="small">Add your name</span> -->
           </label>
-          <input type="text" style="width: 50px" name="labOpenHouseAdults" id="labOpenHouseAdults" />
-		  <input type="text" style="width: 50px" name="labOpenHouseChild" id="labOpenHouseChild" />
+          <input type="text" name="labOpenHouseAdults" id="labOpenHouseAdults" />
+		  <input type="text" name="labOpenHouseChild" id="labOpenHouseChild" />
         </div>
 		<div style="clear:both; display:none; " id="familyRecreationTimeDiv">
           <label for="familyRecreationTime" class="labelmed">Family Recreation Time
           <!-- <span class="small">Add your name</span> -->
           </label>
-          <input type="text" style="width: 50px" name="familyRecreationTimeAdults" id="familyRecreationTimeAdults" />
-		  <input type="text" style="width: 50px" name="familyRecreationTimeChild" id="familyRecreationTimeChild" />
+          <input type="text" name="familyRecreationTimeAdults" id="familyRecreationTimeAdults" />
+		  <input type="text" name="familyRecreationTimeChild" id="familyRecreationTimeChild" />
         </div>
 		<div style="clear:both; display:none;" id="winStudentResourceCommonsDiv">
           <label for="winStudentResourceCommons" class="labelmed">Win Student Resource Commons: Support Services for Students</label>
-          <input type="text" style="width: 50px" name="winStudentResourceCommonsAdults" id="winStudentResourceCommonsAdults" />
-		  <input type="text" style="width: 50px" name="winStudentResourceCommonsChild" id="winStudentResourceCommonsChild" />
+          <input type="text" name="winStudentResourceCommonsAdults" id="winStudentResourceCommonsAdults" />
+		  <input type="text" name="winStudentResourceCommonsChild" id="winStudentResourceCommonsChild" />
         </div>
 
-		<div style="clear:both; " id="trickOrTreatingDiv">
+		<div class="form-group col-md-12" id="trickOrTreatingDiv">
           <label for="trickOrTreatingAdults" class="labelmed">Trick or Treating</label>
-          <input type="text" style="width: 50px" name="trickOrTreatingAdults" id="trickOrTreatingAdults" />
-		  <input type="text" style="width: 50px" name="trickOrTreatingChild" id="trickOrTreatingChild" />
+          <input type="text" name="trickOrTreatingAdults" id="trickOrTreatingAdults" size="3"/>
+		  <input type="text" name="trickOrTreatingChild" id="trickOrTreatingChild" size="3"/>
         </div>
 
-    	<div style="clear:both" id="FYAdjustmentDiv">
+    	<div class="form-group col-md-12" id="FYAdjustmentDiv">
           <label for="FYAdjustmentAdults" class="labelmed">First-Year Adjustment Panel</label>
-          <input type="text" style="width: 50px" name="FYAdjustmentAdults" id="FYAdjustmentAdults" />
-		  <input type="text" style="width: 50px" name="FYAdjustmentChild" id="FYAdjustmentChild" />
+          <input type="text" name="FYAdjustmentAdults" id="FYAdjustmentAdults" size="3"/>
+		  <input type="text" name="FYAdjustmentChild" id="FYAdjustmentChild" size="3"/>
 <!--		  <img src="info.png" onMouseOver="tooltip.show('How does a student settle into the Simon\'s Rock routine? Attend this panel presentation to find out!', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
 
-		<div style="clear:both;" id="welcomeReceptionDiv">
+		<div class="form-group col-md-12" id="welcomeReceptionDiv">
           <label for="welcomeReceptionAdults" class="labelmed">Welcome Reception and Senior Thesis Poster Display</label>
-          <input type="text" style="width: 50px" name="welcomeReceptionAdults" id="welcomeReceptionAdults" />
-		  <input type="text" style="width: 50px" name="welcomeReceptionChild" id="welcomeReceptionChild" />
+          <input type="text" name="welcomeReceptionAdults" id="welcomeReceptionAdults" size="3"/>
+		  <input type="text" name="welcomeReceptionChild" id="welcomeReceptionChild" size="3"/>
         </div>
 
-		<div style="clear:both; " id="murderMysteryChallengeDiv">
+		<div class="form-group col-md-12" id="murderMysteryChallengeDiv">
           <label for="murderMysteryChallengeAdults" class="labelmed">Murder Mystery Challenge</label>
-          <input type="text" style="width: 50px" name="murderMysteryChallengeAdults" id="murderMysteryChallengeAdults" />
-		  <input type="text" style="width: 50px" name="murderMysteryChallengeChild" id="murderMysteryChallengeChild" />
+          <input type="text" name="murderMysteryChallengeAdults" id="murderMysteryChallengeAdults" size="3"/>
+		  <input type="text" name="murderMysteryChallengeChild" id="murderMysteryChallengeChild" size="3"/>
         </div>
 
-    	<div style="clear:both;" id="halloweenDanceDiv">
+    	<div class="form-group col-md-12" id="halloweenDanceDiv">
           <label for="halloweenDanceAdults" class="labelmed">Halloween Dance</label>
-          <input type="text" style="width: 50px" name="halloweenDanceAdults" id="halloweenDanceAdults" />
-		  <input type="text" style="width: 50px" name="halloweenDanceChild" id="halloweenDanceChild" />
+          <input type="text" name="halloweenDanceAdults" id="halloweenDanceAdults" size="3"/>
+		  <input type="text" name="halloweenDanceChild" id="halloweenDanceChild" size="3"/>
         </div>
 
-    	<div style="clear:both;" id="frightFilmFestDiv">
+    	<div class="form-group col-md-12" id="frightFilmFestDiv">
           <label for="frightFilmFestAdults" class="labelmed">Fright Film Fest</label>
-          <input type="text" style="width: 50px" name="frightFilmFestAdults" id="frightFilmFestAdults" />
-		  <input type="text" style="width: 50px" name="frightFilmFestChild" id="frightFilmFestChild" />
+          <input type="text" name="frightFilmFestAdults" id="frightFilmFestAdults" size="3"/>
+		  <input type="text" name="frightFilmFestChild" id="frightFilmFestChild" size="3"/>
         </div>
 
 		<div class="spacer"></div>
 		
-		<div style="margin: 15px; font-size:15px; clear:both"><strong>Saturday, November 1st</strong></div>
+		<div style="clear:both"><strong>Saturday, October 31st</strong></div>
 		
-		<div style="clear:both; " id="honorsConvocationDiv">
+		<div class="form-group col-md-12" id="honorsConvocationDiv">
           <label for="honorsConvocationCommons" class="labelmed">Honors Convocation</label>
-          <input type="text" style="width: 50px" name="honorsConvocationAdults" id="honorsConvocationAdults" />
-		  <input type="text" style="width: 50px" name="honorsConvocationChild" id="honorsConvocationChild" />
+          <input type="text" name="honorsConvocationAdults" id="honorsConvocationAdults" size="3"/>
+		  <input type="text" name="honorsConvocationChild" id="honorsConvocationChild" size="3"/>
 <!-- 		  <img src="info.png" onMouseOver="tooltip.show('Join Provost Peter Laipson and the faculty and student speakers on this special evening when the College celebrates this year\'s recipients of named scholarships', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
 
     	<div style="clear:both; display:none;" id="studAffairsOHDiv">
           <label for="studAffairsOH" class="labelmed">Student Affairs Open House</label>
-          <input type="text" style="width: 50px" name="studAffairsOHAdults" id="studAffairsOHAdults" />
-		  <input type="text" style="width: 50px" name="studAffairsOHChild" id="studAffairsOHChild" />
+          <input type="text" name="studAffairsOHAdults" id="studAffairsOHAdults" size="3"/>
+		  <input type="text" name="studAffairsOHChild" id="studAffairsOHChild" size="3"/>
         </div>
-    	<div style="clear:both" id="alumniPanelDiv">
+    	<div class="form-group col-md-12" id="alumniPanelDiv">
           <label for="alumniPanel" class="labelmed">Alumni Career Panel</label>
-          <input type="text" style="width: 50px" name="alumniPanelAdults" id="alumniPanelAdults" />
-		  <input type="text" style="width: 50px" name="alumniPanelChild" id="alumniPanelChild" />
+          <input type="text" name="alumniPanelAdults" id="alumniPanelAdults" size="3"/>
+		  <input type="text" name="alumniPanelChild" id="alumniPanelChild" size="3"/>
 <!--		  <img src="info.png" onMouseOver="tooltip.show('Alumni share their academic/career paths since leaving Simon\'s Rock.', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
-    	<div style="clear:both" id="studyAbroadPanelDiv">
+    	<div class="form-group col-md-12" id="studyAbroadPanelDiv">
           <label for="studyAbroadPanel" class="labelmed">Study Abroad Panel</label>
-          <input type="text" style="width: 50px" name="studyAbroadPanelAdults" id="studyAbroadPanelAdults" />
-		  <input type="text" style="width: 50px" name="studyAbroadPanelChild" id="studyAbroadPanelChild" />
+          <input type="text" name="studyAbroadPanelAdults" id="studyAbroadPanelAdults" size="3"/>
+		  <input type="text" name="studyAbroadPanelChild" id="studyAbroadPanelChild" size="3"/>
 <!--		  <img src="info.png" onMouseOver="tooltip.show('Five seniors will share their experiences during their study away program.', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
     	<div style="clear:both; display: none" id="internationalFairDiv">
           <label for="internationalFair" class="labelmed">International Fair</label>
-          <input type="text" style="width: 50px" name="internationalFairAdults" id="internationalFairAdults" />
-		  <input type="text" style="width: 50px" name="internationalFairChild" id="internationalFairChild" />
+          <input type="text" name="internationalFairAdults" id="internationalFairAdults" size="3"/>
+		  <input type="text" name="internationalFairChild" id="internationalFairChild" size="3"/>
 <!--		  <img src="info.png" onMouseOver="tooltip.show('Students invite you to learn about their area of the world in a variety of ways:  through photographs, videos, dress, cuisine, and language, among others.', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
     	<div style="clear:both;display: none" id="seniorThesisPanelDiv">
           <label for="seniorThesisPanel" class="labelmed">Senior Thesis Panel</label>
-          <input type="text" style="width: 50px" name="seniorThesisPanelAdults" id="seniorThesisPanelAdults" />
-		  <input type="text" style="width: 50px" name="seniorThesisPanelChild" id="seniorThesisPanelChild" />
+          <input type="text" name="seniorThesisPanelAdults" id="seniorThesisPanelAdults" size="3"/>
+		  <input type="text" name="seniorThesisPanelChild" id="seniorThesisPanelChild" size="3"/>
 		  <!-- <img src="info.png" onMouseOver="tooltip.show('', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
     	<div style="clear:both; display: none" id="studentShowcaseDiv">
           <label for="studentShowcase" class="labelmed">Student Showcase</label>
-          <input type="text" style="width: 50px" name="studentShowcaseAdults" id="studentShowcaseAdults" />
-		  <input type="text" style="width: 50px" name="studentShowcaseChild" id="studentShowcaseChild" />
+          <input type="text" name="studentShowcaseAdults" id="studentShowcaseAdults" size="3"/>
+		  <input type="text" name="studentShowcaseChild" id="studentShowcaseChild" size="3"/>
 <!-- 		  <img src="info.png" onMouseOver="tooltip.show('', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
     	<div style="clear:both; display:none" id="provostsReceptionDiv">
           <label for="provostsReception" class="labelmed">Provost's Reception</label>
-          <input type="text" style="width: 50px" name="provostsReceptionAdults" id="provostsReceptionAdults" />
-		  <input type="text" style="width: 50px; display: none" value="0" name="provostsReceptionChild" id="provostsReceptionChild" />
+          <input type="text" name="provostsReceptionAdults" id="provostsReceptionAdults" size="3"/>
+		  <input type="text" style="display: none" value="0" name="provostsReceptionChild" id="provostsReceptionChild" size="3"/>
 <!--		  <img src="info.png" onMouseOver="tooltip.show('Provost Peter Laipson invites parents (only, please) to join him and members of the faculty and staff for a reception.', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
 
 
-    	<div style="clear:both;" id="jazzEnsembleConcertDiv">
+    	<div class="form-group col-md-12" id="jazzEnsembleConcertDiv">
           <label for="jazzEnsembleConcert" class="labelmed">Jazz Ensemble Concert</label>
-          <input type="text" style="width: 50px" name="jazzEnsembleConcertAdults" id="jazzEnsembleConcertAdults" />
-		  <input type="text" style="width: 50px" name="jazzEnsembleConcertChild" id="jazzEnsembleConcertChild" />
+          <input type="text" name="jazzEnsembleConcertAdults" id="jazzEnsembleConcertAdults" size="3"/>
+		  <input type="text" name="jazzEnsembleConcertChild" id="jazzEnsembleConcertChild" size="3"/>
         </div>
         
         
 		<div class="spacer"></div>
 		
 		
-		<div style="margin: 15px; font-size:15px; clear:both;"><strong>Sunday, November 2nd</strong></div>
+		<div><strong>Sunday, November 1st</strong></div>
 		
-    	<div style="clear:both;" id="hikeUpMountainDiv">
+    	<div class="form-group col-md-12" id="hikeUpMountainDiv">
           <label for="hikeUpMountain" class="labelmed">Interpretative Trail Guided Walk</label>
-          <input type="text" style="width: 50px" name="hikeUpMountainAdults" id="hikeUpMountainAdults" />
-		  <input type="text" style="width: 50px" name="hikeUpMountainChild" id="hikeUpMountainChild" />
+          <input type="text" name="hikeUpMountainAdults" id="hikeUpMountainAdults" size="3"/>
+		  <input type="text" name="hikeUpMountainChild" id="hikeUpMountainChild" size="3"/>
 <!--		  <img src="info.png" onMouseOver="tooltip.show('Join us for a hike in one of our local parks.', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
-    	<div style="clear:both;" id="pianoRecitalDiv">
+    	<div class="form-group col-md-12" id="pianoRecitalDiv">
           <label for="pianoRecitalAdults" class="labelmed">Piano Recital</label>
-          <input type="text" style="width: 50px" name="pianoRecitalAdults" id="pianoRecitalAdults" />
-		  <input type="text" style="width: 50px" name="pianoRecitalChild" id="pianoRecitalChild" />
+          <input type="text" name="pianoRecitalAdults" id="pianoRecitalAdults" size="3"/>
+		  <input type="text" name="pianoRecitalChild" id="pianoRecitalChild" size="3"/>
         </div>
-    	<div style="clear:both;padding-top: 20px;" id="normanRockwellMuseumDiv">
+    	<div class="form-group col-md-12" id="normanRockwellMuseumDiv">
           <div>Norman Rockwell Museum &amp; Stockbridge (Note: Admission fee to museum to be paid upon arrival by each guest.)</div>
           <label for="normanRockwellMuseumTransportationAdults" class="labelmed">&nbsp;</label>
-          <input type="text" style="width: 50px" name="normanRockwellMuseumAdults" id="normanRockwellMuseumAdults" />
-		  <input type="text" style="width: 50px" name="normanRockwellMuseumChild" id="normanRockwellMuseumChild" />
-          <div style="clear: both; margin:auto">
-            <input value="1" type="checkbox" name="normanRockwellMuseumTransportationAdults" id="normanRockwellMuseumTransportationAdults" style="width: auto; float:left; margin: 2px 5px 0 191px">
-            <label for="normanRockwellMuseumTransportationAdults" class="labelmed" style="width: auto; float:left">Will you need transportation?</label>
+          <input type="text" name="normanRockwellMuseumAdults" id="normanRockwellMuseumAdults" size="3"/>
+		  <input type="text" name="normanRockwellMuseumChild" id="normanRockwellMuseumChild" size="3"/>
+          <div class="form-group col-md-12">
+            <input value="1" type="checkbox" name="normanRockwellMuseumTransportationAdults" id="normanRockwellMuseumTransportationAdults">
+            <label for="normanRockwellMuseumTransportationAdults" class="labelmed">Will you need transportation?</label>
 		  </div>
         </div>
-    	<div style="clear:both; padding-top: 20px;" id="walkingTourDiv">
+    	<div class="form-group col-md-12" id="walkingTourDiv">
           <div>Great Barrington Historical Walking Tour</div>
           <label for="walkingTourAdults" class="labelmed">&nbsp;</label>
-          <input type="text" style="width: 50px" name="walkingTourAdults" id="walkingTourAdults" />
-		  <input type="text" style="width: 50px" name="walkingTourChild" id="walkingTourChild" />
-          <div style="clear: both; margin:auto">
-            <input value="1" type="checkbox" name="walkingTourTransportationAdults" id="walkingTourTransportationAdults" style="width: auto; float:left; margin: 2px 5px 0 191px">
-            <label for="walkingTourTransportationAdults" class="labelmed" style="width: auto; float:left">Will you need transportation?</label>
+          <input type="text" name="walkingTourAdults" id="walkingTourAdults" size="3"/>
+		  <input type="text" name="walkingTourChild" id="walkingTourChild" size="3"/>
+          <div class="form-group col-md-12">
+            <input value="1" type="checkbox" name="walkingTourTransportationAdults" id="walkingTourTransportationAdults">
+            <label for="walkingTourTransportationAdults" class="labelmed">Will you need transportation?</label>
 		  </div>
         </div>
-	</div>
+	
 	<div class="spacer"></div>
 
-	<div style="clear:both; padding:5px; margin:5px; ">
-		<p style="margin: 15px; font-size:16px"><strong>Meals</strong></p>
+	<div style="clear:both;">
+		<h3 class="subheadline">Meals</h3>
 		<div>
-			<div style="margin: 15px; font-size:13px">
+			<div>
             	Please indicate below which meals you plan to attend. <br />(Note: Students currently on the meal plan are already covered for the meals below.)</div>
 		</div>
 		<div>
-			<div style="float:left; text-indent: 10px; text-align: right; width:180px;padding-right: 10px;"><strong>Meal</strong></div>
-			<div style="width:160px; float: left"><strong># Attending</strong></div>
+			<div><strong>Meal</strong> & <strong># Attending</strong></div>
 		</div>
-    	<div style="clear:both; " id="fridayLunchDiv">
-          <label for="fridayLunch" class="labelmed" style="margin-top: 5px;">Friday Lunch</label>
-          <input type="text" style="width: 50px" name="fridayLunch" id="fridayLunch" onKeyUp="calculateMeals(); setTemps(this.id)" /><div class="price">@ $8</div>
+    	<div class="form-group col-md-12" id="fridayLunchDiv">
+          <label for="fridayLunch" class="labelmed">Friday Lunch</label>
+          <input type="text" name="fridayLunch" id="fridayLunch" onKeyUp="calculateMeals(); setTemps(this.id)" size="3"/> @ $8
           <input type="hidden" name="fridayLunchTemp" id="fridayLunchTemp">
         </div>
-    	<div style="clear:both" id="fridayDinnerDiv">
-          <label for="fridayDinner" class="labelmed" style="margin-top: 5px;">Friday Dinner</label>
-          <input type="text" style="width: 50px" name="fridayDinner" id="fridayDinner" onKeyUp="calculateMeals(); setTemps(this.id)" /><div class="price">@ $9</div>
+    	<div class="form-group col-md-12" id="fridayDinnerDiv">
+          <label for="fridayDinner" class="labelmed">Friday Dinner</label>
+          <input type="text" name="fridayDinner" id="fridayDinner" onKeyUp="calculateMeals(); setTemps(this.id)" size="3"/> @ $9
           <input type="hidden" name="fridayDinnerTemp" id="fridayDinnerTemp">
         </div>
-    	<div style="clear:both;" id="saturdayBrunchDiv">
+    	<div class="form-group col-md-12" id="saturdayBrunchDiv">
           <label for="saturdayBrunch" class="labelmed">Saturday Breakfast</label>
-          <input type="text" style="width: 50px" name="saturdayBrunch" id="saturdayBrunch" onKeyUp="calculateMeals(); setTemps(this.id)" /><div class="price">@ $5</div>
+          <input type="text" name="saturdayBrunch" id="saturdayBrunch" onKeyUp="calculateMeals(); setTemps(this.id)" size="3"/> @ $5
           <input type="hidden" name="saturdayBrunchTemp" id="saturdayBrunchTemp">
         </div>
-    	<div style="clear:both; " id="saturdayLunchDiv">
+    	<div class="form-group col-md-12" id="saturdayLunchDiv">
           <label for="saturdayLunch" class="labelmed">Harvest Fest Lunch</label>
-          <input type="text" style="width: 50px" name="saturdayLunch" id="saturdayLunch" onKeyUp="calculateMeals(); setTemps(this.id)" /><div class="price">@ $9</div>
+          <input type="text" name="saturdayLunch" id="saturdayLunch" onKeyUp="calculateMeals(); setTemps(this.id)" size="3"/> @ $9
           <input type="hidden" name="saturdayLunchTemp" id="saturdayLunchTemp">
         </div>
-    	<div style="clear:both" id="saturdayDinnerDiv">
-          <label for="saturdayDinner" class="labelmed" style="margin-top: 5px;">Saturday Dinner</label>
-          <input type="text" style="width: 50px" name="saturdayDinner" id="saturdayDinner" onKeyUp="calculateMeals(); setTemps(this.id)" /><div class="price">@ $9</div>
+    	<div class="form-group col-md-12" id="saturdayDinnerDiv">
+          <label for="saturdayDinner" class="labelmed">Saturday Dinner</label>
+          <input type="text" name="saturdayDinner" id="saturdayDinner" onKeyUp="calculateMeals(); setTemps(this.id)" size="3"/> @ $9
           <input type="hidden" name="saturdayDinnerTemp" id="saturdayDinnerTemp">
         </div>
-    	<div style="clear:both" id="sundayBrunchDiv">
-          <label for="sundayBrunch" class="labelmed" style="margin-top: 5px;">Sunday Brunch</label>
-          <input type="text" style="width: 50px" name="sundayBrunch" id="sundayBrunch" onKeyUp="calculateMeals(); setTemps(this.id)" /><div class="price">@ $9</div>
+    	<div class="form-group col-md-12" id="sundayBrunchDiv">
+          <label for="sundayBrunch" class="labelmed">Sunday Brunch</label>
+          <input type="text" name="sundayBrunch" id="sundayBrunch" onKeyUp="calculateMeals(); setTemps(this.id)" size="3"/> @ $9
           <input type="hidden" name="sundayBrunchTemp" id="sundayBrunchTemp">
         </div>
 		<div style="clear:both" id="totalDiv">
-          <div class="price" style="width: 350px; font-size: 15px"><strong>TOTAL: $</strong></div><input type="text" class="total" onFocus="this.blur()" name="total" id="total" readonly />
+          <div class="price"><strong>TOTAL: $</strong></div><input type="text" class="total" onFocus="this.blur()" name="total" id="total" readonly />
         </div>
-    	<div style="clear:both; height: 35px;" id="paypalDiv">
+    	<div style="clear:both;" id="paypalDiv">
 <!--           <input style="margin-left: 150px;" type="checkbox" class="radio" name="cashAtDoor" id="cashAtDoor" onClick="doCashAtDoor(this.checked)"  /> -->
-		  <input style="margin-left: 150px;" type="radio" class="radio" name="mop" id="paypal" value="paypal"  /> 
-          <label style="text-align:left" for="paypal" class="labelmed">I will pay by credit card now.</label>
+		  <input type="radio" class="radio" name="mop" id="paypal" value="paypal"  /> 
+          <label for="paypal" class="labelmed">I will pay by credit card now.</label>
         </div>
     	<div style="clear:both; height: 35px;" id="cashAtDoorDiv">
 <!--           <input style="margin-left: 150px;" type="checkbox" class="radio" name="cashAtDoor" id="cashAtDoor" onClick="doCashAtDoor(this.checked)"  /> -->
-		  <input style="margin-left: 150px;" type="radio" class="radio" name="mop" id="cashAtDoor" value="cashAtDoor"  /> 
-          <label style="text-align:left; width: 250px;" for="cashAtDoor" class="labelmed">I will pay cash at the door.<br />(Dining Services only accepts cash)</label>
+		  <input type="radio" class="radio" name="mop" id="cashAtDoor" value="cashAtDoor"  /> 
+          <label for="cashAtDoor" class="labelmed">I will pay cash at the door.<br />(Dining Services only accepts cash)</label>
         </div>
 	</div>
-	<div class="spacer" style="height: 20px;"></div>
-	<button type="submit" name="submit" id="submit">Register Now</button>
 	<div class="spacer"></div>
+	<button type="submit" name="submit" id="submit" class="btn btn-primary">Register Now</button>
+	<div class="margin-bottom"></div>
 	</form>
   </div>
 <script>
@@ -1452,7 +1358,7 @@ function checkForm(){
 
 
         if (!rval) {
-			alert ("Please complete all required (highlighted) fields prior to submitting your form.");
+			alert ("Please complete all required (starred) fields prior to submitting your form.");
 			if(fieldFocus != "") {
 				document.getElementById(fieldFocus).style.display='';
 				document.getElementById(fieldFocus).focus();

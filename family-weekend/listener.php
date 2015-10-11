@@ -32,7 +32,7 @@ if ($verified) {
     
     if ($_POST['payment_status'] != 'Completed') { 
         // simply ignore any IPN that is not completed
-		mail("dscheff@simons-rock.edu","payment_status","not completed");
+		mail("mchameides@simons-rock.edu","payment_status","not completed");
         exit(0); 
     }
 
@@ -61,7 +61,7 @@ if ($verified) {
         // manually investigate errors from the fraud checking
         $body = "IPN failed fraud checks: \n$errmsg\n\n";
         $body .= $listener->getTextReport();
-        mail('dscheff@simons-rock.edu', 'IPN Fraud Warning', $body);
+        mail('mchameides@simons-rock.edu', 'IPN Fraud Warning', $body);
         
     }
 	// else {
@@ -75,14 +75,14 @@ if ($verified) {
 
 	$payer_email = mysql_real_escape_string($_POST['payer_email']);
 	// $mc_gross = mysql_real_escape_string($_POST['mc_gross_1']);
-	$sql = "INSERT INTO forms.fw_meal_payments_2014 VALUES (NULL, '$txn_id', '$payer_email', '$mc_gross')";
+	$sql = "INSERT INTO forms.fw_meal_payments_2015 VALUES (NULL, '$txn_id', '$payer_email', '$mc_gross')";
 	$db->do_query($sql);
 
 	$payer_id = mysql_real_escape_string($_POST['custom']);
-	$sql = "UPDATE fw_program_meal_registration_2014 SET paid_for='1' WHERE payer_id='$payer_id' AND mop='paypal'";
+	$sql = "UPDATE fw_program_meal_registration_2015 SET paid_for='1' WHERE payer_id='$payer_id' AND mop='paypal'";
 	$db->do_query($sql);
 
-	$sql = "SELECT * FROM forms.fw_program_meal_registration_2014 WHERE payer_id=$payer_id AND mop='paypal' LIMIT 1";
+	$sql = "SELECT * FROM forms.fw_program_meal_registration_2015 WHERE payer_id=$payer_id AND mop='paypal' LIMIT 1";
 	$db->do_query($sql);
 	if($db->numRows() > 0){
 		$success = true;
@@ -94,7 +94,7 @@ if ($verified) {
 	
 	if($success) {
 		// mail to Admin
-		$sql = "SELECT * FROM forms.family_weekend_2014 WHERE id='$payer_id' LIMIT 1";
+		$sql = "SELECT * FROM forms.family_weekend_2015 WHERE id='$payer_id' LIMIT 1";
 		$db->do_query($sql);
 		$row = $db->fetchObject();
 		$relative1Fname		= stripslashes($row->relative1Fname);
@@ -134,7 +134,7 @@ if ($verified) {
 					
 	//		mail("cingram@simons-rock.edu","FAMILY WEEKEND MEAL PURCHASE--PAYPAL",$msg, "From: cingram@simons-rock.edu");
 	//	mail("cingram@simons-rock.edu","FAMILY WEEKEND --SUCCESSFUL PAYPAL TRANSACTION",$msg, "From: Cathy Ingram <cingram@simons-rock.edu>");
-		mail("dscheff@simons-rock.edu","FAMILY WEEKEND --SUCCESSFUL PAYPAL TRANSACTION",$msg, "From: Cathy Ingram <cingram@simons-rock.edu>");
+		mail("mchameides@simons-rock.edu","FAMILY WEEKEND --SUCCESSFUL PAYPAL TRANSACTION",$msg, "From: Cathy Ingram <cingram@simons-rock.edu>");
 
 		// now to customer
 		$msg = "";
@@ -154,16 +154,16 @@ if ($verified) {
 		$to = $email;
 		mail($to,"Simon's Rock Family Weekend Payment Confirmation",$msg, "From: Cathy Ingram <cingram@simons-rock.edu>");
 		mail("cingram@simons-rock.edu","COPY (sent to $to) Simon's Rock Family Weekend Payment Confirmation--SUCCESSFUL PAYPAL",$msg, "From: Cathy Ingram <cingram@simons-rock.edu>");
-		mail("dscheff@simons-rock.edu","COPY (sent to $to) Simon's Rock Family Weekend Payment Confirmation--SUCCESSFUL PAYPAL",$msg, "From: Cathy Ingram <cingram@simons-rock.edu>");
+		mail("mchameides@simons-rock.edu","COPY (sent to $to) Simon's Rock Family Weekend Payment Confirmation--SUCCESSFUL PAYPAL",$msg, "From: Cathy Ingram <cingram@simons-rock.edu>");
 	}
 	else {
 		//SELECT * FROM forms.fw_program_meal_registration WHERE payer_id='$payer_id' AND mop='paypal' LIMIT 1
-		mail ("dscheff@simons-rock.edu","ODD TRANSACTION","CHECK ON PROBLEM $payer_id");
+		mail ("mchameides@simons-rock.edu","ODD TRANSACTION","CHECK ON PROBLEM $payer_id");
 	}
 } else {
     // IPN response was "INVALID"
 	// mail("dscheff@simons-rock.edu","NOPE","not so verified");
-    mail('dscheff@simons-rock.edu', 'Invalid IPN', $listener->getTextReport());
+    mail('mchameides@simons-rock.edu', 'Invalid IPN', $listener->getTextReport());
 }
 
 ?>
