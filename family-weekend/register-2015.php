@@ -4,14 +4,14 @@ if($is_test) {
 	ini_set("display_errors","On");
 	error_reporting(E_ALL & ~(E_STRICT|E_NOTICE));
 }
-//require_once $_SERVER['DOCUMENT_ROOT']."/includes/DB.php";
-//require_once $_SERVER['DOCUMENT_ROOT']."/includes/define-connect.php";
-//$db = new DB(HOST,USER,PASSWORD,DATABASE);
-//$db2 = new DB(HOST,USER,PASSWORD,DATABASE);
-//$db3 = new DB(HOST,USER,PASSWORD,DATABASE);
-//$db->connect();
-//$db2->connect();
-//$db3->connect();
+require_once $_SERVER['DOCUMENT_ROOT']."/includes/DB.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/includes/define-connect.php";
+$db = new DB(HOST,USER,PASSWORD,DATABASE);
+$db2 = new DB(HOST,USER,PASSWORD,DATABASE);
+$db3 = new DB(HOST,USER,PASSWORD,DATABASE);
+$db->connect();
+$db2->connect();
+$db3->connect();
 
 function safe($value){ 
    return mysql_real_escape_string($value); 
