@@ -119,7 +119,7 @@ if($walkingTourTransportationAdults == ""){
 				$totalFamilyMembersAttending, NOW(), '$student1MeetingSpecifyWhich', '$student2MeetingSpecifyWhich', '$relative1Email', '$relative1Email2', 
 				'$academicAdvisorMeeting1', '$academicAdvisorMeeting2', '$sophomoreFacultyMeeting1', '$sophomoreFacultyMeeting2','$SMLateArrival1',
 				'$arrivaldetails1','$SMLateArrival2','$arrivaldetails2','$seniorThesisAdvisorMeeting1','$seniorThesisAdvisorMeeting2',
-				$whenPlanArrive,
+				'$whenPlanArrive',
 				$trickOrTreatingAdults, $trickOrTreatingChild, 
 				$murderMysteryChallengeAdults, $murderMysteryChallengeChild, 
 				$frightFilmFestAdults, $frightFilmFestChild, 
@@ -439,8 +439,10 @@ $sophomoreNote = "<p>The sophomore planning meetings are 10-minute appointments 
 		<title>Family Weekend Registration | Bard College at Simon's Rock</title>
 
 		<!-- Bootstrap -->
-		<link href="/_css/app.css" rel="stylesheet"/>
-		<link href="/_css/app_safari_hero_hack.css" rel="stylesheet"/>
+		<link href="/_css/iframe-compiled.css" rel="stylesheet"/>
+		<link href="http://simons-rock.edu/_resources/css/app.css" rel="stylesheet"/>
+		<link href="http://simons-rock.edu/_resources/css/app_safari_hero_hack.css" rel="stylesheet"/>
+
 		
 		<style>
 		/* #20151006 pv */
@@ -678,7 +680,7 @@ var tooltip=function(){
 </script>
 
 </head>
-<body>
+<body class="iframe">
   <div id="stylized" class="myform page-container">
   
 <?php
@@ -1030,7 +1032,7 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
           <label for="whenPlanArrive" class="labelmed">When do you plan to arrive on campus:</label>
           <input type="text" name="whenPlanArrive" id="whenPlanArrive" class="form-control" />
         </div>
-		<div><strong>Friday, October 30th</strong></div>
+		<div><strong>Friday, October 30</strong></div>
 		<div>
 			<div class="form-group col-md-12"><strong>Event</strong> & <strong>Number Attending:</strong> Adults/Children</div>
 
@@ -1102,7 +1104,7 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
 
 		<div class="spacer"></div>
 		
-		<div style="clear:both"><strong>Saturday, October 31st</strong></div>
+		<div style="clear:both"><strong>Saturday, October 31</strong></div>
 		
 		<div class="form-group col-md-12" id="honorsConvocationDiv">
           <label for="honorsConvocationCommons" class="labelmed">Honors Convocation</label>
@@ -1164,7 +1166,7 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
 		<div class="spacer"></div>
 		
 		
-		<div><strong>Sunday, November 1st</strong></div>
+		<div><strong>Sunday, November 1</strong></div>
 		
     	<div class="form-group col-md-12" id="hikeUpMountainDiv">
           <label for="hikeUpMountain" class="labelmed">Interpretative Trail Guided Walk</label>
