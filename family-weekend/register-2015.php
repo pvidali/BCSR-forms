@@ -327,7 +327,7 @@ if($walkingTourTransportationAdults == ""){
 		//$msg .= " - Jazz Ensemble Concert: $jazzEnsembleConcertAdults Adult(s), $jazzEnsembleConcertChild Child(ren)\n";
 
 		$msg .= " - Interpretative Trail Guided Walk: $hikeUpMountainAdults Adult(s), $hikeUpMountainChild Child(ren)\n";
-		$msg .= " - Piano Recital: $pianoRecitalAdults Adult(s), $pianoRecitalChild Child(ren)\n";
+		$msg .= " - Faculty Concert - Allan Dean & Friends: $pianoRecitalAdults Adult(s), $pianoRecitalChild Child(ren)\n";
 
 		/*
 		if($normanRockwellMuseumTransportationAdults == 1){
