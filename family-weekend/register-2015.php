@@ -1088,7 +1088,7 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
           <input type="text" name="winStudentResourceCommonsAdults" id="winStudentResourceCommonsAdults" />
 		  <input type="text" name="winStudentResourceCommonsChild" id="winStudentResourceCommonsChild" />
         </div>
-
+    <!--    
 		<div class="form-group col-md-12" id="trickOrTreatingDiv">
 			<h4>Trick or Treating</h4>
       <label for="trickOrTreatingAdults" class="labelmed">Adults</label>
@@ -1096,6 +1096,7 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
       <label for="trickOrTreatingChild" class="labelmed">Children</label>
   		<input type="text" name="trickOrTreatingChild" id="trickOrTreatingChild" size="5"/>
     </div>
+    -->
 
     	<div class="form-group col-md-12" id="FYAdjustmentDiv">
     		<h4>First-Year Adjustment Panel</h4>
@@ -1121,16 +1122,9 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
       <label for="murderMysteryChallengeChild" class="labelmed">Children</label>
 		  <input type="text" name="murderMysteryChallengeChild" id="murderMysteryChallengeChild" size="5"/>
     </div>
-    <div class="form-group col-md-12" id="halloweenDanceDiv">
-    	<h4>Halloween Dance</h4>
-      <label for="halloweenDanceAdults" class="labelmed">Adults</label>
-      <input type="text" name="halloweenDanceAdults" id="halloweenDanceAdults" size="5"/><br />
-      <label for="halloweenDanceAdults" class="labelmed">Children</label>
-		  <input type="text" name="halloweenDanceChild" id="halloweenDanceChild" size="5"/>
-    </div>
 
     	<div class="form-group col-md-12" id="frightFilmFestDiv">
-    		<h4>Fright Film Fest</h4>
+    		<h4>Scary Movie</h4>
           <label for="frightFilmFestAdults" class="labelmed">Adults</label>
           <input type="text" name="frightFilmFestAdults" id="frightFilmFestAdults" size="5"/><br />
 		 			<label for="frightFilmFestChild" class="labelmed">Child</label>
@@ -1204,6 +1198,7 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
         </div>
 
 
+    	<!--
     	<div class="form-group col-md-12" id="jazzEnsembleConcertDiv">
           <h4>Jazz Ensemble Concert</h4>
           <label for="jazzEnsembleConcert" class="labelmed">Adults</label>
@@ -1211,6 +1206,14 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
           <label for="jazzEnsembleConcertChild" class="labelmed">Child</label>
 		  		<input type="text" name="jazzEnsembleConcertChild" id="jazzEnsembleConcertChild" size="5"/>
       </div>
+      -->
+      <div class="form-group col-md-12" id="halloweenDanceDiv">
+	    	<h4>Halloween Dance</h4>
+	      <label for="halloweenDanceAdults" class="labelmed">Adults</label>
+	      <input type="text" name="halloweenDanceAdults" id="halloweenDanceAdults" size="5"/><br />
+	      <label for="halloweenDanceAdults" class="labelmed">Children</label>
+			  <input type="text" name="halloweenDanceChild" id="halloweenDanceChild" size="5"/>
+	    </div>
         
 		
 		<h3>Sunday, November 1</h3>
@@ -1224,12 +1227,13 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
 <!--		  <img src="info.png" onMouseOver="tooltip.show('Join us for a hike in one of our local parks.', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
     	<div class="form-group col-md-12" id="pianoRecitalDiv">
-    		<h4>Piano Recital</h4>
+    		<h4>Faculty Concert: Allan Dean &amp; Friends</h4>
         <label for="pianoRecitalAdults" class="labelmed">Adults</label>
         <input type="text" name="pianoRecitalAdults" id="pianoRecitalAdults" size="5"/><br />
         <label for="pianoRecitalChild" class="labelmed">Child</label>
 		  	<input type="text" name="pianoRecitalChild" id="pianoRecitalChild" size="5"/>
       </div>
+      <!--
     	<div class="form-group col-md-12" id="normanRockwellMuseumDiv">
           <h4>Norman Rockwell Museum &amp; Stockbridge</h4>
           <p>Admission fee to museum to be paid upon arrival by each guest.</p>
@@ -1242,6 +1246,8 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
             <label for="normanRockwellMuseumTransportationAdults" class="labelmed">I will need transportation</label>
 		  		</div>
         </div>
+      -->
+      <!--
     	<div class="form-group col-md-12" id="walkingTourDiv">
       	<h4>Great Barrington Historical Walking Tour</h4>
     	  <label for="walkingTourAdults" class="labelmed">Adults</label>
@@ -1253,6 +1259,7 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
           <label for="walkingTourTransportationAdults" class="labelmed">I will need transportation</label>
 	  		</div>
       </div>
+      -->
 
 	<div style="clear:both;">
 		<h2>Meals</h2>
