@@ -514,11 +514,12 @@ include_once "../date.php";
 		<td width="125"><strong>Kids</strong></td>
 		<td width="275"><strong>Event</strong></td>
 	</tr>
-	<tr class="rowOther">
+	<!--<tr class="rowOther">
 		<td><?php echo($trickOrTreatingAdults); ?></td>
 		<td><?php echo($trickOrTreatingChild); ?></td>
 		<td>Trick or Treating</td>
 	</tr>
+	-->
 	<tr>
 		<td><?php echo($FYAdjustmentAdults); ?></td>
 		<td><?php echo($FYAdjustmentChild); ?></td>
@@ -534,15 +535,11 @@ include_once "../date.php";
 		<td><?php echo($murderMysteryChallengeChild); ?></td>
 		<td>Murder Mystery Challenge</td>
 	</tr>
-	<tr class="rowOther">
-		<td><?php echo($halloweenDanceAdults); ?></td>
-		<td><?php echo($halloweenDanceChild); ?></td>
-		<td>Halloween Dance</td>
-	</tr>
+	
 	<tr>
 		<td><?php echo($frightFilmFestAdults); ?></td>
 		<td><?php echo($frightFilmFestChild); ?></td>
-		<td>Fright Film Fest</td>
+		<td>Scary Movie</td>
 	</tr>
 	<tr class="rowOther">
 		<td><?php echo($honorsConvocationAdults); ?></td>
@@ -552,14 +549,19 @@ include_once "../date.php";
 	<tr>
 		<td><?php echo($AlumniPanelAdults); ?></td>
 		<td><?php echo($AlumniPanelChild); ?></td>
-		<td>Alumni Panel</td>
+		<td>Alumni Career Panel</td>
 	</tr>
 	<tr class="rowOther">
 		<td><?php echo($studyAbroadPanelAdults); ?></td>
 		<td><?php echo($studyAbroadPanelChild); ?></td>
 		<td>Study Abroad Panel</td>
 	</tr>
-	<tr>
+	<tr class="rowOther">
+		<td><?php echo($halloweenDanceAdults); ?></td>
+		<td><?php echo($halloweenDanceChild); ?></td>
+		<td>Halloween Dance</td>
+	</tr>
+	<!--<tr>
 		<td><?php echo($jazzEnsembleConcertAdults); ?></td>
 		<td><?php echo($jazzEnsembleConcertChild); ?></td>
 		<td>Jazz Ensemble Concert</td>
@@ -569,12 +571,13 @@ include_once "../date.php";
 		<td><?php echo($hikeUpMountainChild); ?></td>
 		<td>Interpretative Trail Walk</td>
 	</tr>
+	-->
 	<tr>
 		<td><?php echo($pianoRecitalAdults); ?></td>
 		<td><?php echo($pianoRecitalChild); ?></td>
-		<td>Piano Recital</td>
+		<td>Faculty Concert</td>
 	</tr>
-
+	<!--
 	<tr class="rowOther">
 		<td><?php echo($normanRockwellMuseumAdults); ?></td>
 		<td><?php echo($normanRockwellMuseumChild); ?></td>
@@ -593,6 +596,7 @@ include_once "../date.php";
 		<td colspan="2"><?php echo($walkingTourTransportationAdults); ?></td>
 		<td>GB Historical Walking Tour Transportation</td>
 	</tr>
+	-->
 </table>
 
 <h2>Number Attending Meal</h2>
