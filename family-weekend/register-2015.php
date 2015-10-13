@@ -84,7 +84,7 @@ if($walkingTourTransportationAdults == ""){
 				fridayLunchAdults, fridayDinnerAdults, 
 				saturdayBrunchAdults, saturdayLunch, saturdayDinnerAdults, 
 				sundayBrunchAdults, 
-				totalFamilyMembersAttending, date_submitted, student1MeetingSpecifyWhich, student2MeetingSpecifyWhich, relative1Email, relative1Email2,
+				totalFamilyMembersAttending, date_submitted, student1MeetingSpecifyWhich, student2MeetingSpecifyWhich, relative1Email,
 				academicAdvisorMeeting1,academicAdvisorMeeting2,sophomoreFacultyMeeting1,sophomoreFacultyMeeting2,SMLateArrival1, 
 				arrivaldetails1,SMLateArrival2, arrivaldetails2, seniorThesisAdvisorMeeting1, seniorThesisAdvisorMeeting2, whenPlanArrive,
 				trickOrTreatingAdults, trickOrTreatingChild, 
@@ -116,7 +116,7 @@ if($walkingTourTransportationAdults == ""){
 				$fridayLunch, $fridayDinner, 
 				$saturdayBrunch, $saturdayLunch, $saturdayDinner, 
 				$sundayBrunch, 
-				$totalFamilyMembersAttending, NOW(), '$student1MeetingSpecifyWhich', '$student2MeetingSpecifyWhich', '$relative1Email', '$relative1Email2', 
+				$totalFamilyMembersAttending, NOW(), '$student1MeetingSpecifyWhich', '$student2MeetingSpecifyWhich', '$relative1Email', 
 				'$academicAdvisorMeeting1', '$academicAdvisorMeeting2', '$sophomoreFacultyMeeting1', '$sophomoreFacultyMeeting2','$SMLateArrival1',
 				'$arrivaldetails1','$SMLateArrival2','$arrivaldetails2','$seniorThesisAdvisorMeeting1','$seniorThesisAdvisorMeeting2',
 				'$whenPlanArrive',
@@ -447,7 +447,7 @@ $sophomoreNote = "<p>The sophomore planning meetings are 10-minute appointments 
 		<style>
 		/* #20151006 pv */
 		#stylized {
-			max-width: 576px;
+			/*max-width: 576px;*/
 			margin-left: auto;
 			margin-right: auto;
 		}
@@ -455,9 +455,9 @@ $sophomoreNote = "<p>The sophomore planning meetings are 10-minute appointments 
 			margin-top: 50px;
 		}
 
-		#stylized.myform .radio {
+		/*#stylized.myform .radio {
 			display: inline;
-		}
+		}*/
 
 		.labelwide {
 			padding-left: 5px;
@@ -691,30 +691,28 @@ if(isset($post_success) & $post_success == true)  {
 else {
 ?>
   
-<h2>Family Weekend 2015 Registration</h2>  
+
 <!--
 	<form id="request" name="request" method="post" action="<?php echo($_SERVER['PHP_SELF']); ?>" onSubmit="return checkForm()">
     -->
 	<form id="request" name="request" method="post" action="<?php echo($_SERVER['PHP_SELF']); ?>">
-
-    <div class="spacer" style="clear:both"></div>
-	<h3 class="subheadline">About Your Student(s)</h3>
-	<div id="student1Div" class="form-group col-md-12">
-		<div>Student #1</div>
-    	<div id="student1FnameDiv" class="form-group col-md-6">
-          <label for="student1Fname">Student First Name*
-          <!-- <span class="small">Add your name</span> -->
-          </label>
-          <input type="text" name="student1Fname" id="student1Fname" class="form-control" /><span class="required"></span>
-        </div>
-        <div id="student1LnameDiv" class="form-group col-md-6">
-          <label for="student1Lname">Student Last Name*
-          </label>
-          <input type="text" name="student1Lname" id="student1Lname" class="form-control" /><span class="required"></span>
-        </div>
+	<h2 class="subheadline">About Your Student(s)</h2>
+	<h3>Student #1</h3>
+	<div id="student1Div">	
+    <div id="student1FnameDiv" class="form-group col-sm-6">
+      <label for="student1Fname">Student First Name*
+      <!-- <span class="small">Add your name</span> -->
+      </label>
+      <input type="text" name="student1Fname" id="student1Fname" class="form-control" /><span class="required"></span>
+    </div>
+    <div id="student1LnameDiv" class="form-group col-sm-6">
+      <label for="student1Lname">Student Last Name*</label>
+        <input type="text" name="student1Lname" id="student1Lname" class="form-control" /><span class="required"></span>
+    </div>
+  </div>
         <div class="spacer"></div>
-        <div class="form-group col-md-12">
-          <label for="student1Class">Currently a:</label>
+        <div class="form-group col-sm-12">
+          <label for="student1Class">Student Current Year</label>
           <select name="student1Class" id="student1Class" class="form-control" onChange="setMeetingTimeMsg(this.value,'1')" />
           	<option>---Please Select---</option>
           	<option value="First-year">First-year</option>
@@ -735,50 +733,66 @@ else {
             </div>
 
        	<div onKeyUp=""><h3 class="subheadline">Meeting Requests</h3>
-         	<div>I would like to meet with:</div>
-            <div
-            	<div>
-              	<input class="radio" type="radio" name="student1Meeting" id="student1MeetingAll" value="all"  onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display='none'"  /><label class="labelwide" for="student1MeetingAll">All of the Student's Available Faculty</label></div>
-            	<div>
-              	<input class="radio" type="radio" name="student1Meeting" id="student1MeetingNone" value="none" onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display='none'" /><label class="labelwide" for="student1MeetingNone" >No Meetings with Faculty</label></div>
-                <div>
-              	<input class="radio" type="radio" name="student1Meeting" id="student1MeetingSpecify" value="some"   onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display=''" /><label class="labelwide" for="student1MeetingSpecify">Certain faculty</label>
-                
-                	<div id="student1MeetingSpecifyWhichDiv" style="display:none" >Please specify the faculty by name or class:<br />
-<input type="text" name="student1MeetingSpecifyWhich" id="student1MeetingSpecifyWhich">
-                    </div>
-                </div>
+         	<h4>I would like to meet with</h4>
+            <div class="form-group col-md-12">
+            	<div class="radio">
+              	<label class="labelwide" for="student1MeetingAll"> <input class="radio" type="radio" name="student1Meeting" id="student1MeetingAll" value="all"  onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display='none'"  />All of the Student's Available Faculty</label></div>
+            	<div class="radio">
+              	<label class="labelwide" for="student1MeetingNone" > <input class="radio" type="radio" name="student1Meeting" id="student1MeetingNone" value="none" onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display='none'" />No Meetings with Faculty</label>
+              </div>
+              <div class="radio">
+              	<label class="labelwide" for="student1MeetingSpecify"> <input class="radio" type="radio" name="student1Meeting" id="student1MeetingSpecify" value="some"   onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display=''" />Certain faculty</label>
+              </div>  
+              <div id="student1MeetingSpecifyWhichDiv" style="display:none" >
+              	Please specify the faculty by name or class
+              		<input type="text" name="student1MeetingSpecifyWhich" id="student1MeetingSpecifyWhich" class="col-sm-12">
+              </div>
             </div>
-			<div>I would like to meet with my student's Academic Advisor:</div>
-			<div style="display:inline-block;">
-				<div ><input type="radio" class="radio" name="academicAdvisorMeeting1" id="academicAdvisorMeeting1Yes" value="1">
-					<label for="academicAdvisorMeeting1Yes" class="labelsmall">Yes</label></div>
-				<div ><input type="radio" class="radio" name="academicAdvisorMeeting1" id="academicAdvisorMeeting1No" value="0">
-					<label for="academicAdvisorMeeting1No" class="labelsmall">No</label></div>
+					
+				</div>
+			<div class="form-group col-md-12">
+				<h4>I would like to meet with my student's Academic Advisor</h4>
+				<div class="radio">
+					<label for="academicAdvisorMeeting1Yes" class="labelsmall"><input type="radio" class="radio" name="academicAdvisorMeeting1" id="academicAdvisorMeeting1Yes" value="1">
+					Yes</label>
+				</div>
+				<div class="radio">
+					<label for="academicAdvisorMeeting1No" class="labelsmall"><input type="radio" class="radio" name="academicAdvisorMeeting1" id="academicAdvisorMeeting1No" value="0">
+					No</label>
+				</div>
 			</div>          
-	    </div>
-		<div style="display:none; " id="seniorThesisAdvisorMeeting1HeaderDiv">I would like to meet with my student's Thesis Advisor:</div>
-		<div style="display:none;" id="seniorThesisAdvisorMeeting1QuestionDiv">
-			<div ><input type="radio" class="radio" name="seniorThesisAdvisorMeeting1" id="seniorThesisAdvisorMeeting1Yes" value="1">
-				<label for="seniorThesisAdvisorMeeting1Yes" class="labelsmall">Yes</label></div>
-			<div ><input type="radio" class="radio" name="seniorThesisAdvisorMeeting1" id="seniorThesisAdvisorMeeting1No" value="0">
-				<label for="seniorThesisAdvisorMeeting1No" class="labelsmall">No</label></div>
+	  </div>
+		<div style="display:none; " id="seniorThesisAdvisorMeeting1HeaderDiv">
+			<h4>I would like to meet with my student's Thesis Advisor</h4>
 		</div>
-        <div style="clear: both; display: none" id="sophomoreFM1">
-        	<div>
-            	Sophomore Planning Meetings 
-                	<div class="msg">
-					<p><?php echo($sophomoreNote);?></span></p>
-					</div>
-            </div>
-
-        	<div>I would like to request a Sophomore Planning Meeting:</div>
-			<div>
-				<div><input type="radio" class="radio" name="sophomoreFacultyMeeting1" id="sophomoreFacultyMeeting1Yes" value="1" onClick="document.getElementById('lateArrive1_div').style.display=''">
-					<label for="sophomoreFacultyMeeting1Yes" class="labelsmall" >Yes</label></div>
-				<div><input type="radio" class="radio" name="sophomoreFacultyMeeting1" id="sophomoreFacultyMeeting1No" value="0" onClick="document.getElementById('lateArrive1_div').style.display='none'">
-					<label for="sophomoreFacultyMeeting1No" class="labelsmall">No</label></div>
+		<div style="display:none;" id="seniorThesisAdvisorMeeting1QuestionDiv" class="form-group col-md-12">
+			<div class="radio">
+				<label for="seniorThesisAdvisorMeeting1Yes" class="labelsmall"><input type="radio" class="radio" name="seniorThesisAdvisorMeeting1" id="seniorThesisAdvisorMeeting1Yes" value="1">
+				Yes</label>
 			</div>
+			<div class="radio">
+				<label for="seniorThesisAdvisorMeeting1No" class="labelsmall"><input type="radio" class="radio" name="seniorThesisAdvisorMeeting1" id="seniorThesisAdvisorMeeting1No" value="0">
+				No</label>
+			</div>
+		</div>
+    <div style="clear: both; display: none" id="sophomoreFM1">
+     <h4>Sophomore Planning Meetings</h4> 
+     <div class="msg">
+				<p><?php echo($sophomoreNote);?></span></p>
+			</div>
+			<h5>I would like to request a Sophomore Planning Meeting</h5>
+			<div class="form-group col-md-12">
+				<div class="radio">
+					<label for="sophomoreFacultyMeeting1Yes" class="labelsmall" ><input type="radio" class="radio" name="sophomoreFacultyMeeting1" id="sophomoreFacultyMeeting1Yes" value="1" onClick="document.getElementById('lateArrive1_div').style.display=''">
+					Yes</label></div>
+				<div class="radio">
+					<label for="sophomoreFacultyMeeting1No" class="labelsmall"><input type="radio" class="radio" name="sophomoreFacultyMeeting1" id="sophomoreFacultyMeeting1No" value="0" onClick="document.getElementById('lateArrive1_div').style.display='none'">
+					No</label>
+				</div>
+			</div>
+    </div>
+
+        	
 <!--			<div id="lateArrive1_div" style="clear:both; display: inline-block; display: none ">
 				<div >
 					<input type="checkbox" name="SMLateArrival1" id="SMLateArrival1" class="radio" onClick="toggleDiv('SMLateArrival1','arrivaldetails_div')">
@@ -797,20 +811,20 @@ else {
 	</div>
 	<div class="spacer"></div>
 	<div style="clear:both; display: none" id="student2Div" class="form-group col-md-12">
-		<div>Student #2</div>
-    	<div id="student2FnameDiv" class="form-group col-md-6">
+		<h2>Student #2</h2>
+    	<div id="student2FnameDiv" class="form-group col-sm-6">
           <label for="student2Fname">Student First Name*
           <!-- <span class="small">Add your name</span> -->
           </label>
-          <input type="text" name="student2Fname" id="student2Fname" /><span class="required"></span>
+          <input type="text" name="student2Fname" id="student2Fname" class="form-control"/><span class="required"></span>
         </div>
-        <div id="student2LnameDiv" class="form-group col-md-6">
+        <div id="student2LnameDiv" class="form-group col-sm-6">
           <label for="student2Lname">Student Last Name*
           </label>
-          <input type="text" name="student2Lname" id="student2Lname" /><span class="required"></span>
+          <input type="text" name="student2Lname" id="student2Lname" class="form-control"/><span class="required"></span>
         </div>
         <div class="spacer"></div>
-        <div class="margin-bottom">
+        <div class="margin-bottom col-sm-12">
           <label for="student2Class">Currently a:</label>
           <select name="student2Class" id="student2Class" class="form-control" onChange="setMeetingTimeMsg(this.value,'2')" />
           	<option>---Please Select---</option>
@@ -831,50 +845,70 @@ else {
 				</div> 
             </div>
 
-        	<div><h3 class="subheadline">Meeting Requests</h3></div>
-        	<div>I would like to meet with:</div>
-            <div>
-            	<div>
-              	<input class="radio" type="radio" name="student2Meeting" id="student2MeetingAll" value="all" onClick="document.getElementById('student2MeetingSpecifyWhichDiv').style.display='none'" /><label class="labelwide" for="student2MeetingAll">All of the Student's Available Faculty</label></div>
-            	<div>
-              	<input class="radio" type="radio" name="student2Meeting" id="student2MeetingNone" value="none" onClick="document.getElementById('student2MeetingSpecifyWhichDiv').style.display='none'" /><label class="labelwide" for="student2MeetingNone" >No Meetings with Faculty</label></div>
-                <div>
-              	<input class="radio" type="radio" name="student2Meeting" id="student2MeetingSpecify" value="some" onClick="document.getElementById('student2MeetingSpecifyWhichDiv').style.display=''"  /><label class="labelwide" for="student2MeetingSpecify">Specify Certain Faculty</label>
-                
-                	<div id="student2MeetingSpecifyWhichDiv" style="display:none" >Please specify the Faculty (or the course subject matter) with which you wish to meet:<br />
-						<input type="text" name="student2MeetingSpecifyWhich" style="width:300px; padding: 4px" id="student2MeetingSpecifyWhich">
-                    </div>
-                </div>
+        	<div>
+        		<h3 class="subheadline">Meeting Requests</h3>
+        	</div>
+        		<h4>I would like to meet with</h4>
+            <div class="form-group col-md-12">
+            	<div class="radio">
+              	<label class="labelwide" for="student2MeetingAll"><input class="radio" type="radio" name="student2Meeting" id="student2MeetingAll" value="all" onClick="document.getElementById('student2MeetingSpecifyWhichDiv').style.display='none'" />All of the Student's Available Faculty</label>
+              </div>
+            	<div class="radio">
+              	<label class="labelwide" for="student2MeetingNone" ><input class="radio" type="radio" name="student2Meeting" id="student2MeetingNone" value="none" onClick="document.getElementById('student2MeetingSpecifyWhichDiv').style.display='none'" />No Meetings with Faculty</label>
+              </div>
+              <div class="radio">
+              	<label class="labelwide" for="student2MeetingSpecify"><input class="radio" type="radio" name="student2Meeting" id="student2MeetingSpecify" value="some" onClick="document.getElementById('student2MeetingSpecifyWhichDiv').style.display=''"  />Certain Faculty</label>
+              </div>
+              <div id="student2MeetingSpecifyWhichDiv" style="display:none" >
+              	Please specify the faculty by name or class
+								<input type="text" name="student2MeetingSpecifyWhich" id="student2MeetingSpecifyWhich" class="col-sm-12">
+              </div>
             </div>
-			<div>I would like to meet with my student's Academic Advisor:</div>
-			<div style="display:inline-block;">
-				<div ><input type="radio" class="radio" name="academicAdvisorMeeting2" id="academicAdvisorMeeting2Yes" value="1">
-					<label for="academicAdvisorMeeting2Yes" class="labelsmall">Yes</label></div>
-				<div ><input type="radio" class="radio" name="academicAdvisorMeeting2" id="academicAdvisorMeeting2No" value="0">
-					<label for="academicAdvisorMeeting2No" class="labelsmall">No</label></div>
+          </div>
+			<div class="form-group col-md-12">
+			<h4>I would like to meet with my student's Academic Advisor</h4>
+				<div class="radio">
+					<label for="academicAdvisorMeeting2Yes" class="labelsmall"><input type="radio" class="radio" name="academicAdvisorMeeting2" id="academicAdvisorMeeting2Yes" value="1">
+					Yes</label>
+				</div>
+				<div class="radio">
+					<label for="academicAdvisorMeeting2No" class="labelsmall"><input type="radio" class="radio" name="academicAdvisorMeeting2" id="academicAdvisorMeeting2No" value="0">
+					No</label>
+				</div>
 			</div>
-			<div style="display: none;" id="seniorThesisAdvisorMeeting2HeaderDiv">I would like to meet with my student's Thesis Advisor:</div>
-			<div style="display:none;" id="seniorThesisAdvisorMeeting2QuestionDiv">
-				<div ><input type="radio" class="radio" name="seniorThesisAdvisorMeeting2" id="seniorThesisAdvisorMeeting2Yes" value="1">
-					<label for="seniorThesisAdvisorMeeting2Yes" class="labelsmall">Yes</label></div>
-				<div ><input type="radio" class="radio" name="seniorThesisAdvisorMeeting2" id="seniorThesisAdvisorMeeting2No" value="0">
-					<label for="seniorThesisAdvisorMeeting2No" class="labelsmall">No</label></div>
+			<div style="display: none;" id="seniorThesisAdvisorMeeting2HeaderDiv">
+				<h4>I would like to meet with my student's Thesis Advisor</h4>
+			</div>
+			<div style="display:none;" id="seniorThesisAdvisorMeeting2QuestionDiv" class="form-group col-md-12">
+				<div class="radio">
+					<label for="seniorThesisAdvisorMeeting2Yes" class="labelsmall">
+					<input type="radio" class="radio" name="seniorThesisAdvisorMeeting2" id="seniorThesisAdvisorMeeting2Yes" value="1">
+					Yes</label></div>
+				<div class="radio">
+					<label for="seniorThesisAdvisorMeeting2No" class="labelsmall"><input type="radio" class="radio" name="seniorThesisAdvisorMeeting2" id="seniorThesisAdvisorMeeting2No" value="0">
+					No</label>
+				</div>
 			</div>
 
 
         </div>
         <div style="clear: both; display: none" id="sophomoreFM2">
         	<div>
-            	Sophomore Planning Meetings 
-                	<div class="msg"><p><?php echo($sophomoreNote);?></span></p></div>
-            </div>
-
-        	<div>I would like to request a Sophomore Planning Meeting:</div>
-			<div>
-				<div ><input type="radio" class="radio" name="sophomoreFacultyMeeting2" id="sophomoreFacultyMeeting2Yes" value="1" onClick="document.getElementById('lateArrive2_div').style.display='inline-block'">
-					<label for="sophomoreFacultyMeeting2Yes" class="labelsmall">Yes</label></div>
-				<div ><input type="radio" class="radio" name="sophomoreFacultyMeeting2" id="sophomoreFacultyMeeting2No" value="0" onClick="document.getElementById('lateArrive2_div').style.display='none'">
-					<label for="sophomoreFacultyMeeting2No" class="labelsmall">No</label></div>
+          	<h4>Sophomore Planning Meetings</h4>
+          	<div class="msg">
+           		<p><?php echo($sophomoreNote);?></span></p>
+          	</div>
+          </div>
+        	<h5>I would like to request a Sophomore Planning Meeting</h5>
+					<div class="form-group col-md-12">
+        		<div class="radio">
+        			<label for="sophomoreFacultyMeeting2Yes" class="labelsmall"><input type="radio" class="radio" name="sophomoreFacultyMeeting2" id="sophomoreFacultyMeeting2Yes" value="1" onClick="document.getElementById('lateArrive2_div').style.display='inline-block'">
+							Yes</label>
+						</div>
+					<div class="radio">
+						<label for="sophomoreFacultyMeeting2No" class="labelsmall"><input type="radio" class="radio" name="sophomoreFacultyMeeting2" id="sophomoreFacultyMeeting2No" value="0" onClick="document.getElementById('lateArrive2_div').style.display='none'">
+						No</label>
+					</div>
 			</div>
 <!--
 			<div id="lateArrive2_div" style="clear:both; padding: 0 0 0 70px;display: inline-block; display: none">
@@ -930,7 +964,7 @@ else {
 	</div>
 -->
     <div class="margin-bottom"></div>
-	<h3 class="subheadline">Family Members Attending</h3>
+	<h2>Family Members Attending</h2>
 	
 <?php 
 for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
@@ -943,54 +977,52 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
 
 	echo '<div style="display:'.$display.'" id="relative'.$relativeCount.'Div" class="form-group col-md-12">';
 	if($relativeCount==1){
-		echo '<div>Your Information</div>';
+		echo '<h3>Your Information</h3>';
 	}
 	else{
-		echo '<div>Family Member '.($relativeCount).'</div>';
+		echo '<h3>Family Member '.($relativeCount).'</h3>';
 	}
 	echo '
-		<div id="student'.$relativeCount.'FnameDiv" class="form-group col-md-6">
-          <label for="relative'.$relativeCount.'Fname">First Name*
-          <!-- <span class="small">Add your name</span> -->
-          </label>
-          <input type="text" name="relative'.$relativeCount.'Fname" id="relative'.$relativeCount.'Fname" /><span class="required"></span>
-        </div>
-        <div id="relative'.$relativeCount.'LnameDiv" class="form-group col-md-6">
-          <label for="relative'.$relativeCount.'Lname">Last Name*
-          </label>
-          <input type="text" name="relative'.$relativeCount.'Lname" id="relative'.$relativeCount.'Lname" /><span class="required"></span>
-        </div>';
+		<div id="student'.$relativeCount.'FnameDiv" class="form-group col-sm-6">
+      <label for="relative'.$relativeCount.'Fname">First Name*
+      <!-- <span class="small">Add your name</span> -->
+      </label>
+      <input type="text" name="relative'.$relativeCount.'Fname" id="relative'.$relativeCount.'Fname" class="form-control"/><span class="required"></span>
+    </div>
+    <div id="relative'.$relativeCount.'LnameDiv" class="form-group col-sm-6">
+      <label for="relative'.$relativeCount.'Lname">Last Name*
+      </label>
+      <input type="text" name="relative'.$relativeCount.'Lname" id="relative'.$relativeCount.'Lname" class="form-control"/><span class="required"></span>
+    </div>';
 		if($relativeCount==1){
 			echo '
-        <div class="form-group col-md-12" id="relative'.$relativeCount.'EmailDiv">
-          <label for="relative'.$relativeCount.'Email">Email*
-          </label>
-          <input type="text" class="form-control" name="relative'.$relativeCount.'Email" id="relative'.$relativeCount.'Email" /><span class="required"></span>
-        </div>
-		<div class="form-group col-md-12" id="relative'.$relativeCount.'EmailDiv2">
-          <label for="relative'.$relativeCount.'Email">Re-enter Your Email*
-          </label>
-          <input type="text" class="form-control" name="relative'.$relativeCount.'Email2" id="relative'.$relativeCount.'Email2" /><span class="required"></span>
+				<div>
+	        <div class="form-group col-sm-12" id="relative'.$relativeCount.'EmailDiv">
+	          <label for="relative'.$relativeCount.'Email">Email*
+	          </label>
+	          <input type="text" class="form-control" name="relative'.$relativeCount.'Email" id="relative'.$relativeCount.'Email" /><span class="required"></span>
+	        </div>
+					
         </div>			
 			';
 		}
 		echo '
-        <div id="relative'.$relativeCount.'HometownDiv" class="form-group col-md-6">
+        <div id="relative'.$relativeCount.'HometownDiv" class="form-group col-sm-6">
           <label for="relative'.$relativeCount.'Hometown">City
           </label>
-          <input type="text" name="relative'.$relativeCount.'Hometown" id="relative'.$relativeCount.'Hometown" />
+          <input type="text" name="relative'.$relativeCount.'Hometown" id="relative'.$relativeCount.'Hometown" class="form-control"/>
         </div>
-        <div id="relative'.$relativeCount.'HomestateDiv" class="form-group col-md-6">
+        <div id="relative'.$relativeCount.'HomestateDiv" class="form-group col-sm-6">
           <label for="relative'.$relativeCount.'Homestate">State/Province
           </label>
-          <input type="text" name="relative'.$relativeCount.'Homestate" id="relative'.$relativeCount.'Homestate" />
+          <input type="text" name="relative'.$relativeCount.'Homestate" id="relative'.$relativeCount.'Homestate" class="form-control"/>
         </div>
-        <div class="form-group col-md-12" id="relative'.$relativeCount.'CountryDiv">
+        <div class="form-group col-sm-12" id="relative'.$relativeCount.'CountryDiv">
           <label for="relative'.$relativeCount.'Country">Country
           </label>
           <input type="text" name="relative'.$relativeCount.'Country" id="relative'.$relativeCount.'Country" class="form-control" />
         </div>
-        <div class="form-group col-md-12">
+        <div class="form-group col-sm-12">
           <label for="relative'.$relativeCount.'Class">Relationship:</label>
           <select name="relative'.$relativeCount.'Class" id="relative'.$relativeCount.'Class" class="form-control" />
           	<option>---Please Select---</option>
@@ -999,7 +1031,6 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
           	<option>Child under 12</option>
           </select>
         </div>        
-
 ';
 		if($relativeCount<$relativesTotal){
 			echo '
@@ -1021,23 +1052,16 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
 	</div>
 	
 	
-	<h3 class="subheadline">Events</h3>
-		<div>
-			<div>Please indicate which of the events listed below you plan to attend, and the number of attendees.</div>
-		</div>
+	<h2>Events</h2>
 		
-		<div><strong>Your Arrival Information</strong></div>
-
-		<div class="form-group col-md-12" id="whenPlanArrive">
-          <label for="whenPlanArrive" class="labelmed">When do you plan to arrive on campus:</label>
-          <input type="text" name="whenPlanArrive" id="whenPlanArrive" class="form-control" />
-        </div>
-		<div><strong>Friday, October 30</strong></div>
+	<div class="form-group col-md-12" id="whenPlanArrive">
+    <label for="whenPlanArrive" class="labelmed">When do you plan to arrive on campus</label>
+    <input type="text" name="whenPlanArrive" id="whenPlanArrive" class="form-control" />
+  </div>
+  <p>Please indicate which of the events listed below you plan to attend, and the number of attendees.</p>
+		<h3>Friday, October 30</h3>
 		<div>
-			<div class="form-group col-md-12"><strong>Event</strong> & <strong>Number Attending:</strong> Adults/Children</div>
-
-		</div>
-
+			
     	<div style="clear:both; display:none;" id="attendClassesDiv">
           <label for="attendClasses" class="labelmed">Attend Classes
           <!-- <span class="small">Add your name</span> -->
@@ -1066,194 +1090,218 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
         </div>
 
 		<div class="form-group col-md-12" id="trickOrTreatingDiv">
-          <label for="trickOrTreatingAdults" class="labelmed">Trick or Treating</label>
-          <input type="text" name="trickOrTreatingAdults" id="trickOrTreatingAdults" size="3"/>
-		  <input type="text" name="trickOrTreatingChild" id="trickOrTreatingChild" size="3"/>
-        </div>
+			<h4>Trick or Treating</h4>
+      <label for="trickOrTreatingAdults" class="labelmed">Adults</label>
+      <input type="text" name="trickOrTreatingAdults" id="trickOrTreatingAdults" size="5"/><br />
+      <label for="trickOrTreatingChild" class="labelmed">Children</label>
+  		<input type="text" name="trickOrTreatingChild" id="trickOrTreatingChild" size="5"/>
+    </div>
 
     	<div class="form-group col-md-12" id="FYAdjustmentDiv">
-          <label for="FYAdjustmentAdults" class="labelmed">First-Year Adjustment Panel</label>
-          <input type="text" name="FYAdjustmentAdults" id="FYAdjustmentAdults" size="3"/>
-		  <input type="text" name="FYAdjustmentChild" id="FYAdjustmentChild" size="3"/>
+    		<h4>First-Year Adjustment Panel</h4>
+          <label for="FYAdjustmentAdults" class="labelmed">Adults</label>
+          <input type="text" name="FYAdjustmentAdults" id="FYAdjustmentAdults" size="5"/><br />
+          <label for="FYAdjustmentChild" class="labelmed">Children</label>
+		  		<input type="text" name="FYAdjustmentChild" id="FYAdjustmentChild" size="5"/>
 <!--		  <img src="info.png" onMouseOver="tooltip.show('How does a student settle into the Simon\'s Rock routine? Attend this panel presentation to find out!', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
 
 		<div class="form-group col-md-12" id="welcomeReceptionDiv">
-          <label for="welcomeReceptionAdults" class="labelmed">Welcome Reception and Senior Thesis Poster Display</label>
-          <input type="text" name="welcomeReceptionAdults" id="welcomeReceptionAdults" size="3"/>
-		  <input type="text" name="welcomeReceptionChild" id="welcomeReceptionChild" size="3"/>
+			<h4>Welcome Reception and Senior Thesis Poster Display</h4>
+      <label for="welcomeReceptionAdults" class="labelmed">Adults</label>
+      <input type="text" name="welcomeReceptionAdults" id="welcomeReceptionAdults" size="5"/><br />
+      <label for="welcomeReceptionChild" class="labelmed">Children</label>
+		  <input type="text" name="welcomeReceptionChild" id="welcomeReceptionChild" size="5"/>
         </div>
 
 		<div class="form-group col-md-12" id="murderMysteryChallengeDiv">
-          <label for="murderMysteryChallengeAdults" class="labelmed">Murder Mystery Challenge</label>
-          <input type="text" name="murderMysteryChallengeAdults" id="murderMysteryChallengeAdults" size="3"/>
-		  <input type="text" name="murderMysteryChallengeChild" id="murderMysteryChallengeChild" size="3"/>
-        </div>
-
-    	<div class="form-group col-md-12" id="halloweenDanceDiv">
-          <label for="halloweenDanceAdults" class="labelmed">Halloween Dance</label>
-          <input type="text" name="halloweenDanceAdults" id="halloweenDanceAdults" size="3"/>
-		  <input type="text" name="halloweenDanceChild" id="halloweenDanceChild" size="3"/>
-        </div>
+			<h4>Murder Mystery Challenge</h4>
+      <label for="murderMysteryChallengeAdults" class="labelmed">Adults</label>
+      <input type="text" name="murderMysteryChallengeAdults" id="murderMysteryChallengeAdults" size="5"/><br />
+      <label for="murderMysteryChallengeChild" class="labelmed">Children</label>
+		  <input type="text" name="murderMysteryChallengeChild" id="murderMysteryChallengeChild" size="5"/>
+    </div>
+    <div class="form-group col-md-12" id="halloweenDanceDiv">
+    	<h4>Halloween Dance</h4>
+      <label for="halloweenDanceAdults" class="labelmed">Adults</label>
+      <input type="text" name="halloweenDanceAdults" id="halloweenDanceAdults" size="5"/><br />
+      <label for="halloweenDanceAdults" class="labelmed">Children</label>
+		  <input type="text" name="halloweenDanceChild" id="halloweenDanceChild" size="5"/>
+    </div>
 
     	<div class="form-group col-md-12" id="frightFilmFestDiv">
-          <label for="frightFilmFestAdults" class="labelmed">Fright Film Fest</label>
-          <input type="text" name="frightFilmFestAdults" id="frightFilmFestAdults" size="3"/>
-		  <input type="text" name="frightFilmFestChild" id="frightFilmFestChild" size="3"/>
+    		<h4>Fright Film Fest</h4>
+          <label for="frightFilmFestAdults" class="labelmed">Adults</label>
+          <input type="text" name="frightFilmFestAdults" id="frightFilmFestAdults" size="5"/><br />
+		 			<label for="frightFilmFestChild" class="labelmed">Child</label>
+		 			<input type="text" name="frightFilmFestChild" id="frightFilmFestChild" size="5"/>
         </div>
-
-		<div class="spacer"></div>
-		
-		<div style="clear:both"><strong>Saturday, October 31</strong></div>
+		<h3>Saturday, October 31</h3>
 		
 		<div class="form-group col-md-12" id="honorsConvocationDiv">
-          <label for="honorsConvocationCommons" class="labelmed">Honors Convocation</label>
-          <input type="text" name="honorsConvocationAdults" id="honorsConvocationAdults" size="3"/>
-		  <input type="text" name="honorsConvocationChild" id="honorsConvocationChild" size="3"/>
+			<h4>Honors Convocation</h4>
+          <label for="honorsConvocationCommons" class="labelmed">Adults</label>
+          <input type="text" name="honorsConvocationAdults" id="honorsConvocationAdults" size="5"/><br />
+          <label for="honorsConvocationCommonsChild" class="labelmed">Child</label>
+		  <input type="text" name="honorsConvocationChild" id="honorsConvocationChild" size="5"/>
 <!-- 		  <img src="info.png" onMouseOver="tooltip.show('Join Provost Peter Laipson and the faculty and student speakers on this special evening when the College celebrates this year\'s recipients of named scholarships', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
 
     	<div style="clear:both; display:none;" id="studAffairsOHDiv">
-          <label for="studAffairsOH" class="labelmed">Student Affairs Open House</label>
-          <input type="text" name="studAffairsOHAdults" id="studAffairsOHAdults" size="3"/>
-		  <input type="text" name="studAffairsOHChild" id="studAffairsOHChild" size="3"/>
-        </div>
+    		<h4>Student Affairs Open House</h4>
+        <label for="studAffairsOH" class="labelmed">Adults</label>
+        <input type="text" name="studAffairsOHAdults" id="studAffairsOHAdults" size="5"/><br />
+        <label for="studAffairsOHChild" class="labelmed">Child</label>
+		  	<input type="text" name="studAffairsOHChild" id="studAffairsOHChild" size="5"/>
+      </div>
     	<div class="form-group col-md-12" id="alumniPanelDiv">
-          <label for="alumniPanel" class="labelmed">Alumni Career Panel</label>
-          <input type="text" name="alumniPanelAdults" id="alumniPanelAdults" size="3"/>
-		  <input type="text" name="alumniPanelChild" id="alumniPanelChild" size="3"/>
+        <h4>Alumni Career Panel</h4>
+          <label for="alumniPanel" class="labelmed">Adults</label>
+          <input type="text" name="alumniPanelAdults" id="alumniPanelAdults" size="5"/><br />
+          <label for="alumniPanelChild" class="labelmed">Child</label>
+		  		<input type="text" name="alumniPanelChild" id="alumniPanelChild" size="5"/>
 <!--		  <img src="info.png" onMouseOver="tooltip.show('Alumni share their academic/career paths since leaving Simon\'s Rock.', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
-        </div>
+      </div>
     	<div class="form-group col-md-12" id="studyAbroadPanelDiv">
-          <label for="studyAbroadPanel" class="labelmed">Study Abroad Panel</label>
-          <input type="text" name="studyAbroadPanelAdults" id="studyAbroadPanelAdults" size="3"/>
-		  <input type="text" name="studyAbroadPanelChild" id="studyAbroadPanelChild" size="3"/>
+    		<h4>Study Abroad Panel</h4>
+          <label for="studyAbroadPanel" class="labelmed">Adults</label>
+          <input type="text" name="studyAbroadPanelAdults" id="studyAbroadPanelAdults" size="5"/><br />
+          <label for="studyAbroadPanelChild" class="labelmed">Child</label>
+		  		<input type="text" name="studyAbroadPanelChild" id="studyAbroadPanelChild" size="5"/>
 <!--		  <img src="info.png" onMouseOver="tooltip.show('Five seniors will share their experiences during their study away program.', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
     	<div style="clear:both; display: none" id="internationalFairDiv">
-          <label for="internationalFair" class="labelmed">International Fair</label>
-          <input type="text" name="internationalFairAdults" id="internationalFairAdults" size="3"/>
-		  <input type="text" name="internationalFairChild" id="internationalFairChild" size="3"/>
+    		<h4>International Fair</h4>
+        <label for="internationalFair" class="labelmed">Adults</label>
+        <input type="text" name="internationalFairAdults" id="internationalFairAdults" size="5"/><br />
+        <label for="internationalFairChild" class="labelmed">Child</label>
+		  	<input type="text" name="internationalFairChild" id="internationalFairChild" size="5"/>
 <!--		  <img src="info.png" onMouseOver="tooltip.show('Students invite you to learn about their area of the world in a variety of ways:  through photographs, videos, dress, cuisine, and language, among others.', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
     	<div style="clear:both;display: none" id="seniorThesisPanelDiv">
-          <label for="seniorThesisPanel" class="labelmed">Senior Thesis Panel</label>
-          <input type="text" name="seniorThesisPanelAdults" id="seniorThesisPanelAdults" size="3"/>
-		  <input type="text" name="seniorThesisPanelChild" id="seniorThesisPanelChild" size="3"/>
+    		<h4>Senior Thesis Panel</h4>
+        <label for="seniorThesisPanel" class="labelmed">Adults</label>
+        <input type="text" name="seniorThesisPanelAdults" id="seniorThesisPanelAdults" size="5"/><br />
+        <label for="seniorThesisPanelChild" class="labelmed">Child</label>
+		  	<input type="text" name="seniorThesisPanelChild" id="seniorThesisPanelChild" size="5"/>
 		  <!-- <img src="info.png" onMouseOver="tooltip.show('', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
-        </div>
+      </div>
     	<div style="clear:both; display: none" id="studentShowcaseDiv">
-          <label for="studentShowcase" class="labelmed">Student Showcase</label>
-          <input type="text" name="studentShowcaseAdults" id="studentShowcaseAdults" size="3"/>
-		  <input type="text" name="studentShowcaseChild" id="studentShowcaseChild" size="3"/>
+        <h4>Student Showcase</h4>
+        <label for="studentShowcase" class="labelmed">Adults</label>
+        <input type="text" name="studentShowcaseAdults" id="studentShowcaseAdults" size="5"/><br />
+		  	<label for="studentShowcaseChild" class="labelmed">Child</label>
+		  	<input type="text" name="studentShowcaseChild" id="studentShowcaseChild" size="5"/>
 <!-- 		  <img src="info.png" onMouseOver="tooltip.show('', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
-        </div>
+      </div>
     	<div style="clear:both; display:none" id="provostsReceptionDiv">
-          <label for="provostsReception" class="labelmed">Provost's Reception</label>
-          <input type="text" name="provostsReceptionAdults" id="provostsReceptionAdults" size="3"/>
-		  <input type="text" style="display: none" value="0" name="provostsReceptionChild" id="provostsReceptionChild" size="3"/>
+        <h4>Provost's Reception</h4>  
+        <label for="provostsReception" class="labelmed">Adults</label>
+        <input type="text" name="provostsReceptionAdults" id="provostsReceptionAdults" size="5"/><br />
+        <label for="provostsReceptionChild" class="labelmed">Child</label>
+		  	<input type="text" style="display: none" value="0" name="provostsReceptionChild" id="provostsReceptionChild" size="5"/>
 <!--		  <img src="info.png" onMouseOver="tooltip.show('Provost Peter Laipson invites parents (only, please) to join him and members of the faculty and staff for a reception.', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
 
 
     	<div class="form-group col-md-12" id="jazzEnsembleConcertDiv">
-          <label for="jazzEnsembleConcert" class="labelmed">Jazz Ensemble Concert</label>
-          <input type="text" name="jazzEnsembleConcertAdults" id="jazzEnsembleConcertAdults" size="3"/>
-		  <input type="text" name="jazzEnsembleConcertChild" id="jazzEnsembleConcertChild" size="3"/>
-        </div>
+          <h4>Jazz Ensemble Concert</h4>
+          <label for="jazzEnsembleConcert" class="labelmed">Adults</label>
+          <input type="text" name="jazzEnsembleConcertAdults" id="jazzEnsembleConcertAdults" size="5"/><br />
+          <label for="jazzEnsembleConcertChild" class="labelmed">Child</label>
+		  		<input type="text" name="jazzEnsembleConcertChild" id="jazzEnsembleConcertChild" size="5"/>
+      </div>
         
-        
-		<div class="spacer"></div>
 		
-		
-		<div><strong>Sunday, November 1</strong></div>
+		<h3>Sunday, November 1</h3>
 		
     	<div class="form-group col-md-12" id="hikeUpMountainDiv">
-          <label for="hikeUpMountain" class="labelmed">Interpretative Trail Guided Walk</label>
-          <input type="text" name="hikeUpMountainAdults" id="hikeUpMountainAdults" size="3"/>
-		  <input type="text" name="hikeUpMountainChild" id="hikeUpMountainChild" size="3"/>
+    		<h4>Interpretative Trail Guided Walk</h4>
+        <label for="hikeUpMountain" class="labelmed">Adults</label>
+        <input type="text" name="hikeUpMountainAdults" id="hikeUpMountainAdults" size="5"/><br />
+		  	<label for="hikeUpMountainChild" class="labelmed">Child</label>
+		  	<input type="text" name="hikeUpMountainChild" id="hikeUpMountainChild" size="5"/>
 <!--		  <img src="info.png" onMouseOver="tooltip.show('Join us for a hike in one of our local parks.', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
     	<div class="form-group col-md-12" id="pianoRecitalDiv">
-          <label for="pianoRecitalAdults" class="labelmed">Piano Recital</label>
-          <input type="text" name="pianoRecitalAdults" id="pianoRecitalAdults" size="3"/>
-		  <input type="text" name="pianoRecitalChild" id="pianoRecitalChild" size="3"/>
-        </div>
+    		<h4>Piano Recital</h4>
+        <label for="pianoRecitalAdults" class="labelmed">Adults</label>
+        <input type="text" name="pianoRecitalAdults" id="pianoRecitalAdults" size="5"/><br />
+        <label for="pianoRecitalChild" class="labelmed">Child</label>
+		  	<input type="text" name="pianoRecitalChild" id="pianoRecitalChild" size="5"/>
+      </div>
     	<div class="form-group col-md-12" id="normanRockwellMuseumDiv">
-          <div>Norman Rockwell Museum &amp; Stockbridge (Note: Admission fee to museum to be paid upon arrival by each guest.)</div>
-          <label for="normanRockwellMuseumTransportationAdults" class="labelmed">&nbsp;</label>
-          <input type="text" name="normanRockwellMuseumAdults" id="normanRockwellMuseumAdults" size="3"/>
-		  <input type="text" name="normanRockwellMuseumChild" id="normanRockwellMuseumChild" size="3"/>
+          <h4>Norman Rockwell Museum &amp; Stockbridge</h4>
+          <p>Admission fee to museum to be paid upon arrival by each guest.</p>
+          <label for="normanRockwellMuseumTransportationAdults" class="labelmed">Adults</label>
+          <input type="text" name="normanRockwellMuseumAdults" id="normanRockwellMuseumAdults" size="5"/><br />
+          <label for="normanRockwellMuseumTransportationChild" class="labelmed">Child</label>
+		  		<input type="text" name="normanRockwellMuseumChild" id="normanRockwellMuseumChild" size="5"/>
           <div class="form-group col-md-12">
             <input value="1" type="checkbox" name="normanRockwellMuseumTransportationAdults" id="normanRockwellMuseumTransportationAdults">
-            <label for="normanRockwellMuseumTransportationAdults" class="labelmed">Will you need transportation?</label>
-		  </div>
+            <label for="normanRockwellMuseumTransportationAdults" class="labelmed">I will need transportation</label>
+		  		</div>
         </div>
     	<div class="form-group col-md-12" id="walkingTourDiv">
-          <div>Great Barrington Historical Walking Tour</div>
-          <label for="walkingTourAdults" class="labelmed">&nbsp;</label>
-          <input type="text" name="walkingTourAdults" id="walkingTourAdults" size="3"/>
-		  <input type="text" name="walkingTourChild" id="walkingTourChild" size="3"/>
-          <div class="form-group col-md-12">
-            <input value="1" type="checkbox" name="walkingTourTransportationAdults" id="walkingTourTransportationAdults">
-            <label for="walkingTourTransportationAdults" class="labelmed">Will you need transportation?</label>
-		  </div>
-        </div>
-	
-	<div class="spacer"></div>
+      	<h4>Great Barrington Historical Walking Tour</h4>
+    	  <label for="walkingTourAdults" class="labelmed">Adults</label>
+        <input type="text" name="walkingTourAdults" id="walkingTourAdults" size="5"/><br />
+        <label for="walkingTourChild" class="labelmed">Adults</label>
+	  		<input type="text" name="walkingTourChild" id="walkingTourChild" size="5"/>
+        <div class="form-group col-md-12">
+          <input value="1" type="checkbox" name="walkingTourTransportationAdults" id="walkingTourTransportationAdults">
+          <label for="walkingTourTransportationAdults" class="labelmed">I will need transportation</label>
+	  		</div>
+      </div>
 
 	<div style="clear:both;">
-		<h3 class="subheadline">Meals</h3>
-		<div>
-			<div>
-            	Please indicate below which meals you plan to attend. <br />(Note: Students currently on the meal plan are already covered for the meals below.)</div>
-		</div>
-		<div>
-			<div><strong>Meal</strong> & <strong># Attending</strong></div>
-		</div>
+		<h2>Meals</h2>
+			<p>Please indicate below which meals you plan to attend. Students currently on the meal plan are already covered for the meals below.</p>
     	<div class="form-group col-md-12" id="fridayLunchDiv">
-          <label for="fridayLunch" class="labelmed">Friday Lunch</label>
-          <input type="text" name="fridayLunch" id="fridayLunch" onKeyUp="calculateMeals(); setTemps(this.id)" size="3"/> @ $8
+          <label for="fridayLunch" class="labelmed">Friday Lunch: $8 &times; </label>
+          <input type="text" name="fridayLunch" id="fridayLunch" onKeyUp="calculateMeals(); setTemps(this.id)" size="3"/> 
           <input type="hidden" name="fridayLunchTemp" id="fridayLunchTemp">
         </div>
     	<div class="form-group col-md-12" id="fridayDinnerDiv">
-          <label for="fridayDinner" class="labelmed">Friday Dinner</label>
-          <input type="text" name="fridayDinner" id="fridayDinner" onKeyUp="calculateMeals(); setTemps(this.id)" size="3"/> @ $9
+          <label for="fridayDinner" class="labelmed">Friday Dinner: $9 &times; </label>
+          <input type="text" name="fridayDinner" id="fridayDinner" onKeyUp="calculateMeals(); setTemps(this.id)" size="3"/>
           <input type="hidden" name="fridayDinnerTemp" id="fridayDinnerTemp">
         </div>
     	<div class="form-group col-md-12" id="saturdayBrunchDiv">
-          <label for="saturdayBrunch" class="labelmed">Saturday Breakfast</label>
-          <input type="text" name="saturdayBrunch" id="saturdayBrunch" onKeyUp="calculateMeals(); setTemps(this.id)" size="3"/> @ $5
+          <label for="saturdayBrunch" class="labelmed">Saturday Breakfast: $5 &times; </label>
+          <input type="text" name="saturdayBrunch" id="saturdayBrunch" onKeyUp="calculateMeals(); setTemps(this.id)" size="3"/> 
           <input type="hidden" name="saturdayBrunchTemp" id="saturdayBrunchTemp">
         </div>
     	<div class="form-group col-md-12" id="saturdayLunchDiv">
-          <label for="saturdayLunch" class="labelmed">Harvest Fest Lunch</label>
-          <input type="text" name="saturdayLunch" id="saturdayLunch" onKeyUp="calculateMeals(); setTemps(this.id)" size="3"/> @ $9
+          <label for="saturdayLunch" class="labelmed">Harvest Fest Lunch: $9 &times; </label>
+          <input type="text" name="saturdayLunch" id="saturdayLunch" onKeyUp="calculateMeals(); setTemps(this.id)" size="3"/>
           <input type="hidden" name="saturdayLunchTemp" id="saturdayLunchTemp">
         </div>
     	<div class="form-group col-md-12" id="saturdayDinnerDiv">
-          <label for="saturdayDinner" class="labelmed">Saturday Dinner</label>
-          <input type="text" name="saturdayDinner" id="saturdayDinner" onKeyUp="calculateMeals(); setTemps(this.id)" size="3"/> @ $9
+          <label for="saturdayDinner" class="labelmed">Saturday Dinner: $9 &times; </label>
+          <input type="text" name="saturdayDinner" id="saturdayDinner" onKeyUp="calculateMeals(); setTemps(this.id)" size="3"/>
           <input type="hidden" name="saturdayDinnerTemp" id="saturdayDinnerTemp">
         </div>
     	<div class="form-group col-md-12" id="sundayBrunchDiv">
-          <label for="sundayBrunch" class="labelmed">Sunday Brunch</label>
-          <input type="text" name="sundayBrunch" id="sundayBrunch" onKeyUp="calculateMeals(); setTemps(this.id)" size="3"/> @ $9
+          <label for="sundayBrunch" class="labelmed">Sunday Brunch: $9 &times; </label>
+          <input type="text" name="sundayBrunch" id="sundayBrunch" onKeyUp="calculateMeals(); setTemps(this.id)" size="3"/>
           <input type="hidden" name="sundayBrunchTemp" id="sundayBrunchTemp">
-        </div>
-		<div style="clear:both" id="totalDiv">
-          <div class="price"><strong>TOTAL: $</strong></div><input type="text" class="total" onFocus="this.blur()" name="total" id="total" readonly />
-        </div>
-    	<div style="clear:both;" id="paypalDiv">
+      </div>
+			<div style="clear:both" id="totalDiv">
+	          <strong>TOTAL: $</strong><input type="text" class="total" onFocus="this.blur()" name="total" id="total" readonly style="border: none;"/>
+	    </div>
+	   	<h3>Payment</h3>
+		  <div class="form-group col-md-12">
+	   		<div id="paypalDiv" class="radio">
 <!--           <input style="margin-left: 150px;" type="checkbox" class="radio" name="cashAtDoor" id="cashAtDoor" onClick="doCashAtDoor(this.checked)"  /> -->
-		  <input type="radio" class="radio" name="mop" id="paypal" value="paypal"  /> 
-          <label for="paypal" class="labelmed">I will pay by credit card now.</label>
+		  		<label for="paypal" class="labelmed"><input type="radio" class="radio" name="mop" id="paypal" value="paypal"  /> I will pay by credit card now.</label>
         </div>
-    	<div style="clear:both; height: 35px;" id="cashAtDoorDiv">
+    		<div id="cashAtDoorDiv" class="radio">
 <!--           <input style="margin-left: 150px;" type="checkbox" class="radio" name="cashAtDoor" id="cashAtDoor" onClick="doCashAtDoor(this.checked)"  /> -->
-		  <input type="radio" class="radio" name="mop" id="cashAtDoor" value="cashAtDoor"  /> 
-          <label for="cashAtDoor" class="labelmed">I will pay cash at the door.<br />(Dining Services only accepts cash)</label>
+		  		<label for="cashAtDoor" class="labelmed"><input type="radio" class="radio" name="mop" id="cashAtDoor" value="cashAtDoor"  /> 
+          I will pay cash at the door.(Dining Services only accepts cash.)</label>
         </div>
+      </div>
 	</div>
 	<div class="spacer"></div>
 	<button type="submit" name="submit" id="submit" class="btn btn-primary">Register Now</button>
