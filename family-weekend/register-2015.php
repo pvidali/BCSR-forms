@@ -314,21 +314,22 @@ if($walkingTourTransportationAdults == ""){
 		}
 		$msg .= "\n\nIf you have registered for meetings with your student's faculty and academic advisor, please note that your schedule of actual meeting times between 9am and noon on Saturday, October 31st, will be emailed to you on or before October 28th.\n\n";
 		$msg .= "== ACTIVITIES ==\n\n";
-		$msg .= " - Trick or Treating: $trickOrTreatingAdults Adult(s), $trickOrTreatingChild Child(ren)\n";
+		//$msg .= " - Trick or Treating: $trickOrTreatingAdults Adult(s), $trickOrTreatingChild Child(ren)\n";
 		$msg .= " - First-year Adjustment Panel: $FYAdjustmentAdults Adult(s), $FYAdjustmentChild Child(ren)\n";
 		$msg .= " - Welcome Reception and Senior Thesis Poster Display: $welcomeReceptionAdults Adult(s), $welcomeReceptionChild Child(ren)\n";
 		$msg .= " - Murder Mystery Challenge: $murderMysteryChallengeAdults Adult(s), $murderMysteryChallengeChild Child(ren)\n";
-		$msg .= " - Halloween Dance: $halloweenDanceAdults Adult(s), $halloweenDanceChild Child(ren)\n";
-		$msg .= " - Fright Film Fest: $frightFilmFestAdults Adult(s), $frightFilmFestChild Child(ren)\n";
+		$msg .= " - Scary Movie: $frightFilmFestAdults Adult(s), $frightFilmFestChild Child(ren)\n";
 
 		$msg .= " - Honors Convocation: $honorsConvocationAdults Adult(s), $honorsConvocationChild Child(ren)\n";
-		$msg .= " - Alumni Panel: $alumniPanelAdults Adult(s), $alumniPanelChild Child(ren)\n";
+		$msg .= " - Alumni Career Panel: $alumniPanelAdults Adult(s), $alumniPanelChild Child(ren)\n";
 		$msg .= " - Study Abroad Panel: $studyAbroadPanelAdults Adult(s), $studyAbroadPanelChild Child(ren)\n";
-		$msg .= " - Jazz Ensemble Concert: $jazzEnsembleConcertAdults Adult(s), $jazzEnsembleConcertChild Child(ren)\n";
+		$msg .= " - Halloween Dance: $halloweenDanceAdults Adult(s), $halloweenDanceChild Child(ren)\n";
+		//$msg .= " - Jazz Ensemble Concert: $jazzEnsembleConcertAdults Adult(s), $jazzEnsembleConcertChild Child(ren)\n";
 
 		$msg .= " - Interpretative Trail Guided Walk: $hikeUpMountainAdults Adult(s), $hikeUpMountainChild Child(ren)\n";
 		$msg .= " - Piano Recital: $pianoRecitalAdults Adult(s), $pianoRecitalChild Child(ren)\n";
 
+		/*
 		if($normanRockwellMuseumTransportationAdults == 1){
 			$normanRockwellMuseumTransportationAdultsShow = 'yes';
 		}
@@ -346,6 +347,7 @@ if($walkingTourTransportationAdults == ""){
 		}
 		$msg .= " - Great Barrington Historical walking tour indicated for: $walkingTourAdults Adult(s), $walkingTourChild Child(ren)\n";
 		$msg .= "   - Transportation to walking tour: $walkingTourTransportationAdultsShow\n";
+		*/
 //		if($total != "" && $total != 0 && $total != "0"){
 //			$msg .= "== PURCHASED MEALS ==\n\n";
 //		}
