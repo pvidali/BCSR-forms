@@ -402,7 +402,7 @@ if($walkingTourTransportationAdults == ""){
 		$msg .= "We look forward to seeing you soon!\n\n";
 		$msg .= "Sincerely,\n\n";
 		$msg .= "Cathy Ingram\n";
-		$msg .= "Alumni and Parent Relations Officer\n";
+		$msg .= "Director of Alumni and Parent Engagement\n";
 		$msg .= "Family Weekend Coordinator\n";
 		$msg .= "(413) 528-7266\n";	
 		// send email
@@ -443,7 +443,7 @@ $sophomoreNote = "<p>The sophomore planning meetings are 10-minute appointments 
 		<!-- Bootstrap -->
 		<link href="/_css/iframe-compiled.css" rel="stylesheet"/>
 		<link href="http://simons-rock.edu/_resources/css/app.css" rel="stylesheet"/>
-		<link href="http://simons-rock.edu/_resources/css/app_safari_hero_hack.css" rel="stylesheet"/>
+		
 
 		
 		<style>
