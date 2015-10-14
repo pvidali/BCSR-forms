@@ -188,7 +188,7 @@ if(isset($_POST['submit'])) {
 				<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
 				<input type="hidden" name="payer_id" value="'.$thisPayerId.'">
 				<input type="hidden" name="custom" value="'.$thisPayerId.'">
-				<input type="hidden" name="return" value="http://www.simons-rock.edu/parents-families/family-weekend/family-weekend-registration-confirmation" />
+				<input type="hidden" name="return" value="http://simons-rock.edu/alumni/family-weekend-registration-complete.php" />
 				<input type="hidden" name="notify_url" value="http://forms.simons-rock.edu/family-weekend/listener.php" />
   				<input type="hidden" name="amount" value="'.$total.'">
 				<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
