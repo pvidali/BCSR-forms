@@ -1229,7 +1229,7 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
 <!--		  <img src="info.png" onMouseOver="tooltip.show('Join us for a hike in one of our local parks.', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
     	<div class="form-group col-md-12" id="pianoRecitalDiv">
-    		<h4>Faculty Concert: Allan Dean &amp; Friends</h4>
+    		<h4>Faculty Concert: Allan Dean & Friends</h4>
         <label for="pianoRecitalAdults" class="labelmed">Adults</label>
         <input type="text" name="pianoRecitalAdults" id="pianoRecitalAdults" size="5"/><br />
         <label for="pianoRecitalChild" class="labelmed">Children</label>
