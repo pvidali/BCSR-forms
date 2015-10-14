@@ -53,13 +53,7 @@ if(isset($_POST['submit'])) {
 			}
 		}
 
-// $walkingTourTransportationAdults, normanRockwellMuseumTransportationAdults<br>
-if($normanRockwellMuseumTransportationAdults == ""){
-	$normanRockwellMuseumTransportationAdults = 0;
-}
-if($walkingTourTransportationAdults == ""){
-	$walkingTourTransportationAdults = 0;
-}
+
 
 
 		$sql = "INSERT INTO forms.family_weekend_2015 (
@@ -87,14 +81,12 @@ if($walkingTourTransportationAdults == ""){
 				totalFamilyMembersAttending, date_submitted, student1MeetingSpecifyWhich, student2MeetingSpecifyWhich, relative1Email,
 				academicAdvisorMeeting1,academicAdvisorMeeting2,sophomoreFacultyMeeting1,sophomoreFacultyMeeting2,SMLateArrival1, 
 				arrivaldetails1,SMLateArrival2, arrivaldetails2, seniorThesisAdvisorMeeting1, seniorThesisAdvisorMeeting2, whenPlanArrive,
-				trickOrTreatingAdults, trickOrTreatingChild, 
+				 
 				murderMysteryChallengeAdults, murderMysteryChallengeChild, 
 				frightFilmFestAdults, frightFilmFestChild, 
 				pianoRecitalAdults, pianoRecitalChild, 
-				normanRockwellMuseumTransportationAdults, 
-				walkingTourAdults, walkingTourChild,
-				normanRockwellMuseumAdults, normanRockwellMuseumChild,
-				walkingTourTransportationAdults,
+				
+				
 				halloweenDanceAdults, halloweenDanceChild)  
  		VALUES ('$student1Fname', '$student1Lname', '$student1Class', '$student1Meeting', '$student2Fname', '$student2Lname', '$student2Class', '$student2Meeting', '$accessibilityNeeds', 
 				'$relative1Fname', '$relative1Lname', '$relative1Hometown', '$relative1Homestate', '$relative1Country', '$relative1Class', 
@@ -120,14 +112,11 @@ if($walkingTourTransportationAdults == ""){
 				'$academicAdvisorMeeting1', '$academicAdvisorMeeting2', '$sophomoreFacultyMeeting1', '$sophomoreFacultyMeeting2','$SMLateArrival1',
 				'$arrivaldetails1','$SMLateArrival2','$arrivaldetails2','$seniorThesisAdvisorMeeting1','$seniorThesisAdvisorMeeting2',
 				'$whenPlanArrive',
-				$trickOrTreatingAdults, $trickOrTreatingChild, 
+				
 				$murderMysteryChallengeAdults, $murderMysteryChallengeChild, 
 				$frightFilmFestAdults, $frightFilmFestChild, 
 				$pianoRecitalAdults, $pianoRecitalChild, 
-				$normanRockwellMuseumTransportationAdults, 
-				$walkingTourAdults, $walkingTourChild,
-				$normanRockwellMuseumAdults, $normanRockwellMuseumChild,
-				$walkingTourTransportationAdults,
+				
 				$halloweenDanceAdults, $halloweenDanceChild)";
 		$db->do_query($sql);
 //echo ($sql);
