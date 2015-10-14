@@ -66,7 +66,7 @@ if(isset($_POST['submit'])) {
 				relative5Fname, relative5Lname, relative5Hometown, relative5Homestate, relative5Country, relative5Class, 
 				honorsConvocationAdults, honorsConvocationChild, 
 				welcomeReceptionAdults, welcomeReceptionChild,
-				jazzEnsembleConcertAdults, jazzEnsembleConcertChild,
+				
 				FYAdjustmentAdults, FYAdjustmentChild, 
 				alumniPanelAdults, alumniPanelChild, 
 				studyAbroadPanelAdults, studyAbroadPanelChild, 
@@ -96,7 +96,7 @@ if(isset($_POST['submit'])) {
 				'$relative5Fname', '$relative5Lname', '$relative5Hometown', '$relative5Homestate', '$relative5Country', '$relative5Class', 
 				$honorsConvocationAdults, $honorsConvocationChild, 
 				$welcomeReceptionAdults, $welcomeReceptionChild,
-				$jazzEnsembleConcertAdults, $jazzEnsembleConcertChild,
+				
 				$FYAdjustmentAdults, $FYAdjustmentChild, 
 				$alumniPanelAdults, $alumniPanelChild, 
 				$studyAbroadPanelAdults, $studyAbroadPanelChild, 
