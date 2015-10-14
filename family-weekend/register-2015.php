@@ -188,8 +188,8 @@ if(isset($_POST['submit'])) {
 				<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
 				<input type="hidden" name="payer_id" value="'.$thisPayerId.'">
 				<input type="hidden" name="custom" value="'.$thisPayerId.'">
-				<input type="hidden" name="return" value="http://simons-rock.edu/alumni/family-weekend-registration-complete.php" />
-				<input type="hidden" name="notify_url" value="http://forms.simons-rock.edu/family-weekend/listener.php" />
+				<input type="hidden" name="return" value="https://simons-rock.edu/alumni/family-weekend-registration-complete.php" />
+				<input type="hidden" name="notify_url" value="https://forms.simons-rock.edu/family-weekend/listener.php" />
   				<input type="hidden" name="amount" value="'.$total.'">
 				<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 				<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
@@ -431,7 +431,7 @@ $sophomoreNote = "<p>The sophomore planning meetings are 10-minute appointments 
 
 		<!-- Bootstrap -->
 		<link href="/_css/iframe-compiled.css" rel="stylesheet"/>
-		<link href="http://simons-rock.edu/_resources/css/app.css" rel="stylesheet"/>
+		<link href="https://simons-rock.edu/_resources/css/app.css" rel="stylesheet"/>
 		
 
 		
@@ -466,10 +466,10 @@ $sophomoreNote = "<p>The sophomore planning meetings are 10-minute appointments 
 <?php 
 if(isset($post_success) && $post_success == true){
 	echo "<script>
-			window.top.location.href = \"http://simons-rock.edu/alumni/family-weekend-registration-complete.php\";
+			window.top.location.href = \"https://simons-rock.edu/alumni/family-weekend-registration-complete.php\";
 		</script>
 		<noscript>
-			Registration successful.  <a href=\"/alumni/family-weekend-registration-complete.php\">Click here to continue</a>.
+			Registration successful.  <a href=\"https://simons-rock.edu/alumni/family-weekend-registration-complete.php\">Click here to continue</a>.
 		</noscript>";
 }
 ?>
