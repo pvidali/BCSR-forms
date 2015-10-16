@@ -714,35 +714,35 @@ else {
         </div>
 
         <div style="clear: both; display: none;" id="nonSophomoreFM1">
-            <div id="fynote1" style="display: none;"><?php echo($firstYearNote); ?></div>
-            <div id="seniornote1" style="display: none;"><?php echo($seniorNote); ?></div>
-        	<div>
-            	<h3 class="subheadline">Faculty Meetings</h3>
-                	<div class="msg" id="meetingTimeMsg1">
-						<p><?php echo ($FMNote)?></p>
-						<p style="display: none">We do not schedule meetings for any of the ensemble classes (Chorus, Jazz, Madrigal Group, Chamber Orchestra, and Collegium). Generally, faculty members with "adjunct" status are not available for meetings on Family Weekend, nor are private music instructors.</p></div> 
-            </div>
+          <div id="fynote1" style="display: none;"><?php echo($firstYearNote); ?></div>
+          <div id="seniornote1" style="display: none;"><?php echo($seniorNote); ?></div>
+        </div>
+        <h3 class="subheadline">Faculty Meetings</h3>
+        <div class="msg" id="meetingTimeMsg1">
+					<p><?php echo ($FMNote)?></p>
+					<p style="display: none">We do not schedule meetings for any of the ensemble classes (Chorus, Jazz, Madrigal Group, Chamber Orchestra, and Collegium). Generally, faculty members with "adjunct" status are not available for meetings on Family Weekend, nor are private music instructors.</p></div> 
+        </div>
 
        	<div onKeyUp=""><h3 class="subheadline">Meeting Requests</h3>
          	<h4>I would like to meet with</h4>
-            <div class="form-group col-md-12">
-            	<div class="radio">
-              	<label class="labelwide" for="student1MeetingAll"> <input class="radio" type="radio" name="student1Meeting" id="student1MeetingAll" value="all"  onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display='none'"  />All of the Student's Available Faculty</label></div>
-            	<div class="radio">
-              	<label class="labelwide" for="student1MeetingNone" > <input class="radio" type="radio" name="student1Meeting" id="student1MeetingNone" value="none" onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display='none'" />No Meetings with Faculty</label>
-              </div>
-              <div class="radio">
-              	<label class="labelwide" for="student1MeetingSpecify"> <input class="radio" type="radio" name="student1Meeting" id="student1MeetingSpecify" value="some"   onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display=''" />Certain faculty</label>
-              </div>  
-              <div id="student1MeetingSpecifyWhichDiv" style="display:none" >
-              	Please specify the faculty by name or class
-              		<input type="text" name="student1MeetingSpecifyWhich" id="student1MeetingSpecifyWhich" class="col-sm-12">
-              </div>
+          <div class="form-group col-md-12">
+          	<div class="radio">
+            	<label class="labelwide" for="student1MeetingAll"> <input class="radio" type="radio" name="student1Meeting" id="student1MeetingAll" value="all"  onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display='none'"  />All of the Student's Available Faculty</label>
             </div>
-					
+          	<div class="radio">
+            	<label class="labelwide" for="student1MeetingNone" > <input class="radio" type="radio" name="student1Meeting" id="student1MeetingNone" value="none" onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display='none'" />No Meetings with Faculty</label>
+            </div>
+            <div class="radio">
+            	<label class="labelwide" for="student1MeetingSpecify"> <input class="radio" type="radio" name="student1Meeting" id="student1MeetingSpecify" value="some"   onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display=''" />Certain faculty</label>
+            </div>  
+            <div id="student1MeetingSpecifyWhichDiv" style="display:none" >
+            	Please specify the faculty by name or class
+            		<input type="text" name="student1MeetingSpecifyWhich" id="student1MeetingSpecifyWhich" class="col-sm-12">
+            </div>
+          </div>		
 				</div>
+			<h4>I would like to meet with my student's Academic Advisor</h4>
 			<div class="form-group col-md-12">
-				<h4>I would like to meet with my student's Academic Advisor</h4>
 				<div class="radio">
 					<label for="academicAdvisorMeeting1Yes" class="labelsmall"><input type="radio" class="radio" name="academicAdvisorMeeting1" id="academicAdvisorMeeting1Yes" value="1">
 					Yes</label>
