@@ -733,6 +733,7 @@ else {
 
 
   <!-- comment out meetings requests after deadline -->
+ 	<!--
  	<div onKeyUp=""><h3 class="subheadline">Meeting Requests</h3>
    	<h4>I would like to meet with</h4>
     <div class="form-group col-md-12">
@@ -750,9 +751,11 @@ else {
       		<input type="text" name="student1MeetingSpecifyWhich" id="student1MeetingSpecifyWhich" class="col-sm-12">
       </div>
     </div>		
-	</div><!-- end meeting requests -->
+	</div> -->
+	<!-- end meeting requests -->
 
 	<!-- comment out meetings requests after deadline -->	
+	<!--
 	<h4>I would like to meet with my student's Academic Advisor</h4>
 	<div class="form-group col-md-12">
 		<div class="radio">
@@ -764,9 +767,10 @@ else {
 			No</label>
 		</div>
 	</div>          
-</div><!-- seems like an extra div -->
+</div> -->   <!-- seems like an extra div -->
 
 <!-- comment out meetings requests after deadline -->	
+<!--
 <div style="display:none; " id="seniorThesisAdvisorMeeting1HeaderDiv">
 	<h4>I would like to meet with my student's Thesis Advisor</h4>
 </div>
@@ -796,7 +800,7 @@ else {
 			No</label>
 		</div>
 	</div>
-</div><!-- end sophomore fm1 -->
+</div> -->  <!-- end sophomore fm1 -->
 
         	
 <!--			<div id="lateArrive1_div" style="clear:both; display: inline-block; display: none ">
@@ -848,24 +852,28 @@ else {
       </select>
     </div>
 
-    <!-- comment out meetings requests after deadline -->	        
+    <!-- comment out meetings requests after deadline -->	
+    <!--        
     <div style="clear: both; display:''" id="nonSophomoreFM2">
-    	<div>
+    	<div> -->
         <!--<div id="fynote2" style="display: none;"><?php echo($firstYearNote); ?></div>-->
-      	<div id="seniornote2" style="display: none;"><?php echo($seniorNote); ?></div>
+     <!-- 	<div id="seniornote2" style="display: none;"><?php echo($seniorNote); ?></div>
       	<div><h3 class="subheadline">Faculty Meetings</h3></div>
         <div class="msg" id="meetingTimeMsg2"><p><?php echo ($FMNote)?><br /><br />
+      -->     
             <!-- <strong>NOTE:</strong> Many faculty schedules are full or almost full for Saturday morning meetings. Please indicate with whom you would like to meet and we will let you know which faculty members still have available meeting times. We will continue scheduling meetings for families through Thursday morning. Thank you.</p> -->
-                <p style="display: none">We do not schedule meetings for any of the ensemble classes (Chorus, Jazz, Madrigal Group, Chamber Orchestra, and Collegium). Generally, faculty members with "adjunct" status are not available for meetings on Family Weekend, nor are private music instructors.</p>
+      <!--          <p style="display: none">We do not schedule meetings for any of the ensemble classes (Chorus, Jazz, Madrigal Group, Chamber Orchestra, and Collegium). Generally, faculty members with "adjunct" status are not available for meetings on Family Weekend, nor are private music instructors.</p>
 				</div> 
       </div><!--end nonSophomoreFM2 -->
 			
       <!-- comment out meetings requests after deadline -->	     
+			<!--
 			<div>
       	<h3 class="subheadline">Meeting Requests</h3>
       </div>
-
+			-->
       <!-- comment out meetings requests after deadline -->
+      <!--
       <h4>I would like to meet with</h4>
       <div class="form-group col-md-12">
       	<div class="radio">
@@ -881,10 +889,11 @@ else {
         	Please specify the faculty by name or class
 					<input type="text" name="student2MeetingSpecifyWhich" id="student2MeetingSpecifyWhich" class="col-sm-12">
         </div>
-      </div><!-- end facultuy meeting form group -->
+      </div>  --> <!-- end facultuy meeting form group -->
     </div>
 		
    	<!-- comment out meetings requests after deadline -->
+		<!--
 		<div class="form-group col-md-12">
 			<h4>I would like to meet with my student's Academic Advisor</h4>
 			<div class="radio">
@@ -908,11 +917,11 @@ else {
 				<label for="seniorThesisAdvisorMeeting2No" class="labelsmall"><input type="radio" class="radio" name="seniorThesisAdvisorMeeting2" id="seniorThesisAdvisorMeeting2No" value="0">
 				No</label>
 			</div>
-		</div><!-- end advisor form groups -->
+		</div>  --><!-- end advisor form groups -->
 	</div>
 
 	<!-- comment out meetings requests after deadline -->
-  <div style="clear: both; display: none" id="sophomoreFM2">
+  <!--<div style="clear: both; display: none" id="sophomoreFM2">
   	<div>
     	<h4>Sophomore Planning Meetings</h4>
     	<div class="msg">
@@ -929,7 +938,7 @@ else {
 			<label for="sophomoreFacultyMeeting2No" class="labelsmall"><input type="radio" class="radio" name="sophomoreFacultyMeeting2" id="sophomoreFacultyMeeting2No" value="0" onClick="document.getElementById('lateArrive2_div').style.display='none'">
 			No</label>
 		</div>
-	</div><!-- end sophomore planning meetings for student 2-->
+	</div>  -->    <!-- end sophomore planning meetings for student 2-->
 	<!--
 			<div id="lateArrive2_div" style="clear:both; padding: 0 0 0 70px;display: inline-block; display: none">
 				<div>
