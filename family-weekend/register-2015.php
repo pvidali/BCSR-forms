@@ -410,7 +410,7 @@ $relativesTotal = 5;
 
 //$firstYearNote = "We recommend that family members of first-semester students meet with as many of their student's faculty as possible—it is a nice opportunity to put faces and names together. We prioritize scheduling parents to meet with their student's academic advisor.";
 $seniorNote = "Please specify if you wish to meet with your student's academic advisor or thesis advisor, as well as any subject faculty.";
-//$FMNote = "Advanced registration for meetings with faculty and advisors has ended. If you would like to meet your student&#39;s faculty members, their meeting schedules will be posted on their office doors and when you arrive on campus, you can sign yourself up in an open time slot. If you have any questions, please email Karen Advokaat (<a href=\"mailto:kadvokaat@simons-rock.edu\">kadvokaat@simons-rock.edu</a>). Thank you.";
+//$FMNote1 = "Advanced registration for meetings with faculty and advisors has ended. If you would like to meet your student&#39;s faculty members, their meeting schedules will be posted on their office doors and when you arrive on campus, you can sign yourself up in an open time slot. If you have any questions, please email Karen Advokaat (<a href=\"mailto:kadvokaat@simons-rock.edu\">kadvokaat@simons-rock.edu</a>). Thank you.";
 
 $FMNote = "Faculty meetings are 10-minute one-on-one appointments with your student’s faculty and academic advisor. The meetings will be scheduled on Saturday, October 31 between 9 am and noon and will take place in faculty offices. Since families will be moving between buildings, the schedule of meetings will allow time as needed for going between buildings.</p><p>Please note that meetings are not scheduled with: theater production and music ensemble faculty, as well as private music instructors. We generally also don’t schedule meetings for modular “half-semester” courses.</p><p>The deadline for requesting these meetings is Wednesday, October 28 and many faculty schedules fill up before this date.</p>";
 
@@ -514,6 +514,7 @@ function setMeetingTimeMsg(level,student) {
 		}
 	}
 
+	/* First Year Note not active
 	if(level == "First-year"){
 		if(student==1){
 			document.getElementById('fynote1').style.display = '';
@@ -530,6 +531,7 @@ function setMeetingTimeMsg(level,student) {
 			document.getElementById('fynote2').style.display = 'none';
 		}
 	}
+	*/
 
  
 	if(level == "Senior"){
@@ -686,102 +688,115 @@ else {
 <!--
 	<form id="request" name="request" method="post" action="<?php echo($_SERVER['PHP_SELF']); ?>" onSubmit="return checkForm()">
     -->
-	<form id="request" name="request" method="post" action="<?php echo($_SERVER['PHP_SELF']); ?>">
-	<h2 class="subheadline">About Your Student(s)</h2>
-	<h3>Student #1</h3>
-	<div id="student1Div">	
-    <div id="student1FnameDiv" class="form-group col-sm-6">
-      <label for="student1Fname">Student First Name*
-      <!-- <span class="small">Add your name</span> -->
-      </label>
-      <input type="text" name="student1Fname" id="student1Fname" class="form-control" /><span class="required"></span>
-    </div>
-    <div id="student1LnameDiv" class="form-group col-sm-6">
-      <label for="student1Lname">Student Last Name*</label>
-        <input type="text" name="student1Lname" id="student1Lname" class="form-control" /><span class="required"></span>
-    </div>
-  </div>
-        <div class="spacer"></div>
-        <div class="form-group col-sm-12">
-          <label for="student1Class">Student Current Year</label>
-          <select name="student1Class" id="student1Class" class="form-control" onChange="setMeetingTimeMsg(this.value,'1')" />
-          	<option>---Please Select---</option>
-          	<option value="First-year">First-year</option>
-          	<option value="Sophomore">Sophomore</option>
-          	<option value="Junior">Junior</option>
-          	<option value="Senior">Senior</option>
-          </select>
-        </div>
+		<form id="request" name="request" method="post" action="<?php echo($_SERVER['PHP_SELF']); ?>">
+		<h2 class="subheadline">About Your Student(s)</h2>
+		<h3>Student #1</h3>
+		<div id="student1Div">	
+	    <div id="student1FnameDiv" class="form-group col-sm-6">
+	      <label for="student1Fname">Student First Name*
+	      <!-- <span class="small">Add your name</span> -->
+	      </label>
+	      <input type="text" name="student1Fname" id="student1Fname" class="form-control" /><span class="required"></span>
+	    </div>
+	    <div id="student1LnameDiv" class="form-group col-sm-6">
+	      <label for="student1Lname">Student Last Name*</label>
+	        <input type="text" name="student1Lname" id="student1Lname" class="form-control" /><span class="required"></span>
+	    </div>
+	  </div><!-- end student1div -->
+	  <div class="spacer"></div>
+	        
+	  
 
-        <div style="clear: both; display: none;" id="nonSophomoreFM1">
-          <div id="fynote1" style="display: none;"><?php echo($firstYearNote); ?></div>
-          <div id="seniornote1" style="display: none;"><?php echo($seniorNote); ?></div>
-        </div>
-        <h3 class="subheadline">Faculty Meetings</h3>
-        <div class="msg" id="meetingTimeMsg1">
-					<p><?php echo ($FMNote)?></p>
-					<p style="display: none">We do not schedule meetings for any of the ensemble classes (Chorus, Jazz, Madrigal Group, Chamber Orchestra, and Collegium). Generally, faculty members with "adjunct" status are not available for meetings on Family Weekend, nor are private music instructors.</p></div> 
-        </div>
-
-       	<div onKeyUp=""><h3 class="subheadline">Meeting Requests</h3>
-         	<h4>I would like to meet with</h4>
-          <div class="form-group col-md-12">
-          	<div class="radio">
-            	<label class="labelwide" for="student1MeetingAll"> <input class="radio" type="radio" name="student1Meeting" id="student1MeetingAll" value="all"  onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display='none'"  />All of the Student's Available Faculty</label>
-            </div>
-          	<div class="radio">
-            	<label class="labelwide" for="student1MeetingNone" > <input class="radio" type="radio" name="student1Meeting" id="student1MeetingNone" value="none" onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display='none'" />No Meetings with Faculty</label>
-            </div>
-            <div class="radio">
-            	<label class="labelwide" for="student1MeetingSpecify"> <input class="radio" type="radio" name="student1Meeting" id="student1MeetingSpecify" value="some"   onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display=''" />Certain faculty</label>
-            </div>  
-            <div id="student1MeetingSpecifyWhichDiv" style="display:none" >
-            	Please specify the faculty by name or class
-            		<input type="text" name="student1MeetingSpecifyWhich" id="student1MeetingSpecifyWhich" class="col-sm-12">
-            </div>
-          </div>		
-				</div>
-			<h4>I would like to meet with my student's Academic Advisor</h4>
-			<div class="form-group col-md-12">
-				<div class="radio">
-					<label for="academicAdvisorMeeting1Yes" class="labelsmall"><input type="radio" class="radio" name="academicAdvisorMeeting1" id="academicAdvisorMeeting1Yes" value="1">
-					Yes</label>
-				</div>
-				<div class="radio">
-					<label for="academicAdvisorMeeting1No" class="labelsmall"><input type="radio" class="radio" name="academicAdvisorMeeting1" id="academicAdvisorMeeting1No" value="0">
-					No</label>
-				</div>
-			</div>          
-	  </div>
-		<div style="display:none; " id="seniorThesisAdvisorMeeting1HeaderDiv">
-			<h4>I would like to meet with my student's Thesis Advisor</h4>
-		</div>
-		<div style="display:none;" id="seniorThesisAdvisorMeeting1QuestionDiv" class="form-group col-md-12">
-			<div class="radio">
-				<label for="seniorThesisAdvisorMeeting1Yes" class="labelsmall"><input type="radio" class="radio" name="seniorThesisAdvisorMeeting1" id="seniorThesisAdvisorMeeting1Yes" value="1">
-				Yes</label>
-			</div>
-			<div class="radio">
-				<label for="seniorThesisAdvisorMeeting1No" class="labelsmall"><input type="radio" class="radio" name="seniorThesisAdvisorMeeting1" id="seniorThesisAdvisorMeeting1No" value="0">
-				No</label>
-			</div>
-		</div>
-    <div style="clear: both; display: none" id="sophomoreFM1">
-     <h4>Sophomore Planning Meetings</h4> 
-     <div class="msg">
-				<p><?php echo($sophomoreNote);?></span></p>
-			</div>
-			<h5>I would like to request a Sophomore Planning Meeting</h5>
-			<div class="form-group col-md-12">
-				<div class="radio">
-					<label for="sophomoreFacultyMeeting1Yes" class="labelsmall" ><input type="radio" class="radio" name="sophomoreFacultyMeeting1" id="sophomoreFacultyMeeting1Yes" value="1" onClick="document.getElementById('lateArrive1_div').style.display=''">
-					Yes</label></div>
-				<div class="radio">
-					<label for="sophomoreFacultyMeeting1No" class="labelsmall"><input type="radio" class="radio" name="sophomoreFacultyMeeting1" id="sophomoreFacultyMeeting1No" value="0" onClick="document.getElementById('lateArrive1_div').style.display='none'">
-					No</label>
-				</div>
-			</div>
+	  <!--student current year -->
+    <div class="form-group col-sm-12">
+      <label for="student1Class">Student Current Year</label>
+      <select name="student1Class" id="student1Class" class="form-control" onChange="setMeetingTimeMsg(this.value,'1')" />
+      	<option>---Please Select---</option>
+      	<option value="First-year">First-year</option>
+      	<option value="Sophomore">Sophomore</option>
+      	<option value="Junior">Junior</option>
+      	<option value="Senior">Senior</option>
+      </select>
     </div>
+
+    <div style="clear: both; display: none;" id="nonSophomoreFM1">
+      <!-- <div id="fynote1" style="display: none;"><?php echo($firstYearNote); ?></div>-->
+      <div id="seniornote1" style="display: none;"><?php echo($seniorNote); ?></div>
+    </div>
+     
+    <h3 class="subheadline">Faculty Meetings</h3>
+    <div class="msg" id="meetingTimeMsg1">
+			<p><?php echo ($FMNote)?></p>
+				<!--<p style="display: none">We do not schedule meetings for any of the ensemble classes (Chorus, Jazz, Madrigal Group, Chamber Orchestra, and Collegium). Generally, faculty members with "adjunct" status are not available for meetings on Family Weekend, nor are private music instructors.</p>-->
+		</div> 
+	</div><!-- seems like an extra div -->
+
+
+  <!-- comment out meetings requests after deadline -->
+ 	<div onKeyUp=""><h3 class="subheadline">Meeting Requests</h3>
+   	<h4>I would like to meet with</h4>
+    <div class="form-group col-md-12">
+    	<div class="radio">
+      	<label class="labelwide" for="student1MeetingAll"> <input class="radio" type="radio" name="student1Meeting" id="student1MeetingAll" value="all"  onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display='none'"  />All of the Student's Available Faculty</label>
+      </div>
+    	<div class="radio">
+      	<label class="labelwide" for="student1MeetingNone" > <input class="radio" type="radio" name="student1Meeting" id="student1MeetingNone" value="none" onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display='none'" />No Meetings with Faculty</label>
+      </div>
+      <div class="radio">
+      	<label class="labelwide" for="student1MeetingSpecify"> <input class="radio" type="radio" name="student1Meeting" id="student1MeetingSpecify" value="some"   onClick="document.getElementById('student1MeetingSpecifyWhichDiv').style.display=''" />Certain faculty</label>
+      </div>  
+      <div id="student1MeetingSpecifyWhichDiv" style="display:none" >
+      	Please specify the faculty by name or class
+      		<input type="text" name="student1MeetingSpecifyWhich" id="student1MeetingSpecifyWhich" class="col-sm-12">
+      </div>
+    </div>		
+	</div><!-- end meeting requests -->
+
+	<!-- comment out meetings requests after deadline -->	
+	<h4>I would like to meet with my student's Academic Advisor</h4>
+	<div class="form-group col-md-12">
+		<div class="radio">
+			<label for="academicAdvisorMeeting1Yes" class="labelsmall"><input type="radio" class="radio" name="academicAdvisorMeeting1" id="academicAdvisorMeeting1Yes" value="1">
+			Yes</label>
+		</div>
+		<div class="radio">
+			<label for="academicAdvisorMeeting1No" class="labelsmall"><input type="radio" class="radio" name="academicAdvisorMeeting1" id="academicAdvisorMeeting1No" value="0">
+			No</label>
+		</div>
+	</div>          
+</div><!-- seems like an extra div -->
+
+<!-- comment out meetings requests after deadline -->	
+<div style="display:none; " id="seniorThesisAdvisorMeeting1HeaderDiv">
+	<h4>I would like to meet with my student's Thesis Advisor</h4>
+</div>
+<div style="display:none;" id="seniorThesisAdvisorMeeting1QuestionDiv" class="form-group col-md-12">
+	<div class="radio">
+		<label for="seniorThesisAdvisorMeeting1Yes" class="labelsmall"><input type="radio" class="radio" name="seniorThesisAdvisorMeeting1" id="seniorThesisAdvisorMeeting1Yes" value="1">
+		Yes</label>
+	</div>
+	<div class="radio">
+		<label for="seniorThesisAdvisorMeeting1No" class="labelsmall"><input type="radio" class="radio" name="seniorThesisAdvisorMeeting1" id="seniorThesisAdvisorMeeting1No" value="0">
+		No</label>
+	</div>
+</div>
+<div style="clear: both; display: none" id="sophomoreFM1">
+ 	<h4>Sophomore Planning Meetings</h4> 
+	<div class="msg">
+		<p><?php echo($sophomoreNote);?></span></p>
+	</div>
+	<h5>I would like to request a Sophomore Planning Meeting</h5>
+	<div class="form-group col-md-12">
+		<div class="radio">
+			<label for="sophomoreFacultyMeeting1Yes" class="labelsmall" ><input type="radio" class="radio" name="sophomoreFacultyMeeting1" id="sophomoreFacultyMeeting1Yes" value="1" onClick="document.getElementById('lateArrive1_div').style.display=''">
+			Yes</label>
+		</div>
+		<div class="radio">
+			<label for="sophomoreFacultyMeeting1No" class="labelsmall"><input type="radio" class="radio" name="sophomoreFacultyMeeting1" id="sophomoreFacultyMeeting1No" value="0" onClick="document.getElementById('lateArrive1_div').style.display='none'">
+			No</label>
+		</div>
+	</div>
+</div><!-- end sophomore fm1 -->
 
         	
 <!--			<div id="lateArrive1_div" style="clear:both; display: inline-block; display: none ">
@@ -793,115 +808,129 @@ else {
 				</div>
 			</div>
 -->
-		</div>
 
-		<div style="clear:both;">
-			<div><a href="javascript: showAnother('student2Div','student')" style="text-decoration: none; font-size:14px;">+ I have more than one student at Simon's Rock</a></div>		
-			<div class="spacer"></div>	
-		</div>
-	</div>
-	<div class="spacer"></div>
-	<div style="clear:both; display: none" id="student2Div" class="form-group col-md-12">
-		<h2>Student #2</h2>
-    	<div id="student2FnameDiv" class="form-group col-sm-6">
-          <label for="student2Fname">Student First Name*
-          <!-- <span class="small">Add your name</span> -->
-          </label>
-          <input type="text" name="student2Fname" id="student2Fname" class="form-control"/><span class="required"></span>
-        </div>
-        <div id="student2LnameDiv" class="form-group col-sm-6">
-          <label for="student2Lname">Student Last Name*
-          </label>
-          <input type="text" name="student2Lname" id="student2Lname" class="form-control"/><span class="required"></span>
-        </div>
-        <div class="spacer"></div>
-        <div class="margin-bottom col-sm-12">
-          <label for="student2Class">Currently a:</label>
-          <select name="student2Class" id="student2Class" class="form-control" onChange="setMeetingTimeMsg(this.value,'2')" />
-          	<option>---Please Select---</option>
-          	<option value="First-year">First-year</option>
-          	<option value="Sophomore">Sophomore</option>
-          	<option value="Junior">Junior</option>
-          	<option value="Senior">Senior</option>
-          </select>
-        </div>        
-        <div style="clear: both; display:''" id="nonSophomoreFM2">
-        	<div>
-                <div id="fynote2" style="display: none;"><?php echo($firstYearNote); ?></div>
-	            <div id="seniornote2" style="display: none;"><?php echo($seniorNote); ?></div>
-	        	<div><h3 class="subheadline">Faculty Meetings</h3></div>
-            	<div class="msg" id="meetingTimeMsg2"><p><?php echo ($FMNote)?><br /><br />
-                <!-- <strong>NOTE:</strong> Many faculty schedules are full or almost full for Saturday morning meetings. Please indicate with whom you would like to meet and we will let you know which faculty members still have available meeting times. We will continue scheduling meetings for families through Thursday morning. Thank you.</p> -->
-                    <p style="display: none">We do not schedule meetings for any of the ensemble classes (Chorus, Jazz, Madrigal Group, Chamber Orchestra, and Collegium). Generally, faculty members with "adjunct" status are not available for meetings on Family Weekend, nor are private music instructors.</p>
+</div><!-- seems like an extra div -->
+
+<div style="clear:both;">
+	<div>
+		<a href="javascript: showAnother('student2Div','student')" style="text-decoration: none; font-size:14px;">+ I have more than one student at Simon's Rock</a>
+	</div>		
+	<div class="spacer"></div>	
+</div>
+
+</div><!-- seems like an extra div -->
+
+<div class="spacer"></div>
+<div style="clear:both; display: none" id="student2Div" class="form-group col-md-12">
+	<h2>Student #2</h2>
+	<div id="student2FnameDiv" class="form-group col-sm-6">
+    <label for="student2Fname">Student First Name*
+      <!-- <span class="small">Add your name</span> -->
+      </label>
+      <input type="text" name="student2Fname" id="student2Fname" class="form-control"/><span class="required"></span>
+  </div>
+  <div id="student2LnameDiv" class="form-group col-sm-6">
+      <label for="student2Lname">Student Last Name*
+      </label>
+      <input type="text" name="student2Lname" id="student2Lname" class="form-control"/><span class="required"></span>
+  </div>
+  <div class="spacer"></div>
+  
+  <!--student 2 class year -->
+  <div class="margin-bottom col-sm-12">
+      <label for="student2Class">Currently a:</label>
+      <select name="student2Class" id="student2Class" class="form-control" onChange="setMeetingTimeMsg(this.value,'2')" />
+      	<option>---Please Select---</option>
+      	<option value="First-year">First-year</option>
+      	<option value="Sophomore">Sophomore</option>
+      	<option value="Junior">Junior</option>
+      	<option value="Senior">Senior</option>
+      </select>
+    </div>
+
+    <!-- comment out meetings requests after deadline -->	        
+    <div style="clear: both; display:''" id="nonSophomoreFM2">
+    	<div>
+        <!--<div id="fynote2" style="display: none;"><?php echo($firstYearNote); ?></div>-->
+      	<div id="seniornote2" style="display: none;"><?php echo($seniorNote); ?></div>
+      	<div><h3 class="subheadline">Faculty Meetings</h3></div>
+        <div class="msg" id="meetingTimeMsg2"><p><?php echo ($FMNote)?><br /><br />
+            <!-- <strong>NOTE:</strong> Many faculty schedules are full or almost full for Saturday morning meetings. Please indicate with whom you would like to meet and we will let you know which faculty members still have available meeting times. We will continue scheduling meetings for families through Thursday morning. Thank you.</p> -->
+                <p style="display: none">We do not schedule meetings for any of the ensemble classes (Chorus, Jazz, Madrigal Group, Chamber Orchestra, and Collegium). Generally, faculty members with "adjunct" status are not available for meetings on Family Weekend, nor are private music instructors.</p>
 				</div> 
-            </div>
+      </div><!--end nonSophomoreFM2 -->
+			
+      <!-- comment out meetings requests after deadline -->	     
+			<div>
+      	<h3 class="subheadline">Meeting Requests</h3>
+      </div>
 
-        	<div>
-        		<h3 class="subheadline">Meeting Requests</h3>
-        	</div>
-        		<h4>I would like to meet with</h4>
-            <div class="form-group col-md-12">
-            	<div class="radio">
-              	<label class="labelwide" for="student2MeetingAll"><input class="radio" type="radio" name="student2Meeting" id="student2MeetingAll" value="all" onClick="document.getElementById('student2MeetingSpecifyWhichDiv').style.display='none'" />All of the Student's Available Faculty</label>
-              </div>
-            	<div class="radio">
-              	<label class="labelwide" for="student2MeetingNone" ><input class="radio" type="radio" name="student2Meeting" id="student2MeetingNone" value="none" onClick="document.getElementById('student2MeetingSpecifyWhichDiv').style.display='none'" />No Meetings with Faculty</label>
-              </div>
-              <div class="radio">
-              	<label class="labelwide" for="student2MeetingSpecify"><input class="radio" type="radio" name="student2Meeting" id="student2MeetingSpecify" value="some" onClick="document.getElementById('student2MeetingSpecifyWhichDiv').style.display=''"  />Certain Faculty</label>
-              </div>
-              <div id="student2MeetingSpecifyWhichDiv" style="display:none" >
-              	Please specify the faculty by name or class
-								<input type="text" name="student2MeetingSpecifyWhich" id="student2MeetingSpecifyWhich" class="col-sm-12">
-              </div>
-            </div>
-          </div>
-			<div class="form-group col-md-12">
-			<h4>I would like to meet with my student's Academic Advisor</h4>
-				<div class="radio">
-					<label for="academicAdvisorMeeting2Yes" class="labelsmall"><input type="radio" class="radio" name="academicAdvisorMeeting2" id="academicAdvisorMeeting2Yes" value="1">
-					Yes</label>
-				</div>
-				<div class="radio">
-					<label for="academicAdvisorMeeting2No" class="labelsmall"><input type="radio" class="radio" name="academicAdvisorMeeting2" id="academicAdvisorMeeting2No" value="0">
-					No</label>
-				</div>
-			</div>
-			<div style="display: none;" id="seniorThesisAdvisorMeeting2HeaderDiv">
-				<h4>I would like to meet with my student's Thesis Advisor</h4>
-			</div>
-			<div style="display:none;" id="seniorThesisAdvisorMeeting2QuestionDiv" class="form-group col-md-12">
-				<div class="radio">
-					<label for="seniorThesisAdvisorMeeting2Yes" class="labelsmall">
-					<input type="radio" class="radio" name="seniorThesisAdvisorMeeting2" id="seniorThesisAdvisorMeeting2Yes" value="1">
-					Yes</label></div>
-				<div class="radio">
-					<label for="seniorThesisAdvisorMeeting2No" class="labelsmall"><input type="radio" class="radio" name="seniorThesisAdvisorMeeting2" id="seniorThesisAdvisorMeeting2No" value="0">
-					No</label>
-				</div>
-			</div>
-
-
+      <!-- comment out meetings requests after deadline -->
+      <h4>I would like to meet with</h4>
+      <div class="form-group col-md-12">
+      	<div class="radio">
+        	<label class="labelwide" for="student2MeetingAll"><input class="radio" type="radio" name="student2Meeting" id="student2MeetingAll" value="all" onClick="document.getElementById('student2MeetingSpecifyWhichDiv').style.display='none'" />All of the Student's Available Faculty</label>
         </div>
-        <div style="clear: both; display: none" id="sophomoreFM2">
-        	<div>
-          	<h4>Sophomore Planning Meetings</h4>
-          	<div class="msg">
-           		<p><?php echo($sophomoreNote);?></span></p>
-          	</div>
-          </div>
-        	<h5>I would like to request a Sophomore Planning Meeting</h5>
-					<div class="form-group col-md-12">
-        		<div class="radio">
-        			<label for="sophomoreFacultyMeeting2Yes" class="labelsmall"><input type="radio" class="radio" name="sophomoreFacultyMeeting2" id="sophomoreFacultyMeeting2Yes" value="1" onClick="document.getElementById('lateArrive2_div').style.display='inline-block'">
-							Yes</label>
-						</div>
-					<div class="radio">
-						<label for="sophomoreFacultyMeeting2No" class="labelsmall"><input type="radio" class="radio" name="sophomoreFacultyMeeting2" id="sophomoreFacultyMeeting2No" value="0" onClick="document.getElementById('lateArrive2_div').style.display='none'">
-						No</label>
-					</div>
+      	<div class="radio">
+        	<label class="labelwide" for="student2MeetingNone" ><input class="radio" type="radio" name="student2Meeting" id="student2MeetingNone" value="none" onClick="document.getElementById('student2MeetingSpecifyWhichDiv').style.display='none'" />No Meetings with Faculty</label>
+        </div>
+        <div class="radio">
+        	<label class="labelwide" for="student2MeetingSpecify"><input class="radio" type="radio" name="student2Meeting" id="student2MeetingSpecify" value="some" onClick="document.getElementById('student2MeetingSpecifyWhichDiv').style.display=''"  />Certain Faculty</label>
+        </div>
+        <div id="student2MeetingSpecifyWhichDiv" style="display:none" >
+        	Please specify the faculty by name or class
+					<input type="text" name="student2MeetingSpecifyWhich" id="student2MeetingSpecifyWhich" class="col-sm-12">
+        </div>
+      </div><!-- end facultuy meeting form group -->
+    </div>
+		
+   	<!-- comment out meetings requests after deadline -->
+		<div class="form-group col-md-12">
+			<h4>I would like to meet with my student's Academic Advisor</h4>
+			<div class="radio">
+				<label for="academicAdvisorMeeting2Yes" class="labelsmall"><input type="radio" class="radio" name="academicAdvisorMeeting2" id="academicAdvisorMeeting2Yes" value="1">
+				Yes</label>
 			</div>
-<!--
+			<div class="radio">
+				<label for="academicAdvisorMeeting2No" class="labelsmall"><input type="radio" class="radio" name="academicAdvisorMeeting2" id="academicAdvisorMeeting2No" value="0">
+				No</label>
+			</div>
+		</div>
+		<div style="display: none;" id="seniorThesisAdvisorMeeting2HeaderDiv">
+			<h4>I would like to meet with my student's Thesis Advisor</h4>
+		</div>
+		<div style="display:none;" id="seniorThesisAdvisorMeeting2QuestionDiv" class="form-group col-md-12">
+			<div class="radio">
+				<label for="seniorThesisAdvisorMeeting2Yes" class="labelsmall">
+				<input type="radio" class="radio" name="seniorThesisAdvisorMeeting2" id="seniorThesisAdvisorMeeting2Yes" value="1">
+				Yes</label></div>
+			<div class="radio">
+				<label for="seniorThesisAdvisorMeeting2No" class="labelsmall"><input type="radio" class="radio" name="seniorThesisAdvisorMeeting2" id="seniorThesisAdvisorMeeting2No" value="0">
+				No</label>
+			</div>
+		</div><!-- end advisor form groups -->
+	</div>
+
+	<!-- comment out meetings requests after deadline -->
+  <div style="clear: both; display: none" id="sophomoreFM2">
+  	<div>
+    	<h4>Sophomore Planning Meetings</h4>
+    	<div class="msg">
+     		<p><?php echo($sophomoreNote);?></span></p>
+    	</div>
+    </div>
+  	<h5>I would like to request a Sophomore Planning Meeting</h5>
+		<div class="form-group col-md-12">
+  		<div class="radio">
+  			<label for="sophomoreFacultyMeeting2Yes" class="labelsmall"><input type="radio" class="radio" name="sophomoreFacultyMeeting2" id="sophomoreFacultyMeeting2Yes" value="1" onClick="document.getElementById('lateArrive2_div').style.display='inline-block'">
+				Yes</label>
+			</div>
+		<div class="radio">
+			<label for="sophomoreFacultyMeeting2No" class="labelsmall"><input type="radio" class="radio" name="sophomoreFacultyMeeting2" id="sophomoreFacultyMeeting2No" value="0" onClick="document.getElementById('lateArrive2_div').style.display='none'">
+			No</label>
+		</div>
+	</div><!-- end sophomore planning meetings for student 2-->
+	<!--
 			<div id="lateArrive2_div" style="clear:both; padding: 0 0 0 70px;display: inline-block; display: none">
 				<div>
 					<input type="checkbox" name="SMLateArrival2" id="SMLateArrival2" class="radio" onClick="toggleDiv('SMLateArrival2','arrivaldetails2_div')">
@@ -910,10 +939,9 @@ else {
 					<textarea name="arrivaldetails2" id="arrivaldetails2" style="width:300px; height: 80px; margin: 8px" ></textarea>
 				</div>
 			</div>				
--->
-		</div>
-		
-	</div>
+	-->
+</div>
+</div> <!-- seems like an extra closing div -->
 
 						<script type='text/javascript'>//<![CDATA[
 			$(window).load(function(){
