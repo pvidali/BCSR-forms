@@ -26,7 +26,7 @@ foreach($_POST as $k => $v){
 }
 
 if ($verified) {
-	mail("dscheff@simons-rock.edu","POST",$emlstr);
+	mail("mchameides@simons-rock.edu","POST",$emlstr);
 
 	$errmsg = '';   // stores errors from fraud checks
     
