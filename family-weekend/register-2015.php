@@ -209,9 +209,12 @@ if(isset($_POST['submit'])) {
 		$msg .= "Dear $relative1Fname,\n\n";
 		$msg .= "Thank you for registering for Family Weekend! We look forward to seeing you.\n\n";
 		$msg .= "To confirm, you have registered for:\n\n";
-		$msg .= "== MEETINGS REQUESTED ==\n\n";
+		
+		//comment out meeting request after expiration
+
+		//$msg .= "== MEETINGS REQUESTED ==\n\n";
 		// student 1
-		$msg .= "  For $student1Fname $student1Lname:\n";
+		/*$msg .= "  For $student1Fname $student1Lname:\n";
 		$prepend = "";
 		if($academicAdvisorMeeting1 != "1"){
 			$prepend = "    - No meeting";
@@ -253,11 +256,11 @@ if(isset($_POST['submit'])) {
 			else {
 				$msg .= "    - Senior Thesis Advisor meeting\n";
 			}
-		}
+		}*/
 
 		
 		// student 2
-		if($student2Fname != "") {
+		/*if($student2Fname != "") {
 			$msg .= "\n  For $student2Fname $student2Lname:\n";
 			$prepend = "";
 			if($academicAdvisorMeeting2 != "1"){
@@ -302,6 +305,7 @@ if(isset($_POST['submit'])) {
 			}
 		}
 		$msg .= "\n\nIf you have registered for meetings with your student's faculty and academic advisor, please note that your schedule of actual meeting times between 9am and noon on Saturday, October 31st, will be emailed to you on or before October 28th.\n\n";
+		*/
 		$msg .= "== ACTIVITIES ==\n\n";
 		//$msg .= " - Trick or Treating: $trickOrTreatingAdults Adult(s), $trickOrTreatingChild Child(ren)\n";
 		$msg .= " - First-year Adjustment Panel: $FYAdjustmentAdults Adult(s), $FYAdjustmentChild Child(ren)\n";
