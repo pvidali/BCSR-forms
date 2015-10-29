@@ -410,9 +410,13 @@ $relativesTotal = 5;
 
 //$firstYearNote = "We recommend that family members of first-semester students meet with as many of their student's faculty as possible—it is a nice opportunity to put faces and names together. We prioritize scheduling parents to meet with their student's academic advisor.";
 $seniorNote = "Please specify if you wish to meet with your student's academic advisor or thesis advisor, as well as any subject faculty.";
-//$FMNote1 = "Advanced registration for meetings with faculty and advisors has ended. If you would like to meet your student&#39;s faculty members, their meeting schedules will be posted on their office doors and when you arrive on campus, you can sign yourself up in an open time slot. If you have any questions, please email Karen Advokaat (<a href=\"mailto:kadvokaat@simons-rock.edu\">kadvokaat@simons-rock.edu</a>). Thank you.";
 
-$FMNote = "Faculty meetings are 10-minute one-on-one appointments with your student’s faculty and academic advisor. The meetings will be scheduled on Saturday, October 31 between 9 am and noon and will take place in faculty offices. Since families will be moving between buildings, the schedule of meetings will allow time as needed for going between buildings.</p><p>Please note that meetings are not scheduled with: theater production and music ensemble faculty, as well as private music instructors. We generally also don’t schedule meetings for modular “half-semester” courses.</p><p>The deadline for requesting these meetings is Wednesday, October 28 and many faculty schedules fill up before this date.</p>";
+//Academic Meeting note. 
+//swap notes after meeting deadline
+
+$FMNote = "Advanced registration for meetings with faculty and advisors has ended. If you would like to meet your student&#39;s faculty members, their meeting schedules will be posted on their office doors and when you arrive on campus, you can sign yourself up in an open time slot. If you have any questions, please email Karen Advokaat (<a href=\"mailto:kadvokaat@simons-rock.edu\">kadvokaat@simons-rock.edu</a>). Thank you.";
+
+//$FMNote = "Faculty meetings are 10-minute one-on-one appointments with your student’s faculty and academic advisor. The meetings will be scheduled on Saturday, October 31 between 9 am and noon and will take place in faculty offices. Since families will be moving between buildings, the schedule of meetings will allow time as needed for going between buildings.</p><p>Please note that meetings are not scheduled with: theater production and music ensemble faculty, as well as private music instructors. We generally also don’t schedule meetings for modular “half-semester” courses.</p><p>The deadline for requesting these meetings is Wednesday, October 28 and many faculty schedules fill up before this date.</p>";
 
 
 //$sophomoreNote = "James Jeffries' schedule for sophomore planning meetings is full on Friday afternoon. If you would like to make arrangements to speak with Liz about your sophomore's plans, please email her at <a href=\"mailto:jjeffries@simons-rock.edu\">jjeffries@simons-rock.edu</a>.";
