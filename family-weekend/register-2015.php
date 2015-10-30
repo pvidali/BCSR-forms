@@ -4,6 +4,7 @@ if($is_test) {
 	ini_set("display_errors","On");
 	error_reporting(E_ALL & ~(E_STRICT|E_NOTICE));
 }
+
 require_once $_SERVER['DOCUMENT_ROOT']."/includes/DB.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/includes/define-connect.php";
 $db = new DB(HOST,USER,PASSWORD,DATABASE);
@@ -418,7 +419,9 @@ $seniorNote = "Please specify if you wish to meet with your student's academic a
 //Academic Meeting note. 
 //swap notes after meeting deadline
 
-$FMNote = "Advanced registration for meetings with faculty and advisors has ended. If you would like to meet your student&#39;s faculty members, their meeting schedules will be posted on their office doors and when you arrive on campus, you can sign yourself up in an open time slot. If you have any questions, please email Karen Advokaat (<a href=\"mailto:kadvokaat@simons-rock.edu\">kadvokaat@simons-rock.edu</a>). Thank you.";
+$FMNote = "Advanced registration for meetings with faculty and advisors has ended. If you would like to meet your student&#39;s faculty members, their meeting schedules will be posted on their office doors and when you arrive on campus, you can sign yourself up in an open time slot. If you have any questions, please email Karen Advokaat at <a href=\"mailto:kadvokaat@simons-rock.edu\">kadvokaat@simons-rock.edu</a>. Thank you.
+	<br><br>
+	Sophomore Planning Meetings are fully booked. If you would like to speak with James Jeffries, Director of Career Development, please email him at <a href=\"mailto:jjeffries@simons-rock.edu\">jjeffries@simons-rock.edu</a> to schedule a time to talk. Thank you.";
 
 //$FMNote = "Faculty meetings are 10-minute one-on-one appointments with your student’s faculty and academic advisor. The meetings will be scheduled on Saturday, October 31 between 9 am and noon and will take place in faculty offices. Since families will be moving between buildings, the schedule of meetings will allow time as needed for going between buildings.</p><p>Please note that meetings are not scheduled with: theater production and music ensemble faculty, as well as private music instructors. We generally also don’t schedule meetings for modular “half-semester” courses.</p><p>The deadline for requesting these meetings is Wednesday, October 28 and many faculty schedules fill up before this date.</p>";
 
