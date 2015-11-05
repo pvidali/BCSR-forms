@@ -148,6 +148,9 @@ if(isset($_POST['submit'])) {
 
 
 
+
+
+
 }
 
 /* REMOVE BEFORE LIVE
@@ -220,6 +223,8 @@ if(isset($_REQUEST['lname'])){
 require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/google-analytics.php";
 
 if($thankyou){
+
+	
 ?>
 
 	<script>
@@ -572,5 +577,68 @@ function checkForm() {
 // -->
 			
 </script>
+<?php
+	if($thankyou){
+?>
+<!-- Code for Action: 2015.10.23 Simon's Rock Media Inquiry Conversion -->
+<!-- Begin Rocket Fuel Conversion Action Tracking Code Version 9 -->
+<script type='text/javascript'>
+(function() {
+	var w = window, d = document;
+	var s = d.createElement('script');
+	s.setAttribute('async', 'true');
+	s.setAttribute('type', 'text/javascript');
+	s.setAttribute('src', '//c1.rfihub.net/js/tc.min.js');
+	var f = d.getElementsByTagName('script')[0];
+	f.parentNode.insertBefore(s, f);
+	if (typeof w['_rfi'] !== 'function') {
+		w['_rfi']=function() {
+			w['_rfi'].commands = w['_rfi'].commands || [];
+			w['_rfi'].commands.push(arguments);
+		};
+	}
+	_rfi('setArgs', 'ver', '9');
+	_rfi('setArgs', 'rb', '24599');
+	_rfi('setArgs', 'ca', '20723101');
+	_rfi('setArgs', '_o', '24599');
+	_rfi('setArgs', '_t', '20723101');
+	_rfi('track');
+})();
+</script>
+<noscript>
+  <iframe src='//20723101p.rfihub.com/ca.html?rb=24599&ca=20723101&_o=24599&_t=20723101&ra=%n' style='display:none;padding:0;margin:0' width='0' height='0'>
+</iframe>
+</noscript>
+<!-- End Rocket Fuel Conversion Action Tracking Code Version 9 -->
+
+
+<!-- Tag for Activity Group: Inquiry, Activity Name: Landing Page Inquiry, Activity ID: 2862611 -->
+<!-- Expected URL: http://forms.simons-rock.edu/admission/l/5-signs-ready-for-college/index.php? -->
+
+<!--
+Activity ID: 2862611
+Activity Name: Landing Page Inquiry
+Activity Group Name: Inquiry
+-->
+
+<!--
+Start of DoubleClick Floodlight Tag: Please do not remove
+Activity name of this tag: Landing Page Inquiry
+URL of the webpage where the tag is expected to be placed: http://forms.simons-rock.edu/admission/l/5-signs-ready-for-college/index.php?
+This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+Creation Date: 11/02/2015
+-->
+<script type="text/javascript">
+var axel = Math.random() + "";
+var a = axel * 10000000000000;
+document.write('<iframe src="https://5191935.fls.doubleclick.net/activityi;src=5191935;type=inqui0;cat=landi0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script>
+<noscript>
+<iframe src="https://5191935.fls.doubleclick.net/activityi;src=5191935;type=inqui0;cat=landi0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+</noscript>
+<!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+<?php
+	}
+?>
 </body>
 </html>
