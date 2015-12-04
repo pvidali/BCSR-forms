@@ -242,20 +242,8 @@ if($thankyou){
 ?>
 
 	<script>
-<?php
-if( isset($_POST['source']) && strpos($_POST['source'],"ADG") ){
-?>
-		ga('send', 'event', 'Form', 'Submit', '5 Reasons Fall 2014 Search');
-<?php
-}
-else {
-?>
 		ga('send', 'event', 'Form', 'Submit', '5 Reasons Early College NON-Hubspot');
-<?php
-} 
-?>
-
-    </script>
+  </script>
 <?php
 }
 ?>
