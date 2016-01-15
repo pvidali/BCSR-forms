@@ -54,151 +54,151 @@ else {
 	$db = new DB(HOST,USER,PASSWORD,DATABASE);
 	$db->connect();
 	
-	$sql = "SELECT SUM(trickOrTreatingAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(trickOrTreatingAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$trickOrTreatingAdults = $res['SUM(trickOrTreatingAdults)'];
-	$sql = "SELECT SUM(trickOrTreatingChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(trickOrTreatingChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$trickOrTreatingChild = $res['SUM(trickOrTreatingChild)'];
 	
-	$sql = "SELECT SUM(alumniPanelAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(alumniPanelAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$AlumniPanelAdults = $res['SUM(alumniPanelAdults)'];
-	$sql = "SELECT SUM(alumniPanelChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(alumniPanelChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$AlumniPanelChild = $res['SUM(alumniPanelChild)'];
 	
-	$sql = "SELECT SUM(FYAdjustmentAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(FYAdjustmentAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$FYAdjustmentAdults = $res['SUM(FYAdjustmentAdults)'];
-	$sql = "SELECT SUM(FYAdjustmentChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(FYAdjustmentChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$FYAdjustmentChild = $res['SUM(FYAdjustmentChild)'];
 	
-	$sql = "SELECT SUM(welcomeReceptionAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(welcomeReceptionAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$welcomeReceptionAdults = $res['SUM(welcomeReceptionAdults)'];
-	$sql = "SELECT SUM(welcomeReceptionChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(welcomeReceptionChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$welcomeReceptionChild = $res['SUM(welcomeReceptionChild)'];
 	
-	$sql = "SELECT SUM(murderMysteryChallengeAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(murderMysteryChallengeAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$murderMysteryChallengeAdults = $res['SUM(murderMysteryChallengeAdults)'];
-	$sql = "SELECT SUM(murderMysteryChallengeChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(murderMysteryChallengeChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$murderMysteryChallengeChild = $res['SUM(murderMysteryChallengeChild)'];
 	
-	$sql = "SELECT SUM(halloweenDanceAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(halloweenDanceAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$halloweenDanceAdults = $res['SUM(halloweenDanceAdults)'];
-	$sql = "SELECT SUM(halloweenDanceChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(halloweenDanceChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$halloweenDanceChild = $res['SUM(halloweenDanceChild)'];
 	
-	$sql = "SELECT SUM(hikeUpMountainAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(hikeUpMountainAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$hikeUpMountainAdults = $res['SUM(hikeUpMountainAdults)'];
-	$sql = "SELECT SUM(hikeUpMountainChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(hikeUpMountainChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$hikeUpMountainChild = $res['SUM(hikeUpMountainChild)'];
 	
-	$sql = "SELECT SUM(frightFilmFestAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(frightFilmFestAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$frightFilmFestAdults = $res['SUM(frightFilmFestAdults)'];
-	$sql = "SELECT SUM(frightFilmFestChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(frightFilmFestChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$frightFilmFestChild = $res['SUM(frightFilmFestChild)'];
 	
-	$sql = "SELECT SUM(honorsConvocationAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(honorsConvocationAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$honorsConvocationAdults = $res['SUM(honorsConvocationAdults)'];
-	$sql = "SELECT SUM(honorsConvocationChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(honorsConvocationChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$honorsConvocationChild = $res['SUM(honorsConvocationChild)'];
 	
-//	$sql = "SELECT SUM(provostsReceptionAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+//	$sql = "SELECT SUM(provostsReceptionAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 //	$db->do_query($sql);
 //	$res = $db->fetchArray();
 //	$provostsReceptionAdults = $res['SUM(provostsReceptionAdults)'];
 	
 	
-	$sql = "SELECT SUM(studyAbroadPanelAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(studyAbroadPanelAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$studyAbroadPanelAdults = $res['SUM(studyAbroadPanelAdults)'];
-	$sql = "SELECT SUM(studyAbroadPanelChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(studyAbroadPanelChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$studyAbroadPanelChild = $res['SUM(studyAbroadPanelChild)'];
 	
-	$sql = "SELECT SUM(jazzEnsembleConcertAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(jazzEnsembleConcertAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$jazzEnsembleConcertAdults = $res['SUM(jazzEnsembleConcertAdults)'];
-	$sql = "SELECT SUM(jazzEnsembleConcertChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(jazzEnsembleConcertChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$jazzEnsembleConcertChild = $res['SUM(jazzEnsembleConcertChild)'];
 	
-	$sql = "SELECT SUM(hikeUpMountainAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(hikeUpMountainAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$hikeUpMountainAdults = $res['SUM(hikeUpMountainAdults)'];
-	$sql = "SELECT SUM(hikeUpMountainChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(hikeUpMountainChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$hikeUpMountainChild = $res['SUM(hikeUpMountainChild)'];
 	
-	$sql = "SELECT SUM(pianoRecitalAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(pianoRecitalAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$pianoRecitalAdults = $res['SUM(pianoRecitalAdults)'];
-	$sql = "SELECT SUM(pianoRecitalChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(pianoRecitalChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$pianoRecitalChild = $res['SUM(pianoRecitalChild)'];
 	
-	$sql = "SELECT SUM(normanRockwellMuseumAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(normanRockwellMuseumAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$normanRockwellMuseumAdults = $res['SUM(normanRockwellMuseumAdults)'];
-	$sql = "SELECT SUM(normanRockwellMuseumChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(normanRockwellMuseumChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$normanRockwellMuseumChild = $res['SUM(normanRockwellMuseumChild)'];
-	$sql = "SELECT SUM(normanRockwellMuseumTransportationAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(normanRockwellMuseumTransportationAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$normanRockwellMuseumTransportationAdults = $res['SUM(normanRockwellMuseumTransportationAdults)'];
 	
-	$sql = "SELECT SUM(walkingTourAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(walkingTourAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$walkingTourAdults = $res['SUM(walkingTourAdults)'];
-	$sql = "SELECT SUM(walkingTourChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(walkingTourChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$walkingTourChild = $res['SUM(walkingTourChild)'];
-	$sql = "SELECT SUM(walkingTourTransportationAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(walkingTourTransportationAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$walkingTourTransportationAdults = $res['SUM(walkingTourTransportationAdults)'];
@@ -206,140 +206,140 @@ else {
 
 
 /*
-	$sql = "SELECT SUM(internationalFairAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(internationalFairAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$internationalFairAdults = $res['SUM(internationalFairAdults)'];
-	$sql = "SELECT SUM(internationalFairChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(internationalFairChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$internationalFairChild = $res['SUM(internationalFairChild)'];
 */	
 	// meals
-	$sql = "SELECT SUM(fridayLunchAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(fridayLunchAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$fridayLunchAdults = $res['SUM(fridayLunchAdults)'];
-	$sql = "SELECT SUM(fridayLunchChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(fridayLunchChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$fridayLunchChild = $res['SUM(fridayLunchChild)'];
 	
-	$sql = "SELECT SUM(fridayDinnerAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(fridayDinnerAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$fridayDinnerAdults = $res['SUM(fridayDinnerAdults)'];
-	$sql = "SELECT SUM(fridayDinnerChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(fridayDinnerChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$fridayDinnerChild = $res['SUM(fridayDinnerChild)'];
 	
-	$sql = "SELECT SUM(saturdayBrunchAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(saturdayBrunchAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$saturdayBrunchAdults = $res['SUM(saturdayBrunchAdults)'];
-	$sql = "SELECT SUM(saturdayBrunchChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(saturdayBrunchChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$saturdayBrunchChild = $res['SUM(saturdayBrunchChild)'];
 
-	$sql = "SELECT SUM(saturdayLunch) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(saturdayLunch) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$saturdayLunch = $res['SUM(saturdayLunch)'];
 	
-	$sql = "SELECT SUM(saturdayDinnerAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(saturdayDinnerAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$saturdayDinnerAdults = $res['SUM(saturdayDinnerAdults)'];
-	$sql = "SELECT SUM(saturdayDinnerChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(saturdayDinnerChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$saturdayDinnerChild = $res['SUM(saturdayDinnerChild)'];
 	
-	$sql = "SELECT SUM(sundayBrunchAdults) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(sundayBrunchAdults) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$sundayBrunchAdults = $res['SUM(sundayBrunchAdults)'];
-	$sql = "SELECT SUM(sundayBrunchChild) FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT SUM(sundayBrunchChild) FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$res = $db->fetchArray();
 	$sundayBrunchChild = $res['SUM(sundayBrunchChild)'];
 	
 	// Totals
 	$totalAdults = 0;
-//	$sql = "SELECT * FROM family_weekend_2014 WHERE relative1Class NOT LIKE '%Other%';";
-	$sql = "SELECT * FROM family_weekend_2014 WHERE (relative1Class LIKE '%Parent%' OR relative1Class LIKE '%Other%') AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+//	$sql = "SELECT * FROM family_weekend_2015 WHERE relative1Class NOT LIKE '%Other%';";
+	$sql = "SELECT * FROM family_weekend_2015 WHERE (relative1Class LIKE '%Parent%' OR relative1Class LIKE '%Other%') AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$totalAdults += $db->numRows();
 
-	$sql = "SELECT * FROM family_weekend_2014 WHERE (relative2Class LIKE '%Parent%' OR relative2Class LIKE '%Other%') AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT * FROM family_weekend_2015 WHERE (relative2Class LIKE '%Parent%' OR relative2Class LIKE '%Other%') AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$totalAdults += $db->numRows();
 
-	$sql = "SELECT * FROM family_weekend_2014 WHERE (relative3Class LIKE '%Parent%' OR relative3Class LIKE '%Other%') AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT * FROM family_weekend_2015 WHERE (relative3Class LIKE '%Parent%' OR relative3Class LIKE '%Other%') AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$totalAdults += $db->numRows();
 
-	$sql = "SELECT * FROM family_weekend_2014 WHERE (relative4Class LIKE '%Parent%' OR relative4Class LIKE '%Other%) AND date_submitted > '$rangestart' AND date_submitted < '$rangeend''";
+	$sql = "SELECT * FROM family_weekend_2015 WHERE (relative4Class LIKE '%Parent%' OR relative4Class LIKE '%Other%) AND date_submitted > '$rangestart' AND date_submitted < '$rangeend''";
 	$db->do_query($sql);
 	$totalAdults += $db->numRows();
 
-	$sql = "SELECT * FROM family_weekend_2014 WHERE (relative5Class LIKE '%Parent%' OR relative5Class LIKE '%Other%) AND date_submitted > '$rangestart' AND date_submitted < '$rangeend''";
+	$sql = "SELECT * FROM family_weekend_2015 WHERE (relative5Class LIKE '%Parent%' OR relative5Class LIKE '%Other%) AND date_submitted > '$rangestart' AND date_submitted < '$rangeend''";
 	$db->do_query($sql);
 	$totalAdults += $db->numRows();
 	
 	$totalChildren = 0;
-//	$sql = "SELECT * FROM family_weekend_2014 WHERE relative1Class NOT LIKE '%Other%';";
-	$sql = "SELECT * FROM family_weekend_2014 WHERE relative1Class LIKE '%Child%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+//	$sql = "SELECT * FROM family_weekend_2015 WHERE relative1Class NOT LIKE '%Other%';";
+	$sql = "SELECT * FROM family_weekend_2015 WHERE relative1Class LIKE '%Child%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$totalChildren += $db->numRows();
 
-	$sql = "SELECT * FROM family_weekend_2014 WHERE relative2Class LIKE '%Child%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT * FROM family_weekend_2015 WHERE relative2Class LIKE '%Child%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$totalChildren += $db->numRows();
 
-	$sql = "SELECT * FROM family_weekend_2014 WHERE relative3Class LIKE '%Child%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT * FROM family_weekend_2015 WHERE relative3Class LIKE '%Child%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$totalChildren += $db->numRows();
 
-	$sql = "SELECT * FROM family_weekend_2014 WHERE relative4Class LIKE '%Child%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT * FROM family_weekend_2015 WHERE relative4Class LIKE '%Child%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$totalChildren += $db->numRows();
 
-	$sql = "SELECT * FROM family_weekend_2014 WHERE relative5Class LIKE '%Child%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT * FROM family_weekend_2015 WHERE relative5Class LIKE '%Child%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$totalChildren += $db->numRows();
 
 	$freshmenVisited = 0;
-	$sql = "SELECT * FROM family_weekend_2014 WHERE student1Class LIKE '%First%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT * FROM family_weekend_2015 WHERE student1Class LIKE '%First%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$freshmenVisited += $db->numRows();
-	$sql = "SELECT * FROM family_weekend_2014 WHERE student2Class LIKE '%First%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT * FROM family_weekend_2015 WHERE student2Class LIKE '%First%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$freshmenVisited += $db->numRows();
 
 	$sophomoresVisited = 0;
-	$sql = "SELECT * FROM family_weekend_2014 WHERE student1Class LIKE '%Soph%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT * FROM family_weekend_2015 WHERE student1Class LIKE '%Soph%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$sophomoresVisited += $db->numRows();
-	$sql = "SELECT * FROM family_weekend_2014 WHERE student2Class LIKE '%Soph%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT * FROM family_weekend_2015 WHERE student2Class LIKE '%Soph%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$sophomoresVisited += $db->numRows();
 
 	$juniorsVisited = 0;
-	$sql = "SELECT * FROM family_weekend_2014 WHERE student1Class LIKE '%Jun%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT * FROM family_weekend_2015 WHERE student1Class LIKE '%Jun%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$juniorsVisited += $db->numRows();
-	$sql = "SELECT * FROM family_weekend_2014 WHERE student2Class LIKE '%Jun%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT * FROM family_weekend_2015 WHERE student2Class LIKE '%Jun%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$juniorsVisited += $db->numRows();
 
 	$seniorsVisited = 0;
-	$sql = "SELECT * FROM family_weekend_2014 WHERE student1Class LIKE '%Sen%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT * FROM family_weekend_2015 WHERE student1Class LIKE '%Sen%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$seniorsVisited += $db->numRows();
-	$sql = "SELECT * FROM family_weekend_2014 WHERE student2Class LIKE '%Sen%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
+	$sql = "SELECT * FROM family_weekend_2015 WHERE student2Class LIKE '%Sen%' AND date_submitted > '$rangestart' AND date_submitted < '$rangeend'";
 	$db->do_query($sql);
 	$seniorsVisited += $db->numRows();
 
@@ -514,11 +514,12 @@ include_once "../date.php";
 		<td width="125"><strong>Kids</strong></td>
 		<td width="275"><strong>Event</strong></td>
 	</tr>
-	<tr class="rowOther">
+	<!--<tr class="rowOther">
 		<td><?php echo($trickOrTreatingAdults); ?></td>
 		<td><?php echo($trickOrTreatingChild); ?></td>
 		<td>Trick or Treating</td>
 	</tr>
+	-->
 	<tr>
 		<td><?php echo($FYAdjustmentAdults); ?></td>
 		<td><?php echo($FYAdjustmentChild); ?></td>
@@ -534,15 +535,11 @@ include_once "../date.php";
 		<td><?php echo($murderMysteryChallengeChild); ?></td>
 		<td>Murder Mystery Challenge</td>
 	</tr>
-	<tr class="rowOther">
-		<td><?php echo($halloweenDanceAdults); ?></td>
-		<td><?php echo($halloweenDanceChild); ?></td>
-		<td>Halloween Dance</td>
-	</tr>
+	
 	<tr>
 		<td><?php echo($frightFilmFestAdults); ?></td>
 		<td><?php echo($frightFilmFestChild); ?></td>
-		<td>Fright Film Fest</td>
+		<td>Scary Movie</td>
 	</tr>
 	<tr class="rowOther">
 		<td><?php echo($honorsConvocationAdults); ?></td>
@@ -552,14 +549,19 @@ include_once "../date.php";
 	<tr>
 		<td><?php echo($AlumniPanelAdults); ?></td>
 		<td><?php echo($AlumniPanelChild); ?></td>
-		<td>Alumni Panel</td>
+		<td>Alumni Career Panel</td>
 	</tr>
 	<tr class="rowOther">
 		<td><?php echo($studyAbroadPanelAdults); ?></td>
 		<td><?php echo($studyAbroadPanelChild); ?></td>
 		<td>Study Abroad Panel</td>
 	</tr>
-	<tr>
+	<tr class="rowOther">
+		<td><?php echo($halloweenDanceAdults); ?></td>
+		<td><?php echo($halloweenDanceChild); ?></td>
+		<td>Halloween Dance</td>
+	</tr>
+	<!--<tr>
 		<td><?php echo($jazzEnsembleConcertAdults); ?></td>
 		<td><?php echo($jazzEnsembleConcertChild); ?></td>
 		<td>Jazz Ensemble Concert</td>
@@ -569,12 +571,13 @@ include_once "../date.php";
 		<td><?php echo($hikeUpMountainChild); ?></td>
 		<td>Interpretative Trail Walk</td>
 	</tr>
+	-->
 	<tr>
 		<td><?php echo($pianoRecitalAdults); ?></td>
 		<td><?php echo($pianoRecitalChild); ?></td>
-		<td>Piano Recital</td>
+		<td>Faculty Concert</td>
 	</tr>
-
+	<!--
 	<tr class="rowOther">
 		<td><?php echo($normanRockwellMuseumAdults); ?></td>
 		<td><?php echo($normanRockwellMuseumChild); ?></td>
@@ -593,6 +596,7 @@ include_once "../date.php";
 		<td colspan="2"><?php echo($walkingTourTransportationAdults); ?></td>
 		<td>GB Historical Walking Tour Transportation</td>
 	</tr>
+	-->
 </table>
 
 <h2>Number Attending Meal</h2>

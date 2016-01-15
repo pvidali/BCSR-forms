@@ -75,7 +75,7 @@ else {
 		$rangeend = "2500".$pend;
 	}
 
-	$sql = "SELECT * FROM family_weekend_2014 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend' ORDER BY student1Lname,student1Fname,student2Lname,student2Fname";
+	$sql = "SELECT * FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend' ORDER BY student1Lname,student1Fname,student2Lname,student2Fname";
 	$db->do_query($sql);
 	$tablerows = "";
 	$rowStyle = 0;
