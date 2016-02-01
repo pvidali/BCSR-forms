@@ -1,8 +1,8 @@
 <?php 
 
 	//temporary redirect to main site
-  header('Location: http://simons-rock.edu/why-simons-rock/understanding-early-college/ready/index.php');
-  exit;
+  //header('Location: http://simons-rock.edu/why-simons-rock/understanding-early-college/ready/index.php');
+  //exit;
 
 
 $is_intl = 0;
@@ -149,14 +149,10 @@ if(isset($_POST['submit'])) {
 	foreach($postArray as $k => $v){
 		$$k = $v;
 	}
+	
  	include $_SERVER['DOCUMENT_ROOT']."/includes/iw-curl2.php";
 	$thankyou = true;
-
-
-
-
-
-
+	header('Location: http://simons-rock.edu/why-simons-rock/understanding-early-college/ready/5-signs-download.php');
 }
 
 /* REMOVE BEFORE LIVE
