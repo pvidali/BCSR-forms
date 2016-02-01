@@ -67,7 +67,7 @@ if(isset($_POST['submit'])) {
 	$recruiter_email_handle = $territoryInfo['recruiter_email_handle'];
 
 //	$redirStr = "http://www.simons-rock.edu/admission/thankyou/?email=$email&couns=$fields_recruiter";
-	$redirStr = "http://www.simons-rock.edu/admission/thankyou/?email=$email&couns=$fields_recruiter&lname=$lname";
+	$redirStr = "http://simons-rock.edu/admission/contact-form-confirmation.php";
 
 	$dup_flag = dupCheck($db,$email,$fname,$lname,$zip);
 		
