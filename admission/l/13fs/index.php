@@ -142,7 +142,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/google-analytics.php";
                 <ul class="list">
                 	<li>400 Students</li>
                     <li>Average age at entry: 16</li>
-                    <li>More than 40 majors</li>
+                    <li>More than 35 majors</li>
                     <li>Average class size: 11</li>
                     <li>Weekly meetings with faculty advisors</li>
                     <li>85% of students receive financial aid</li>
