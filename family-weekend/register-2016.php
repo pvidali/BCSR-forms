@@ -153,11 +153,11 @@ if(isset($_POST['submit'])) {
 		}
 		$meals = substr($meals,0,(strlen($meals)-1));
 
-		$sql = "INSERT INTO forms.fw_program_meal_registration_2015 (contact_id, meals, payer_id, paid_for, date_submitted, mop)
+		$sql = "INSERT INTO forms.fw_program_meal_registration_2016 (contact_id, meals, payer_id, paid_for, date_submitted, mop)
 				VALUES ($thisContactId,'$meals', $thisPayerId, '$paidfor', NOW(), '$mop')";
 		$db->do_query($sql);
 	
-		$sql = "INSERT INTO forms.fw_meal_registration_2015 (contact_id,total) 
+		$sql = "INSERT INTO forms.fw_meal_registration_2016 (contact_id,total) 
 				VALUE ($thisContactId,$total)";
 		$db->do_query($sql);
 
