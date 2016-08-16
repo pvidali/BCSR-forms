@@ -73,7 +73,7 @@ else {
 		$rangeend = "2500".$pend;
 	}
 
-	$sql = "SELECT * FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend' ORDER BY date_submitted";
+	$sql = "SELECT * FROM family_weekend_2016 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend' ORDER BY date_submitted";
 //	echo $sql;
 	$db->do_query($sql);
 	$tablerows = "";

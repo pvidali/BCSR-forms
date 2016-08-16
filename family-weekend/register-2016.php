@@ -57,7 +57,7 @@ if(isset($_POST['submit'])) {
 
 
 
-		$sql = "INSERT INTO forms.family_weekend_2015 (
+		$sql = "INSERT INTO forms.family_weekend_2016 (
 				student1Fname, student1Lname, student1Class, student1Meeting, 
 				student2Fname, student2Lname, student2Class, student2Meeting, accessibilityNeeds, 
 				relative1Fname, relative1Lname, relative1Hometown, relative1Homestate, relative1Country, relative1Class, 
@@ -126,7 +126,7 @@ if(isset($_POST['submit'])) {
 	#20130910 @dscheff
 ----------------------------------------- */
 
-		$sql = "SELECT id from forms.family_weekend_2015 ORDER BY id DESC LIMIT 1";
+		$sql = "SELECT id from forms.family_weekend_2016 ORDER BY id DESC LIMIT 1";
 		$db->do_query($sql);
 		$result = $db->fetchObject();
 		$thisContactId = $result->id;

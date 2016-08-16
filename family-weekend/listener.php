@@ -75,14 +75,14 @@ if ($verified) {
 
 	$payer_email = mysql_real_escape_string($_POST['payer_email']);
 	// $mc_gross = mysql_real_escape_string($_POST['mc_gross_1']);
-	$sql = "INSERT INTO forms.fw_meal_payments_2015 VALUES (NULL, '$txn_id', '$payer_email', '$mc_gross')";
+	$sql = "INSERT INTO forms.fw_meal_payments_2016 VALUES (NULL, '$txn_id', '$payer_email', '$mc_gross')";
 	$db->do_query($sql);
 
 	$payer_id = mysql_real_escape_string($_POST['custom']);
-	$sql = "UPDATE fw_program_meal_registration_2015 SET paid_for='1' WHERE payer_id='$payer_id' AND mop='paypal'";
+	$sql = "UPDATE fw_program_meal_registration_2016 SET paid_for='1' WHERE payer_id='$payer_id' AND mop='paypal'";
 	$db->do_query($sql);
 
-	$sql = "SELECT * FROM forms.fw_program_meal_registration_2015 WHERE payer_id=$payer_id AND mop='paypal' LIMIT 1";
+	$sql = "SELECT * FROM forms.fw_program_meal_registration_2016 WHERE payer_id=$payer_id AND mop='paypal' LIMIT 1";
 	$db->do_query($sql);
 	if($db->numRows() > 0){
 		$success = true;
@@ -94,7 +94,7 @@ if ($verified) {
 	
 	if($success) {
 		// mail to Admin
-		$sql = "SELECT * FROM forms.family_weekend_2015 WHERE id='$payer_id' LIMIT 1";
+		$sql = "SELECT * FROM forms.family_weekend_2016 WHERE id='$payer_id' LIMIT 1";
 		$db->do_query($sql);
 		$row = $db->fetchObject();
 		$relative1Fname		= stripslashes($row->relative1Fname);
