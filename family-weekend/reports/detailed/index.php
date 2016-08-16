@@ -56,7 +56,7 @@ else {
 	$db = new DB(HOST,USER,PASSWORD,DATABASE);
 	$db->connect();
 	
-	$pend = "-09-01 00:00:00";
+	$pend = "-08-01 00:00:00";
 	$startyear = date('Y');
 	if(
 		 (isset($_REQUEST['year']) && $_REQUEST['year'] != "all")  
