@@ -67,7 +67,7 @@ if(isset($_POST['submit'])) {
 	$recruiter_email_handle = $territoryInfo['recruiter_email_handle'];
 
 //	$redirStr = "http://www.simons-rock.edu/admission/thankyou/?email=$email&couns=$fields_recruiter";
-	$redirStr = "http://www.simons-rock.edu/admission/thankyou/?email=$email&couns=$fields_recruiter&lname=$lname";
+	$redirStr = "http://simons-rock.edu/admission/contact-form-confirmation.php";
 
 	$dup_flag = dupCheck($db,$email,$fname,$lname,$zip);
 		
@@ -142,7 +142,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/google-analytics.php";
                 <ul class="list">
                 	<li>400 Students</li>
                     <li>Average age at entry: 16</li>
-                    <li>More than 40 majors</li>
+                    <li>More than 35 majors</li>
                     <li>Average class size: 11</li>
                     <li>Weekly meetings with faculty advisors</li>
                     <li>85% of students receive financial aid</li>

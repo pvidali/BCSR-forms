@@ -32,7 +32,7 @@ if ($verified) {
     
     if ($_POST['payment_status'] != 'Completed') { 
         // simply ignore any IPN that is not completed
-		mail("dscheff@simons-rock.edu","payment_status","not completed");
+		mail("mchameides@simons-rock.edu","payment_status","not completed");
         exit(0); 
     }
 
@@ -77,7 +77,7 @@ if ($verified) {
         // manually investigate errors from the fraud checking
         $body = "IPN failed fraud checks: \n$errmsg\n\n";
         $body .= $listener->getTextReport();
-        mail('dscheff@simons-rock.edu', 'IPN Fraud Warning', $body);
+        mail('mchameides@simons-rock.edu', 'IPN Fraud Warning', $body);
         
     }
 	// else {

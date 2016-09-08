@@ -56,7 +56,7 @@ else {
 	$db = new DB(HOST,USER,PASSWORD,DATABASE);
 	$db->connect();
 	
-	$pend = "-08-01 00:00:00";
+	$pend = "-09-01 00:00:00";
 	$startyear = date('Y');
 	if(
 		 (isset($_REQUEST['year']) && $_REQUEST['year'] != "all")  
@@ -75,13 +75,14 @@ else {
 		$rangeend = "2500".$pend;
 	}
 
-	$sql = "SELECT * FROM family_weekend_2016 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend' ORDER BY student1Lname,student1Fname,student2Lname,student2Fname";
+	$sql = "SELECT * FROM family_weekend_2016 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend' ORDER BY id,student1Lname,student1Fname,student2Lname,student2Fname";
 	$db->do_query($sql);
 	$tablerows = "";
 	$rowStyle = 0;
 	$rowCount = 1;
 	while($row = $db->fetchObject()) {
 		$date_submitted		= $row->date_submitted;
+		$id								= $row->id;
 		$student1Fname		= $row->student1Fname;
 		$student1Lname		= $row->student1Lname;
 		$relative1Fname		= $row->relative1Fname;
@@ -103,6 +104,7 @@ else {
 		$tablerows .= "
 			<tr class=\"$rowClass\">
 				<td>$rowCount</td>
+				<td>$id</td>
 				<td>$student1Lname</td>
 				<td>$student1Fname</td>
 				<td>$relative1Fname $relative1Lname</td>
@@ -116,6 +118,7 @@ else {
 
 		if($row->relative2Fname != ""){
 			$date_submitted		= $row->date_submitted;
+			$id								= $row->id;
 			$student1Fname		= $row->student1Fname;
 			$student1Lname		= $row->student1Lname;
 			$relative2Fname		= $row->relative2Fname;
@@ -136,6 +139,7 @@ else {
 			$tablerows .= "
 				<tr class=\"$rowClass\">
 					<td>$rowCount</td>
+					<td>$id</td>
 					<td>$student1Lname</td>
 					<td>$student1Fname</td>
 					<td>$relative2Fname $relative2Lname</td>
@@ -150,6 +154,7 @@ else {
 
 		if($row->relative3Fname != ""){
 			$date_submitted		= $row->date_submitted;
+			$id								= $row->id;
 			$student1Fname		= $row->student1Fname;
 			$student1Lname		= $row->student1Lname;
 			$relativeFname		= $row->relative3Fname;
@@ -169,6 +174,7 @@ else {
 			$tablerows .= "
 				<tr class=\"$rowClass\">
 					<td>$rowCount</td>
+					<td>$id</td>
 					<td>$student1Lname</td>
 					<td>$student1Fname</td>
 					<td>$relativeFname $relativeLname</td>
@@ -182,6 +188,7 @@ else {
 		}
 		if($row->relative4Fname != ""){
 			$date_submitted		= $row->date_submitted;
+			$id								= $row->id;
 			$student1Fname		= $row->student1Fname;
 			$student1Lname		= $row->student1Lname;
 			$relativeFname		= $row->relative4Fname;
@@ -201,6 +208,7 @@ else {
 			$tablerows .= "
 				<tr class=\"$rowClass\">
 					<td>$rowCount</td>
+					<td>$id</td>
 					<td>$student1Lname</td>
 					<td>$student1Fname</td>
 					<td>$relativeFname $relativeLname</td>
@@ -214,6 +222,7 @@ else {
 		}
 		if($row->relative5Fname != ""){
 			$date_submitted		= $row->date_submitted;
+			$id								= $row->id;
 			$student1Fname		= $row->student1Fname;
 			$student1Lname		= $row->student1Lname;
 			$relativeFname		= $row->relative5Fname;
@@ -233,6 +242,7 @@ else {
 			$tablerows .= "
 				<tr class=\"$rowClass\">
 					<td>$rowCount</td>
+					<td>$id</td>
 					<td>$student1Lname</td>
 					<td>$student1Fname</td>
 					<td>$relativeFname $relativeLname</td>
@@ -247,6 +257,7 @@ else {
 
 		if($row->student2Fname != ""){
 			$date_submitted		= $row->date_submitted;
+			$id								= $row->id;
 			$student2Fname		= $row->student2Fname;
 			$student2Lname		= $row->student2Lname;
 			$relative1Fname		= $row->relative1Fname;
@@ -266,6 +277,7 @@ else {
 			$tablerows .= "
 				<tr class=\"$rowClass\">
 					<td>$rowCount</td>
+					<td>$id</td>
 					<td>$$student2Lname</td>
 					<td>$student2Fname</td>
 					<td>$relative1Fname $relative1Lname</td>
@@ -446,6 +458,7 @@ include_once "../date.php";
 <table cellpadding="2" cellspacing="0">
 	<tr>
 		<td width="10">&nbsp;</td>
+		<td width="90"><strong>id</strong></td>
 		<td width="90"><strong>Stdnt Last</strong></td>
 		<td width="95"><strong>Stdnt First</strong></td>
 		<td width="185"><strong>Family Member</strong></td>

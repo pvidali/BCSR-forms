@@ -54,7 +54,7 @@ else {
 	$db = new DB(HOST,USER,PASSWORD,DATABASE);
 	$db->connect();
 	
-	$pend = "-09-01 00:00:00";
+	$pend = "-08-01 00:00:00";
 	$startyear = date('Y');
 	if(
 		 (isset($_REQUEST['year']) && $_REQUEST['year'] != "all")  
@@ -73,7 +73,7 @@ else {
 		$rangeend = "2500".$pend;
 	}
 
-	$sql = "SELECT * FROM family_weekend_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend' ORDER BY date_submitted";
+	$sql = "SELECT * FROM family_weekend_2016 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend' ORDER BY date_submitted";
 //	echo $sql;
 	$db->do_query($sql);
 	$tablerows = "";

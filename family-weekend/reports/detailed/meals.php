@@ -54,7 +54,7 @@ else {
 	$db = new DB(HOST,USER,PASSWORD,DATABASE);
 	$db->connect();
 	
-	$pend = "-09-01 00:00:00";
+	$pend = "-08-01 00:00:00";
 	$startyear = date('Y');
 	if(
 		 (isset($_REQUEST['year']) && $_REQUEST['year'] != "all")  
@@ -82,7 +82,7 @@ else {
 	$PMT_STATUS = array();
 	$MOP = array();
 
-	$sql = "SELECT * FROM fw_program_meal_registration_2015 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend' ORDER BY date_submitted";
+	$sql = "SELECT * FROM fw_program_meal_registration_2016 WHERE date_submitted > '$rangestart' AND date_submitted < '$rangeend' ORDER BY date_submitted";
 	$db->do_query($sql);
 	while($row = $db->fetchObject()) {
 		$contact_id			= $row->contact_id;
@@ -131,7 +131,7 @@ else {
 			$FRLTable .= "<tr class=columnheader><td style='min-width: 250px; white-space: nowrap' colspan=2>No meals purchased for $mealName.</td></tr>";
 		}
 		foreach($mealValue as $k => $v){
-			$sql = "SELECT * FROM family_weekend_2015 WHERE id = $k";
+			$sql = "SELECT * FROM family_weekend_2016 WHERE id = $k";
 			$db->do_query($sql);
 			$res = $db->fetchObject();
 			$lname = $res->relative1Lname;

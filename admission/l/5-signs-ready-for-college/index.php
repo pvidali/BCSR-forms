@@ -1,4 +1,10 @@
 <?php 
+
+	//temporary redirect to main site
+  //header('Location: http://simons-rock.edu/why-simons-rock/understanding-early-college/ready/index.php');
+  //exit;
+
+
 $is_intl = 0;
 if(isset($_REQUEST['test']) && $_REQUEST['test'] == "1"){
 	$test_env = true;
@@ -143,11 +149,10 @@ if(isset($_POST['submit'])) {
 	foreach($postArray as $k => $v){
 		$$k = $v;
 	}
+	
  	include $_SERVER['DOCUMENT_ROOT']."/includes/iw-curl2.php";
 	$thankyou = true;
-
-
-
+	header('Location: http://simons-rock.edu/why-simons-rock/understanding-early-college/ready/5-signs-download.php');
 }
 
 /* REMOVE BEFORE LIVE
@@ -172,11 +177,28 @@ if(isset($_REQUEST['lname'])){
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 <head>
+	<!-- Google Analytics Content Experiment code -->
+	<script>function utmx_section(){}function utmx(){}(function(){var
+	k='66869115-13',d=document,l=d.location,c=d.cookie;
+	if(l.search.indexOf('utm_expid='+k)>0)return;
+	function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
+	indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
+	length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
+	'<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
+	'://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
+	'&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
+	valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
+	'" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
+	</script><script>utmx('url','A/B');</script>
+	<!-- End of Google Analytics Content Experiment code -->
+
 
 	<!-- Basic Page Needs
   ================================================== -->
 	<meta charset="utf-8">
 	<title>The Early College Checklist: 5 Signs You're Ready for College Now</title>
+
+
 	<meta name="description" content="">
 	<meta name="author" content="">
 
@@ -220,23 +242,13 @@ if(isset($_REQUEST['lname'])){
 require_once $_SERVER['DOCUMENT_ROOT'] . "/includes/google-analytics.php";
 
 if($thankyou){
+
+	
 ?>
 
 	<script>
-<?php
-if( isset($_POST['source']) && strpos($_POST['source'],"ADG") ){
-?>
-		ga('send', 'event', 'Form', 'Submit', '5 Reasons Fall 2014 Search');
-<?php
-}
-else {
-?>
 		ga('send', 'event', 'Form', 'Submit', '5 Reasons Early College NON-Hubspot');
-<?php
-} 
-?>
-
-    </script>
+  </script>
 <?php
 }
 ?>
@@ -572,5 +584,68 @@ function checkForm() {
 // -->
 			
 </script>
+<?php
+	if($thankyou){
+?>
+<!-- Code for Action: 2015.10.23 Simon's Rock Media Inquiry Conversion -->
+<!-- Begin Rocket Fuel Conversion Action Tracking Code Version 9 -->
+<script type='text/javascript'>
+(function() {
+	var w = window, d = document;
+	var s = d.createElement('script');
+	s.setAttribute('async', 'true');
+	s.setAttribute('type', 'text/javascript');
+	s.setAttribute('src', '//c1.rfihub.net/js/tc.min.js');
+	var f = d.getElementsByTagName('script')[0];
+	f.parentNode.insertBefore(s, f);
+	if (typeof w['_rfi'] !== 'function') {
+		w['_rfi']=function() {
+			w['_rfi'].commands = w['_rfi'].commands || [];
+			w['_rfi'].commands.push(arguments);
+		};
+	}
+	_rfi('setArgs', 'ver', '9');
+	_rfi('setArgs', 'rb', '24599');
+	_rfi('setArgs', 'ca', '20723101');
+	_rfi('setArgs', '_o', '24599');
+	_rfi('setArgs', '_t', '20723101');
+	_rfi('track');
+})();
+</script>
+<noscript>
+  <iframe src='//20723101p.rfihub.com/ca.html?rb=24599&ca=20723101&_o=24599&_t=20723101&ra=%n' style='display:none;padding:0;margin:0' width='0' height='0'>
+</iframe>
+</noscript>
+<!-- End Rocket Fuel Conversion Action Tracking Code Version 9 -->
+
+
+<!-- Tag for Activity Group: Inquiry, Activity Name: Landing Page Inquiry, Activity ID: 2862611 -->
+<!-- Expected URL: http://forms.simons-rock.edu/admission/l/5-signs-ready-for-college/index.php? -->
+
+<!--
+Activity ID: 2862611
+Activity Name: Landing Page Inquiry
+Activity Group Name: Inquiry
+-->
+
+<!--
+Start of DoubleClick Floodlight Tag: Please do not remove
+Activity name of this tag: Landing Page Inquiry
+URL of the webpage where the tag is expected to be placed: http://forms.simons-rock.edu/admission/l/5-signs-ready-for-college/index.php?
+This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+Creation Date: 11/02/2015
+-->
+<script type="text/javascript">
+var axel = Math.random() + "";
+var a = axel * 10000000000000;
+document.write('<iframe src="https://5191935.fls.doubleclick.net/activityi;src=5191935;type=inqui0;cat=landi0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script>
+<noscript>
+<iframe src="https://5191935.fls.doubleclick.net/activityi;src=5191935;type=inqui0;cat=landi0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+</noscript>
+<!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+<?php
+	}
+?>
 </body>
 </html>

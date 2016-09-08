@@ -57,7 +57,7 @@ if(isset($_POST['submit'])) {
 
 
 
-		$sql = "INSERT INTO forms.family_weekend_2015 (
+		$sql = "INSERT INTO forms.family_weekend_2016 (
 				student1Fname, student1Lname, student1Class, student1Meeting, 
 				student2Fname, student2Lname, student2Class, student2Meeting, accessibilityNeeds, 
 				relative1Fname, relative1Lname, relative1Hometown, relative1Homestate, relative1Country, relative1Class, 
@@ -126,7 +126,7 @@ if(isset($_POST['submit'])) {
 	#20130910 @dscheff
 ----------------------------------------- */
 
-		$sql = "SELECT id from forms.family_weekend_2015 ORDER BY id DESC LIMIT 1";
+		$sql = "SELECT id from forms.family_weekend_2016 ORDER BY id DESC LIMIT 1";
 		$db->do_query($sql);
 		$result = $db->fetchObject();
 		$thisContactId = $result->id;
@@ -153,11 +153,11 @@ if(isset($_POST['submit'])) {
 		}
 		$meals = substr($meals,0,(strlen($meals)-1));
 
-		$sql = "INSERT INTO forms.fw_program_meal_registration_2015 (contact_id, meals, payer_id, paid_for, date_submitted, mop)
+		$sql = "INSERT INTO forms.fw_program_meal_registration_2016 (contact_id, meals, payer_id, paid_for, date_submitted, mop)
 				VALUES ($thisContactId,'$meals', $thisPayerId, '$paidfor', NOW(), '$mop')";
 		$db->do_query($sql);
 	
-		$sql = "INSERT INTO forms.fw_meal_registration_2015 (contact_id,total) 
+		$sql = "INSERT INTO forms.fw_meal_registration_2016 (contact_id,total) 
 				VALUE ($thisContactId,$total)";
 		$db->do_query($sql);
 
@@ -189,7 +189,7 @@ if(isset($_POST['submit'])) {
 				<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
 				<input type="hidden" name="payer_id" value="'.$thisPayerId.'">
 				<input type="hidden" name="custom" value="'.$thisPayerId.'">
-				<input type="hidden" name="return" value="https://simons-rock.edu/current-students-and-families/family-weekend/family-weekend-registration-complete.php" />
+				<input type="hidden" name="return" value="https://simons-rock.edu/students-families/family-weekend/family-weekend-registration-complete.php" />
 				<input type="hidden" name="notify_url" value="https://forms.simons-rock.edu/family-weekend/listener.php" />
   				<input type="hidden" name="amount" value="'.$total.'">
 				<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
@@ -475,10 +475,10 @@ $sophomoreNote = "<p>The sophomore planning meetings are 10-minute appointments 
 <?php 
 if(isset($post_success) && $post_success == true){
 	echo "<script>
-			window.top.location.href = \"https://simons-rock.edu/current-students-and-families/family-weekend/family-weekend-registration-complete.php\";
+			window.top.location.href = \"https://simons-rock.edu/students-families/family-weekend/family-weekend-registration-complete.php\";
 		</script>
 		<noscript>
-			Registration successful.  <a href=\"https://simons-rock.edu/current-students-and-families/family-weekend/family-weekend-registration-complete.php\">Click here to continue</a>.
+			Registration successful.  <a href=\"https://simons-rock.edu/students-families/family-weekend/family-weekend-registration-complete.php\">Click here to continue</a>.
 		</noscript>";
 }
 ?>
