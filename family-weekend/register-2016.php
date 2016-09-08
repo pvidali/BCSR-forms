@@ -463,6 +463,8 @@ $sophomoreNote = "<p>The sophomore planning meetings are 10-minute appointments 
 			padding-left: 5px;
 		}
 		/* end pv */
+		/* #20160908 pv */
+		div.form-group.col-md-12 label { min-width: 55px; }
 		</style>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -1096,27 +1098,27 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
     <input type="text" name="whenPlanArrive" id="whenPlanArrive" class="form-control" />
   </div>
   <p>Please indicate which of the events listed below you plan to attend, and the number of attendees.</p>
-		<h3>Friday, October 30</h3>
+		<h3>Friday, October 28</h3>
 		<div>
-			
+	<!--		
     	<div style="clear:both; display:none;" id="attendClassesDiv">
-          <label for="attendClasses" class="labelmed">Attend Classes
+          <label for="attendClasses" class="labelmed">Attend Classes -->
           <!-- <span class="small">Add your name</span> -->
-          </label>
+          <!--</label>
           <input type="text" name="attendClassesAdults" id="attendClassesAdults" />
 		  <input type="text" name="attendClassesChild" id="attendClassesChild" />
         </div>
 		<div style="clear:both; display:none;" id="labOpenHouseDiv">
-          <label for="labOpenHouse" class="labelmed">Lab Open House
+          <label for="labOpenHouse" class="labelmed">Lab Open House -->
           <!-- <span class="small">Add your name</span> -->
-          </label>
+         <!-- </label>
           <input type="text" name="labOpenHouseAdults" id="labOpenHouseAdults" />
 		  <input type="text" name="labOpenHouseChild" id="labOpenHouseChild" />
         </div>
 		<div style="clear:both; display:none; " id="familyRecreationTimeDiv">
-          <label for="familyRecreationTime" class="labelmed">Family Recreation Time
+          <label for="familyRecreationTime" class="labelmed">Family Recreation Time -->
           <!-- <span class="small">Add your name</span> -->
-          </label>
+         <!-- </label>
           <input type="text" name="familyRecreationTimeAdults" id="familyRecreationTimeAdults" />
 		  <input type="text" name="familyRecreationTimeChild" id="familyRecreationTimeChild" />
         </div>
@@ -1124,7 +1126,7 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
           <label for="winStudentResourceCommons" class="labelmed">Win Student Resource Commons: Support Services for Students</label>
           <input type="text" name="winStudentResourceCommonsAdults" id="winStudentResourceCommonsAdults" />
 		  <input type="text" name="winStudentResourceCommonsChild" id="winStudentResourceCommonsChild" />
-        </div>
+        </div> -->
     <!--    
 		<div class="form-group col-md-12" id="trickOrTreatingDiv">
 			<h4>Trick or Treating</h4>
@@ -1167,7 +1169,7 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
 		 			<label for="frightFilmFestChild" class="labelmed">Children</label>
 		 			<input type="text" name="frightFilmFestChild" id="frightFilmFestChild" size="5"/>
         </div>
-		<h3>Saturday, October 31</h3>
+		<h3>Saturday, October 29</h3>
 		
 		<div class="form-group col-md-12" id="honorsConvocationDiv">
 			<h4>Honors Convocation</h4>
@@ -1178,13 +1180,13 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
 <!-- 		  <img src="info.png" onMouseOver="tooltip.show('Join Provost Peter Laipson and the faculty and student speakers on this special evening when the College celebrates this year\'s recipients of named scholarships', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
 
-    	<div style="clear:both; display:none;" id="studAffairsOHDiv">
+    	<!--<div style="clear:both; display:none;" id="studAffairsOHDiv">
     		<h4>Student Affairs Open House</h4>
         <label for="studAffairsOH" class="labelmed">Adults</label>
         <input type="text" name="studAffairsOHAdults" id="studAffairsOHAdults" size="5"/><br />
         <label for="studAffairsOHChild" class="labelmed">Children</label>
 		  	<input type="text" name="studAffairsOHChild" id="studAffairsOHChild" size="5"/>
-      </div>
+      </div>-->
     	<div class="form-group col-md-12" id="alumniPanelDiv">
         <h4>Alumni Career Panel</h4>
           <label for="alumniPanel" class="labelmed">Adults</label>
@@ -1201,38 +1203,38 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
 		  		<input type="text" name="studyAbroadPanelChild" id="studyAbroadPanelChild" size="5"/>
 <!--		  <img src="info.png" onMouseOver="tooltip.show('Five seniors will share their experiences during their study away program.', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
-    	<div style="clear:both; display: none" id="internationalFairDiv">
-    		<h4>International Fair</h4>
+    	<div class="form-group col-md-12" id="internationalFairDiv">
+    		<h4>Author Reading</h4>
         <label for="internationalFair" class="labelmed">Adults</label>
         <input type="text" name="internationalFairAdults" id="internationalFairAdults" size="5"/><br />
         <label for="internationalFairChild" class="labelmed">Children</label>
 		  	<input type="text" name="internationalFairChild" id="internationalFairChild" size="5"/>
 <!--		  <img src="info.png" onMouseOver="tooltip.show('Students invite you to learn about their area of the world in a variety of ways:  through photographs, videos, dress, cuisine, and language, among others.', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
-    	<div style="clear:both;display: none" id="seniorThesisPanelDiv">
+    	<!--<div style="clear:both;display: none" id="seniorThesisPanelDiv">
     		<h4>Senior Thesis Panel</h4>
         <label for="seniorThesisPanel" class="labelmed">Adults</label>
         <input type="text" name="seniorThesisPanelAdults" id="seniorThesisPanelAdults" size="5"/><br />
         <label for="seniorThesisPanelChild" class="labelmed">Children</label>
-		  	<input type="text" name="seniorThesisPanelChild" id="seniorThesisPanelChild" size="5"/>
+		  	<input type="text" name="seniorThesisPanelChild" id="seniorThesisPanelChild" size="5"/> -->
 		  <!-- <img src="info.png" onMouseOver="tooltip.show('', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
-      </div>
+    <!--  </div>
     	<div style="clear:both; display: none" id="studentShowcaseDiv">
         <h4>Student Showcase</h4>
         <label for="studentShowcase" class="labelmed">Adults</label>
         <input type="text" name="studentShowcaseAdults" id="studentShowcaseAdults" size="5"/><br />
 		  	<label for="studentShowcaseChild" class="labelmed">Children</label>
-		  	<input type="text" name="studentShowcaseChild" id="studentShowcaseChild" size="5"/>
+		  	<input type="text" name="studentShowcaseChild" id="studentShowcaseChild" size="5"/> -->
 <!-- 		  <img src="info.png" onMouseOver="tooltip.show('', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
-      </div>
+    <!--  </div>
     	<div style="clear:both; display:none" id="provostsReceptionDiv">
         <h4>Provost's Reception</h4>  
         <label for="provostsReception" class="labelmed">Adults</label>
         <input type="text" name="provostsReceptionAdults" id="provostsReceptionAdults" size="5"/><br />
         <label for="provostsReceptionChild" class="labelmed">Children</label>
-		  	<input type="text" style="display: none" value="0" name="provostsReceptionChild" id="provostsReceptionChild" size="5"/>
-<!--		  <img src="info.png" onMouseOver="tooltip.show('Provost Peter Laipson invites parents (only, please) to join him and members of the faculty and staff for a reception.', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
-        </div>
+		  	<input type="text" style="display: none" value="0" name="provostsReceptionChild" id="provostsReceptionChild" size="5"/> -->
+<!--		  <img src="info.png" onMouseOver="tooltip.show('Provost Peter Laipson invites parents (only, please) to join him and members of the faculty and staff for a reception.', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" />
+        </div>-->
 
 
     	<!--
@@ -1253,7 +1255,7 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
 	    </div>
         
 		
-		<h3>Sunday, November 1</h3>
+		<h3>Sunday, October 30</h3>
 		
     	<div class="form-group col-md-12" id="hikeUpMountainDiv">
     		<h4>Interpretative Trail Guided Walk</h4>
@@ -1263,13 +1265,13 @@ for($relativeCount=1; $relativeCount <= $relativesTotal; $relativeCount++){
 		  	<input type="text" name="hikeUpMountainChild" id="hikeUpMountainChild" size="5"/>
 <!--		  <img src="info.png" onMouseOver="tooltip.show('Join us for a hike in one of our local parks.', 210);" onMouseOut="tooltip.hide();" style="float:left; padding: 2px 0 0 5px" /> -->
         </div>
-    	<div class="form-group col-md-12" id="pianoRecitalDiv">
+    	<!--<div class="form-group col-md-12" id="pianoRecitalDiv">
     		<h4>Faculty Concert: Allan Dean & Friends</h4>
         <label for="pianoRecitalAdults" class="labelmed">Adults</label>
         <input type="text" name="pianoRecitalAdults" id="pianoRecitalAdults" size="5"/><br />
         <label for="pianoRecitalChild" class="labelmed">Children</label>
 		  	<input type="text" name="pianoRecitalChild" id="pianoRecitalChild" size="5"/>
-      </div>
+      </div> -->
       <!--
     	<div class="form-group col-md-12" id="normanRockwellMuseumDiv">
           <h4>Norman Rockwell Museum &amp; Stockbridge</h4>
